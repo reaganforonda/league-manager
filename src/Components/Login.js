@@ -5,7 +5,11 @@ export default class Login extends React.Component{
     render(){
         return (
             <div className='login-page-container'>
-                Login Page
+            <div className='login-page-overlay'>
+                <div className='login-container'>
+
+                </div>
+                </div>
             </div>
         )
     }
