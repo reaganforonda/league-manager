@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS account_types;
-DROP TABLE IF EXISTS feixture_results;
+DROP TABLE IF EXISTS fixture_results;
 DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS coaches;
 DROP TABLE IF EXISTS fixtures;
 DROP TABLE IF EXISTS competitions;
 DROP TABLE IF EXISTS teams;
 DROP TABLE IF EXISTS stadiums;
-DROP TABLE IF EXISTS leagues;
 DROP TABLE IF EXISTS seasons;
+DROP TABLE IF EXISTS leagues;
 
 
 CREATE TABLE leagues (
@@ -67,15 +67,10 @@ CREATE TABLE players (
     active BOOLEAN
 );
 
-CREATE TABLE competitions(
-    competition_id SERIAL PRIMARY KEY,
-    competition_name VARCHAR(45)
-);
 
 CREATE TABLE fixtures (
     fixture_id SERIAL PRIMARY KEY,
     fixture_date DATE,
-    competition_id INTEGER REFERENCES competitions(competition_id),
     league_id INTEGER REFERENCES leagues(league_id),
     season_id INTEGER REFERENCES seasons(season_id),
     stadium_id INTEGER REFERENCES stadiums(stadium_id),
