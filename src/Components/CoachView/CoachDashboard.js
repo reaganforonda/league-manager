@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './CoachMenu'
 
 export default class CoachDashbaord extends React.Component{
     constructor(props) {
@@ -6,11 +7,11 @@ export default class CoachDashbaord extends React.Component{
 
         this.state=[]
     }
-    
+
     render(){
         return (
-            <div>
-                Dashboard
+            <div className='dashboard-container'>
+                <Menu/>
             </div>
         )
     }
