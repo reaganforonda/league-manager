@@ -50,5 +50,34 @@ CREATE TABLE players (
     p_city VARCHAR(45),
     p_state VARCHAR(2),
     p_phone VARCHAR(45),
-    p_zip INTEGER
+    p_zip INTEGER,
+    active BINARY
+),
+
+CREATE TABLE competitions(
+    competition_id SERIAL PRIMARY KEY,
+    competition_name VARCHAR(45)
+)
+
+CREATE TABLE fixtures (
+    fixture_id SERIAL PRIMARY KEY,
+    fixture_date DATE,
+    competition_id REFERENCES competitions(competition_id),
+    league_id REFERENCES leagues(league_id),
+    season_id REFERENCES seasons(season_id),
+    stadium_id REFERENCES stadiums(stadium_id),
+    home_team REFERENCES teams(team_id),
+    away_team REFERENCES teams(away_team)
+)
+
+CREATE TABLE fixture_results(
+    fixture_id REFERENCES fixtures(fixture_id),
+    league_id REFERENCES leagues(league_id),
+    season_id REFERENCES seasons(season_id),
+    home_team REFERENCES teams(team_id),
+    away_team REFERENCES teams(away_team),
+    home_team_goals INTEGER,
+    away_team_goals INTEGER,
+    home_team_points INTEGER,
+    away_team_points INTEGER
 )
