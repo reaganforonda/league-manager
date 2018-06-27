@@ -35,16 +35,17 @@ export default class Login extends React.Component{
                     <form className='login-form'>
                         <div className='login-form-input-row'>
                             <input onChange={(e)=> this.handleInputChange(e)} 
-                                name='userName' required placeholder='User Name'/>
+                                name='userName' type='text' required placeholder='User Name'/>
                         </div>
                         <div className='login-form-input-row'>
                             <input onChange={(e)=> this.handleInputChange(e)} 
                                 name='pw' type='password' required placeholder='Password'/>
                         </div>
                         <div className='login-form-input-row'>
-                            <input type='submit' placeholder='Sign In'/>
+                            <input className='login-submit-btn' type='submit' placeholder='Sign In'/>
                         </div>
                     </form>
+                    <p>Don't have an account? Please Register</p>
                 </div>
             </div>
         )
