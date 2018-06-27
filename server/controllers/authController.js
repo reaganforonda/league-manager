@@ -1,13 +1,20 @@
 const bcrypt = require('bcrypt');
 const axios = require('axios');
+const generalUtil = require('../../src/Utilities/generalUtil')
 
 module.exports = {
     register: async (req, res, next) => {
         const db = req.app.get('db');
         const {userType, userName, userEmail, pw } = req.body;
+        if(generalUtil.validateEmail(userEmail)){
+            res.status(400).send('Invalid Email');
+        }
 
         await db.GET_USERNAMES([userName]).then(users=> {
             if(users.length !== 0){
+                if(users[0].user_email === userEmail){
+                    res.status(400).send('Please Login')
+                }
                 res.status(400).send('Username Taken')
             } else {
                 const salt = bcrypt.genSaltSync(10);
@@ -17,6 +24,8 @@ module.exports = {
                     res.status(200).send('User Created');
                 })
             }
+        }).catch((err) => {
+            res.status(500).send(`Error Trying to Get Usernames: ${err}`)
         })
     },
 
