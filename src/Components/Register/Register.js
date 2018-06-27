@@ -1,5 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
+import { match } from 'minimatch';
+import axios from 'axios';
 
 export class Register extends React.Component{
     constructor(props){
@@ -7,7 +9,6 @@ export class Register extends React.Component{
 
         this.state={
             userType: '',
-            teamName: '',
             userName: '',
             userEmail:'',
             pw: '',
@@ -17,6 +18,7 @@ export class Register extends React.Component{
         this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.matchingPassword = this.matchingPassword.bind(this);
     }
 
     handleUserTypeChange(e) {
@@ -27,9 +29,37 @@ export class Register extends React.Component{
         this.setState({[e.target.name]: e.target.value})
     }
 
+    matchingPassword(){
+        return this.state.pw === this.state.confirmPW;
+    }
+
     handleSubmitForm(e){
         e.preventDefault();
+
+        let acct_type ='';
+        if(this.state.userType==='league'){
+            acct_type = 1;
+        } else if(this.state.userType === 'team'){
+            acct_type = 2;
+        }
+
+        const user = {
+            userType: acct_type,
+            userName: this.state.userName,
+            userEmail: this.state.userEmail,
+            pw: this.state.confirmPW
+        }
+
+        if(this.matchingPassword() && this.state.userType){
+            console.log("Hit")
+            axios.post('/api/auth/register', user).then((user) => {
+                console.log(user);
+            }).catch((err) => {
+                console.log(err.response.status)
+            })
+        }
     }
+
 
     render(){
         return (
@@ -51,22 +81,22 @@ export class Register extends React.Component{
                             <label htmlFor='team-mng'>Team Manager</label>
                         </div>
                     </div>
-                    
+
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='userName' 
-                            type='text' placeholder='User Name'/>
+                            required type='text' placeholder='User Name'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='userEmail' 
-                            type='email' placeholder='Email'/>
+                            required type='email' placeholder='Email'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='pw'
-                            placeholder='Password'/>
+                            type='password' required placeholder='Password'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e)=> this.handleInputChange(e)} name='confirmPW' 
-                            placeholder='Confirm Password'/>
+                            type='password' required placeholder='Confirm Password'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onClick={(e)=>this.handleSubmitForm(e)} type='submit' placeholder='Register'/>

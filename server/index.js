@@ -6,6 +6,7 @@ dotenv.config();
 const massive = require('massive');
 const app = express();
 const session = require('express-session');
+const middleware = require('./middlewares/middleware')
 const authController = require('./controllers/authController');
 
 // Destructure the .env
@@ -27,9 +28,12 @@ app.use(
     })
 );
 
+// app.use(middleware.checkSession)
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(`${__dirname}/../build`));
+
 
 
 // ENDPOINTS
