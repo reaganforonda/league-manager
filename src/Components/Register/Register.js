@@ -1,7 +1,7 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 
-
-export default class Register extends React.Component{
+export class Register extends React.Component{
     constructor(props){
         super(props);
 
@@ -85,3 +85,5 @@ export default class Register extends React.Component{
         )
     }
 }
+
+export default withRouter(Register);
