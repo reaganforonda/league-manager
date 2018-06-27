@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom'
 import { match } from 'minimatch';
 import axios from 'axios';
+import * as generalUtil from '../../Utilities/generalUtil';
 
 export class Register extends React.Component{
     constructor(props){
@@ -19,6 +20,8 @@ export class Register extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
         this.matchingPassword = this.matchingPassword.bind(this);
+        this.handleRegisterRequest = this.handleRegisterRequest.bind(this);
+        this.validForm = this.validForm.bind(this);
     }
 
     handleUserTypeChange(e) {
@@ -31,6 +34,22 @@ export class Register extends React.Component{
 
     matchingPassword(){
         return this.state.pw === this.state.confirmPW;
+    }
+
+    validForm(){
+        let validUserType = this.state.userType !== '';
+        let validUserName = this.state.userName !== '';
+        let validEmail = generalUtil.validateEmail(this.state.userEmail);
+        let matchingPW = this.matchingPassword();
+        return validUserName && validUserType && validEmail;
+    }
+
+    handleRegisterRequest(user){
+        axios.post('/api/auth/register', user).then((newUser) => {
+            console.log(user);
+        }).catch((err)=>{
+            console.log(`Error: ${err.response.status}`)
+        })
     }
 
     handleSubmitForm(e){
@@ -50,13 +69,8 @@ export class Register extends React.Component{
             pw: this.state.confirmPW
         }
 
-        if(this.matchingPassword() && this.state.userType){
-            console.log("Hit")
-            axios.post('/api/auth/register', user).then((user) => {
-                console.log(user);
-            }).catch((err) => {
-                console.log(err.response.status)
-            })
+        if(this.validForm()){
+            this.handleRegisterRequest(user);
         }
     }
 
