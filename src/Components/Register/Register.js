@@ -7,7 +7,6 @@ export class Register extends React.Component{
 
         this.state={
             userType: '',
-            leagueName: '',
             teamName: '',
             userName: '',
             userEmail:'',
@@ -52,20 +51,7 @@ export class Register extends React.Component{
                             <label htmlFor='team-mng'>Team Manager</label>
                         </div>
                     </div>
-                    {
-                        this.state.userType === 'league' ? (
-                            <div className='registration-form-row'>
-                                <input type='text' onChange={(e)=> this.handleInputChange(e)} 
-                                    type='text' name='leagueName' placeholder='League Name'/>
-                            </div>
-                            
-                        ): (
-                            <div className='registration-form-row'>
-                                <input type='text' onChange={(e)=> this.handleInputChange(e)} 
-                                    type='text' name='teamName' placeholder='Team Name'/>
-                            </div>
-                        )
-                    }
+                    
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='userName' 
                             type='text' placeholder='User Name'/>
