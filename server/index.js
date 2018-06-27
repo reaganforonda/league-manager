@@ -6,6 +6,7 @@ dotenv.config();
 const massive = require('massive');
 const app = express();
 const session = require('express-session');
+const authController = require('./controllers/authController');
 
 // Destructure the .env
 const {
@@ -34,7 +35,10 @@ app.use(express.static(`${__dirname}/../build`));
 // ENDPOINTS
 
 // AUTH ENDPOINTS
-app.get('/api/auth/me')
+app.get('/api/auth/me', authController.validate)
+app.post('/api/auth/login', authController.login);
+app.get('/api/auth/logout', authController.logout);
+app.post('/api/auth/register', authController.register);
 
 
 app.listen(SERVER_PORT, ()=> {

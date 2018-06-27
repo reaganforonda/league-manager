@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const axios = require('axios');
 
 module.exports = {
-    registerUser: async (req, res, next) => {
+    register: async (req, res, next) => {
 
     },
 
@@ -17,5 +17,13 @@ module.exports = {
                 const validPassword = bcrypt.compareSync(pw, )
             }
         })
+    },
+
+    logout: (req, res, next) => {
+
+    },
+
+    validate: (req, res, next) => {
+        
     }
 }
