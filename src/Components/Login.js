@@ -20,6 +20,10 @@ export default class Login extends React.Component{
 
     handelLoginSubmit(e){
         e.preventDefault();
+        
+        if(this.state.userName !== '' && this.state.pw !== ''){
+
+        }
     }
 
     render(){
@@ -29,11 +33,17 @@ export default class Login extends React.Component{
                     <h2>Welcome to League Manager</h2>
                     <div className='row-error-message'></div>
                     <form className='login-form'>
-                        <input onChange={(e)=> this.handleInputChange(e)} 
-                            name='userName' placeholder='User Name'/>
-                        <input onChange={(e)=> this.handleInputChange(e)} 
-                            name='pw' type='password' placeholder='Password'/>
-                        <input type='submit' placeholder='Sign In'/>
+                        <div className='login-form-input-row'>
+                            <input onChange={(e)=> this.handleInputChange(e)} 
+                                name='userName' required placeholder='User Name'/>
+                        </div>
+                        <div className='login-form-input-row'>
+                            <input onChange={(e)=> this.handleInputChange(e)} 
+                                name='pw' type='password' required placeholder='Password'/>
+                        </div>
+                        <div className='login-form-input-row'>
+                            <input type='submit' placeholder='Sign In'/>
+                        </div>
                     </form>
                 </div>
             </div>
