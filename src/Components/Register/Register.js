@@ -22,6 +22,7 @@ export class Register extends React.Component{
         this.matchingPassword = this.matchingPassword.bind(this);
         this.handleRegisterRequest = this.handleRegisterRequest.bind(this);
         this.validForm = this.validForm.bind(this);
+        this.registerRedirect = this.registerRedirect.bind(this);
     }
 
     handleUserTypeChange(e) {
@@ -33,12 +34,12 @@ export class Register extends React.Component{
     }
 
     matchingPassword(){
-        return this.state.pw === this.state.confirmPW;
+        return (this.state.pw === this.state.confirmPW) && (this.state.pw.length === this.state.confirmPW.length);
     }
 
     validForm(){
-        let validUserType = this.state.userType !== '';
-        let validUserName = this.state.userName !== '';
+        let validUserType = this.state.userType !== '' && (this.state.userType === 'league' || this.state.userType==='team');
+        let validUserName = this.state.userName !== '' && (this.state.userEmail.length <= 45);
         let validEmail = generalUtil.validateEmail(this.state.userEmail);
         let matchingPW = this.matchingPassword();
         return validUserName && validUserType && validEmail;
@@ -46,7 +47,8 @@ export class Register extends React.Component{
 
     handleRegisterRequest(user){
         axios.post('/api/auth/register', user).then((newUser) => {
-            console.log(user);
+            this.registerRedirect(~~user.userType, ~~newUser.status)
+            
         }).catch((err)=>{
             console.log(`Error: ${err.response.status}`)
         })
@@ -74,6 +76,14 @@ export class Register extends React.Component{
         }
     }
 
+    registerRedirect(userType, status){
+        if(userType === 1 && status === 200){
+            this.props.history.push('/registerleague')
+        }else if (userType === 2 && status === 200){
+            
+        }
+    }
+
 
     render(){
         return (
@@ -98,19 +108,19 @@ export class Register extends React.Component{
 
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='userName' 
-                            required type='text' placeholder='User Name'/>
+                            maxLength='45' required type='text' placeholder='User Name'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='userEmail' 
-                            required type='email' placeholder='Email'/>
+                            maxLength='255' required type='email' placeholder='Email'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e) => this.handleInputChange(e)} name='pw'
-                            type='password' required placeholder='Password'/>
+                            maxLength='20' type='password' required placeholder='Password'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onChange={(e)=> this.handleInputChange(e)} name='confirmPW' 
-                            type='password' required placeholder='Confirm Password'/>
+                            maxLength='20' type='password' required placeholder='Confirm Password'/>
                     </div>
                     <div className='registration-form-row'>
                         <input onClick={(e)=>this.handleSubmitForm(e)} type='submit' placeholder='Register'/>
