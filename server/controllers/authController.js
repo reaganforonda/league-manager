@@ -6,26 +6,22 @@ module.exports = {
     register: async (req, res, next) => {
         const db = req.app.get('db');
         const {userType, userName, userEmail, pw } = req.body;
-        console.log(userEmail)
+        
         if(!generalUtil.validateEmail(userEmail)){
-            console.log('Invalid Email')
             res.status(400).send('Invalid Email');
             next();
         }
         if(!(userType !== 1 || userType !==2)){
-            console.log('Invalid Account Type')
             res.status(400).send('Invalid Account Type');
             next();
         }
         if(userName.length > 45){
-            console.log('UserName Too Long')
             res.status(400).send('User Name Too Long');
             
         } else {
             await db.GET_USERNAMES([userName]).then(users=> {
                 if(users.length !== 0){
                     if(users[0].user_email === userEmail){
-                        console.log("Email Already In Database")
                         res.status(400).send('Please Login')
                         
                     } else {
@@ -38,10 +34,8 @@ module.exports = {
                     const hash = bcrypt.hashSync(pw, salt);
     
                     db.REGISTER_USER([userName, userEmail, hash, userType]).then(user=> {
-                        console.log(user);
                         res.status(200).send('User Created');
                     }).catch((err) => {
-                        console.log('Error while trying to register')  
                         res.status(500).send('Server Error')
                     })
                 }
