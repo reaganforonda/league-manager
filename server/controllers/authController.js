@@ -5,7 +5,6 @@ module.exports = {
     register: async (req, res, next) => {
         const db = req.app.get('db');
         const {userType, userName, userEmail, pw } = req.body;
-        console.log(req.body);
 
         await db.GET_USERNAMES([userName]).then(users=> {
             if(users.length !== 0){
