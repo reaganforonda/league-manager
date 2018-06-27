@@ -30,7 +30,7 @@ export default class Login extends React.Component{
         return (
             <div className='login-page-container'>
                 <div className='login-container'>
-                    <h2>Welcome to League Manager</h2>
+                    <h2>Welcome To On The Bounce</h2>
                     <div className='row-error-message'></div>
                     <form className='login-form'>
                         <div className='login-form-input-row'>
