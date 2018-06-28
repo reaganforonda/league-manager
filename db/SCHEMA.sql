@@ -101,7 +101,7 @@ CREATE TABLE users
 (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(45),
-    user_email VARCHAR(60),
+    user_email TEXT
     user_pw TEXT,
     acct_type INTEGER REFERENCES account_types(acct_id)
 );
