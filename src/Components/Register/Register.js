@@ -48,7 +48,7 @@ export class Register extends React.Component{
     handleRegisterRequest(user){
         axios.post('/api/auth/register', user).then((newUser) => {
             this.registerRedirect(~~user.userType, ~~newUser.status)
-            
+            console.log(newUser);
         }).catch((err)=>{
             console.log(`Error: ${err.response.status}`)
         })
