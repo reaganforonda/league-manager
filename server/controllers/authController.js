@@ -36,6 +36,7 @@ module.exports = {
                     db.REGISTER_USER([userName, userEmail, hash, userType]).then(user=> {
                         res.status(200).send('User Created');
                     }).catch((err) => {
+                        console.log(err);
                         res.status(500).send('Server Error')
                     })
                 }
@@ -68,6 +69,11 @@ module.exports = {
     },
 
     validate: (req, res, next) => {
-
+        let user = req.session.user
+        if(req.session.user.user_id) {
+            res.status(200).send(user);
+        } else {
+            res.status(401).send('Unauthorized User')
+        }
     }
 }
