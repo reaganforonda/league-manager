@@ -27,8 +27,7 @@ module.exports = {
                     } else {
                         res.status(400).send('Username Taken')
                     }
-                    
-                    
+
                 } else {
                     const salt = bcrypt.genSaltSync(10);
                     const hash = bcrypt.hashSync(pw, salt);
