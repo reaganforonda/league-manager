@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS account_types;
 DROP TABLE IF EXISTS fixture_results;
 DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS coaches;
@@ -9,16 +7,37 @@ DROP TABLE IF EXISTS teams;
 DROP TABLE IF EXISTS stadiums;
 DROP TABLE IF EXISTS seasons;
 DROP TABLE IF EXISTS leagues;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS account_types;
 
+CREATE TABLE account_types(
+    acct_id SERIAL PRIMARY KEY,
+    acct_name VARCHAR(45)
+);
+
+
+CREATE TABLE users
+(
+    user_id SERIAL PRIMARY KEY,
+    user_name VARCHAR(45),
+    user_email TEXT,
+    user_pw TEXT,
+    acct_type INTEGER REFERENCES account_types(acct_id)
+);
 
 CREATE TABLE leagues (
     league_id SERIAL PRIMARY KEY,
-    league_name VARCHAR(45)
+    user_id INTEGER REFERENCES users(user_id),
+    league_name VARCHAR(45),
+    league_city VARCHAR(45),
+    league_state VARCHAR(45),
+    league_zip INTEGER
 );
 
 CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY,
     league_id INTEGER REFERENCES leagues(league_id),
+    user_id INTEGER REFERENCES users(user_id),
     team_name VARCHAR(45),
     team_city VARCHAR(45),
     team_state VARCHAR(2),
@@ -89,19 +108,4 @@ CREATE TABLE fixture_results(
     away_team_goals INTEGER,
     home_team_points INTEGER,
     away_team_points INTEGER
-);
-
-CREATE TABLE account_types(
-    acct_id SERIAL PRIMARY KEY,
-    acct_name VARCHAR(45)
-);
-
-
-CREATE TABLE users
-(
-    user_id SERIAL PRIMARY KEY,
-    user_name VARCHAR(45),
-    user_email TEXT
-    user_pw TEXT,
-    acct_type INTEGER REFERENCES account_types(acct_id)
 );
