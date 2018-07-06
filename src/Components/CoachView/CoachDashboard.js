@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './CoachMenus/CoachMenu'
 import HeaderMenu from './CoachMenus/CoachHeaderMenu'
+import {Switch, Route} from 'react-router-dom';
 
 export default class CoachDashbaord extends React.Component{
     constructor(props) {
@@ -13,7 +14,11 @@ export default class CoachDashbaord extends React.Component{
         return (
             <div className='dashboard-container'>
                 <HeaderMenu/>
-                <Menu/>
+                <div>
+                    <Menu/>
+                    
+                </div>
+                
             </div>
         )
     }
