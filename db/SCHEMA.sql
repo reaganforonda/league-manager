@@ -83,6 +83,7 @@ CREATE TABLE players (
     p_state VARCHAR(2),
     p_phone VARCHAR(45),
     p_zip INTEGER,
+    position VARCHAR(45),
     active BOOLEAN
 );
 
