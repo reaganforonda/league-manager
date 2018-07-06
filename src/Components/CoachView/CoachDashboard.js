@@ -1,5 +1,6 @@
 import React from 'react';
-import Menu from './CoachMenu'
+import Menu from './CoachMenus/CoachMenu'
+import HeaderMenu from './CoachMenus/CoachHeaderMenu'
 
 export default class CoachDashbaord extends React.Component{
     constructor(props) {
@@ -11,6 +12,7 @@ export default class CoachDashbaord extends React.Component{
     render(){
         return (
             <div className='dashboard-container'>
+                <HeaderMenu/>
                 <Menu/>
             </div>
         )
