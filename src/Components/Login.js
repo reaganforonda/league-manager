@@ -7,11 +7,13 @@ export default class Login extends React.Component{
 
         this.state={
             userName:'',
-            pw:''
+            pw:'',
+            displayError: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handelLoginSubmit = this.handelLoginSubmit.bind(this);
+        this.resetState = this.resetState.bind(this);
     }
 
     handleInputChange(e){
@@ -29,8 +31,24 @@ export default class Login extends React.Component{
             console.log(user);
             axios.post('/api/auth/login', user).then((res)=> {
                 console.log(res);
+                this.resetState();
+            }).catch((err) => {
+                if(err.response.status === 422){
+                    this.setState({displayError: true})
+                } else if (err.response.status === 500){
+                    // TODO: REDIRECT
+                    console.log('Server Error')
+                }
             })
         }
+    }
+
+    resetState(){
+        this.setState({
+            userName:'',
+            pw:'',
+            displayError: false
+        })
     }
 
     render(){
@@ -38,7 +56,10 @@ export default class Login extends React.Component{
             <div className='login-page-container'>
                 <div className='login-container'>
                     <h2>Welcome To On The Bounce</h2>
-                    <div className='row-error-message'></div>
+                    {
+                        this.state.displayError ? (<div className='row-error-message'>Incorrect User Name or Password</div>) : null
+                    }
+                    
                     <form className='login-form'>
                         <div className='login-form-input-row'>
                             <input onChange={(e)=> this.handleInputChange(e)} 

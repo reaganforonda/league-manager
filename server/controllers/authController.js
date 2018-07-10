@@ -49,20 +49,26 @@ module.exports = {
         const db = req.app.get('db');
         const {userName, pw} = req.body;
 
-        db.GET_USERNAMES([userName]).then(user => {            
+        db.GET_USERNAMES([userName]).then(user => {
             
+            if(user.length === 0){
+                res.sendStatus(422);
+            }
+
             // Login if user account type is League
-
-
             if(user.length !== 0 && user[0].acct_type === 1){
                 const userID = user[0].user_id
                 const userPW = user[0].user_pw;
-                const confirmedPW = bcrypt.compareSync(pw);
-                console.log(`Confirmed: ${confirmedPW}`)
+                const confirmedPW = bcrypt.compareSync(pw, userPW);
                 if(confirmedPW){
-                    
+                    res.status(200).send(user[0])
+                } else {
+                    res.sendStatus(422)
                 }
             }
+        }).catch((err)=> {
+            console.log(`Error while attempting to login: ${err}`)
+            res.sendStatus(500);
         })
     },
 
