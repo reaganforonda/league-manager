@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
-export default class Login extends React.Component{
+export class Login extends React.Component{
     constructor(props){
         super(props);
 
@@ -28,9 +29,13 @@ export default class Login extends React.Component{
                 userName: this.state.userName,
                 pw: this.state.pw
             }
-            console.log(user);
+            
             axios.post('/api/auth/login', user).then((res)=> {
-                console.log(res);
+                if(res.data.acct_type === 1){
+                    this.props.history.push('/league/dashboard')
+                } else if(res.data.acct_type === 2) {
+                    this.props.history.push('/coach/dashboard')
+                }
                 this.resetState();
             }).catch((err) => {
                 if(err.response.status === 422){
@@ -79,3 +84,5 @@ export default class Login extends React.Component{
         )
     }
 }
+
+export default withRouter(Login);
