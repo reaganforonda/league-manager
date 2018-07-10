@@ -48,7 +48,6 @@ export class Register extends React.Component{
     handleRegisterRequest(user){
         axios.post('/api/auth/register', user).then((newUser) => {
             this.registerRedirect(~~user.userType, ~~newUser.status)
-            console.log(newUser);
         }).catch((err)=>{
             console.log(`Error: ${err.response.status}`)
         })
@@ -56,8 +55,9 @@ export class Register extends React.Component{
 
     handleSubmitForm(e){
         e.preventDefault();
-
+        
         let acct_type ='';
+        
         if(this.state.userType==='league'){
             acct_type = 1;
         } else if(this.state.userType === 'team'){
@@ -80,10 +80,9 @@ export class Register extends React.Component{
         if(userType === 1 && status === 200){
             this.props.history.push('/registerleague')
         }else if (userType === 2 && status === 200){
-            
+            this.props.history.push('/coach/dashboard')
         }
     }
-
 
     render(){
         return (

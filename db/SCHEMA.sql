@@ -76,6 +76,8 @@ CREATE TABLE stadiums(
 
 CREATE TABLE players (
     player_id SERIAL PRIMARY KEY,
+    league_id INTEGER REFERENCES leagues(league_id),
+    team_id INTEGER REFERENCES teams(team_id),
     p_first_name VARCHAR(45),
     p_last_name VARCHAR(45),
     p_address VARCHAR(45),
