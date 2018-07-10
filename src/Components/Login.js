@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 export default class Login extends React.Component{
     constructor(props){
@@ -22,7 +22,14 @@ export default class Login extends React.Component{
         e.preventDefault();
         
         if(this.state.userName !== '' && this.state.pw !== ''){
-
+            let user={
+                userName: this.state.userName,
+                pw: this.state.pw
+            }
+            console.log(user);
+            axios.post('/api/auth/login', user).then((res)=> {
+                console.log(res);
+            })
         }
     }
 
@@ -42,7 +49,7 @@ export default class Login extends React.Component{
                                 name='pw' type='password' required placeholder='Password'/>
                         </div>
                         <div className='login-form-input-row'>
-                            <input className='login-submit-btn' type='submit' placeholder='Sign In'/>
+                            <input onClick={(e)=> this.handelLoginSubmit(e)} className='login-submit-btn' type='submit' placeholder='Sign In'/>
                         </div>
                     </form>
                     <p>Don't have an account? Please Register</p>

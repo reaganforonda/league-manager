@@ -49,13 +49,16 @@ module.exports = {
         const db = req.app.get('db');
         const {userName, pw} = req.body;
 
-        db.GET_USERNAMES([userName]).then(user => {
+        db.GET_USERNAMES([userName]).then(user => {            
             
             // Login if user account type is League
+
+
             if(user.length !== 0 && user[0].acct_type === 1){
                 const userID = user[0].user_id
                 const userPW = user[0].user_pw;
                 const confirmedPW = bcrypt.compareSync(pw);
+                console.log(`Confirmed: ${confirmedPW}`)
                 if(confirmedPW){
                     
                 }
