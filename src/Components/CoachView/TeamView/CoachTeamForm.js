@@ -13,6 +13,8 @@ export default class CoachTeamForm extends React.Component{
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputChange = this.handleSubmitForm.bind(this);
+        this.resetState = this.resetState.bind(this);
     }
 
     handleInputChange(e){
@@ -30,7 +32,6 @@ export default class CoachTeamForm extends React.Component{
             zip: this.state.zip
         }
 
-        
     }
 
     resetState(){
@@ -45,12 +46,15 @@ export default class CoachTeamForm extends React.Component{
 
     render(){
         return(
-            <form className='coach-team-form'>
-                <input name='teamName' placeholder='Team Name'/>
-                <input name='city' placeholder='City'/>
-                <input name='state' placeholder='State'/>
-                <input name='zip' placeholder='Zipcode'/>
-            </form>
+            <div className='coach-team-form-container'>
+                <form className='coach-team-form'>
+                    <input type='text' name='teamName' placeholder='Team Name' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input type='text' name='city' placeholder='City' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input type='text' name='state' placeholder='State' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input type='number' name='zip' placeholder='Zipcode' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input type='submit' placeholder='Create Team'/>
+                </form>
+            </div>
         )
     }
 }

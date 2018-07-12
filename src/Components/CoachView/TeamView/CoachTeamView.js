@@ -1,5 +1,6 @@
 import React from 'react';
 import CoachTeamViewHeader from './CoachTeamViewHeader'
+import CoachTeamForm from './CoachTeamForm';
 
 export default class CoachTeamView extends React.Component{
     constructor(props){
@@ -12,6 +13,7 @@ export default class CoachTeamView extends React.Component{
         return(
             <div className='coach-team-view-container'>
                 <CoachTeamViewHeader/>
+                <CoachTeamForm/>
             </div>
         )
     }
