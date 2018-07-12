@@ -7,3 +7,8 @@ INSERT INTO account_types
 (acct_name)
 VALUES
 ('Team Admin');
+
+INSERT INTO account_types
+(acct_name)
+VALUES
+('Player')
