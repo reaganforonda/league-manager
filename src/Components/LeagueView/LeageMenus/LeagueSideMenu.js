@@ -7,6 +7,7 @@ export default class LeagueSideMenu extends React.Component{
                 <ol className='league-side-menu-list'>
                     <li className='league-side-menu-item'>Home</li>
                     <li className='league-side-menu-item'>Leagues</li>
+                    <li className='league-side-menu-item'>Teams</li>
                 </ol>
             </div>
         )

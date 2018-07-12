@@ -9,7 +9,6 @@ export class LeagueDashboard extends React.Component{
             <div className='league-dashboard-container'>
                 <Header/>
                 <LeagueSideMenu/>
-                League Dashboard Container
             </div>
         )
     }

@@ -3,6 +3,7 @@ import Menu from './CoachMenus/CoachMenu'
 import HeaderMenu from './CoachMenus/CoachHeaderMenu';
 import {Switch, Route} from 'react-router-dom';
 import SquadView from './Squad/SquadView';
+import TeamView from './TeamView/CoachTeamView'
 
 export default class CoachDashbaord extends React.Component{
     constructor(props) {
@@ -19,6 +20,7 @@ export default class CoachDashbaord extends React.Component{
                     <Menu/>
                     <Switch>
                         <Route path='/coach/dashboard/squadview' component={SquadView}/>
+                        <Route path='/coach/dashboard/teamview' component={TeamView}/>
                     </Switch>
                 </div>
                 

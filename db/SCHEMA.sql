@@ -41,7 +41,8 @@ CREATE TABLE teams(
     team_name VARCHAR(45),
     team_city VARCHAR(45),
     team_state VARCHAR(2),
-    team_zip INTEGER
+    team_zip INTEGER,
+    approved BOOLEAN
 );
 
 CREATE TABLE seasons(
