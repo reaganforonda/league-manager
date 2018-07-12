@@ -1,0 +1,16 @@
+.player-creation-form-container {
+    border: 1px solid pink;
+    width: 100%;
+    min-height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.player-creation-form{
+    border: 1px solid pink;
+    min-width: fit-content;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+}

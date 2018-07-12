@@ -1,2 +1,30 @@
 INSERT INTO players
-(league_id, team_id, p_first_name, p_last_name, p_address, p_city, p_state, p_phone, p_zip, position, active)
+(
+    league_id,
+    team_id,
+    p_first_name,
+    p_last_name,
+    p_address,
+    p_city,
+    p_state,
+    p_phone,
+    p_zip,
+    email,
+    position,
+    active
+)
+VALUES
+(
+    $1,
+    $2,
+    $3,
+    $4,
+    $5,
+    $6,
+    $7,
+    $8,
+    $9,
+    $10,
+    $11,
+    $12
+)
