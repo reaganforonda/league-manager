@@ -9,7 +9,7 @@ INSERT INTO players
     p_state,
     p_phone,
     p_zip,
-    email,
+    p_email,
     position,
     active
 )

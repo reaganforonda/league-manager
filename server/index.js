@@ -9,6 +9,7 @@ const session = require('express-session');
 const middleware = require('./middlewares/middleware');
 const authController = require('./controllers/authController');
 const leagueController = require('./controllers/leagueController');
+const teamController = require('./controllers/teamController')
 
 // Destructure the .env
 const {
@@ -44,6 +45,9 @@ app.post('/api/auth/register', authController.register);
 
 // LEAGUE ENPOINTS
 app.post('/api/register/league', leagueController.createLeague)
+
+// TEAM ENDPOINTS
+app.post('/api/team/player', teamController.createPlayer)
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)

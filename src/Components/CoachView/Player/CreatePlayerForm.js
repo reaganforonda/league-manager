@@ -1,10 +1,11 @@
 import React from 'react';
-
+import axios from 'axios';
 
 export default class CreatePlayerForm extends React.Component{
     constructor(props){
         super(props);
 
+        // TODO: Change to dynamic league id and team id
         this.state={
             leagueID: 1,
             teamID: 1,
@@ -22,14 +23,55 @@ export default class CreatePlayerForm extends React.Component{
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.resetState = this.resetState.bind(this);
     }
 
     handleInputChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
 
+    // TODO: Change to dynamic league id and team id
+    resetState(){
+        this.setState({
+            leagueID: 1,
+            teamID: 1,
+            firstName: '',
+            lastName: '',
+            address: '',
+            city: '',
+            state: '',
+            phone: '',
+            zip: '',
+            position: '',
+            email: '',
+            active: true
+        })
+    }
+
     handleSubmitForm(e){
         e.preventDefault();
+
+        const player={
+            leagueID: this.state.leagueID,
+            teamID: this.state.teamID,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            phone: this.state.phone,
+            zip: this.state.zip,
+            position: this.state.position,
+            email: this.state.email,
+            active: this.state.active
+        }
+        
+        axios.post('/api/team/player', player).then(result=> {
+            console.log(result);
+            this.resetState();
+        }).catch(err=> {
+            console.log(err);
+        })
     }
 
     render(){
