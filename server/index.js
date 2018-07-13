@@ -18,6 +18,10 @@ const {
     SECRET_SESSION
 } = process.env;
 
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static(`${__dirname}/../build`));
+
 massive(CONNECTION_STRING).then((dbInstance) => {
     app.set('db', dbInstance);
 })
@@ -30,11 +34,7 @@ app.use(
     })
 );
 
-app.use(middleware.checkSession)
-
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static(`${__dirname}/../build`));
+app.use(middleware.checkSession )
 
 
 // AUTH ENDPOINTS

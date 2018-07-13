@@ -55,17 +55,34 @@ module.exports = {
                 res.sendStatus(422);
             }
 
-            // Login if user account type is League
+            
             if(user.length !== 0 && user[0].acct_type === 1){
                 const userID = user[0].user_id
                 const userPW = user[0].user_pw;
                 const confirmedPW = bcrypt.compareSync(pw, userPW);
                 if(confirmedPW){
+                    req.session.user.user_id = user[0].user_id;
+                    req.session.user.acct_type = 1;
                     res.status(200).send(user[0])
                 } else {
                     res.sendStatus(422)
                 }
+            } else if(user.length !== 0 && user[0].acct_type === 2){
+                const userID = user[0].user_id
+                const userPW = user[0].user_pw;
+                const confirmedPW = bcrypt.compareSync(pw, userPW);
+                if(confirmedPW){
+                    req.session.user.user_id = user[0].user_id;
+                    req.session.user.acct_type = 2;
+                    res.status(200).send(user[0]);
+                } else {
+                    res.sendStatus(422);
+                }
+            } else {
+                res.sendStatus(422);
             }
+
+            
         }).catch((err)=> {
             console.log(`Error while attempting to login: ${err}`)
             res.sendStatus(500);
@@ -73,7 +90,8 @@ module.exports = {
     },
 
     logout: (req, res, next) => {
-
+        req.session.destroy();
+        res.sendStatus(200);
     },
 
     validate: (req, res, next) => {
