@@ -1,16 +1,11 @@
 const INTIAL_STATE = {
-    user_id: '',
-    acct_type: '',
+    user: ''
 }
 
 const SET_ACTIVE_USER = 'SET_ACTIVE_USER';
 
-export function setActiveUser(user_ID, acct_type){
-    let user = {
-        user_ID: user_ID,
-        acct_type: acct_type
-    }
-    return{
+export function setActiveUser(user) {
+    return {
         type: SET_ACTIVE_USER,
         payload: user
     }
@@ -19,8 +14,11 @@ export function setActiveUser(user_ID, acct_type){
 export default function userReducer(state = INTIAL_STATE, action) {
     switch (action.type) {
         case SET_ACTIVE_USER:
-        Object.assign({}, state, {user_id: action.payload.user_ID, acct_type: action.payload.acct_type})
+            Object.assign({}, state, {
+                user: action.payload
+            })
 
-        default: return state;
+        default:
+            return state;
     }
 }
