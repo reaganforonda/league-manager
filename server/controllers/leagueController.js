@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 module.exports = {
-    createLeague: (req, res, next) => {
+    createLeague: (req, res) => {
         const db = req.app.get('db');
         
         
@@ -12,6 +12,18 @@ module.exports = {
         }).catch((err) => {
             console.log(err);
             res.status(500).status(`Server Error: ${err}`)
+        })
+    },
+
+    getAllLeagues: (req, res) => {
+        const db = req.app.get('db');
+
+        db.GET_ALL_LEAGUES().then((result)=> {
+            console.log(result);
+            res.status(200).send(result)
+        }).catch((err)=> {
+            res.sendStatus(500);
+            console.log(err);
         })
     }
 }

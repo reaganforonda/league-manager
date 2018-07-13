@@ -1,6 +1,6 @@
 import React from 'react';
-import SquadViewHeader from './SquadViewHeader'
-import CreatePlayerForm from '../Player/CreatePlayerForm';
+import SquadViewHeader from './SquadViewHeader';
+import CreatePlayerForm from '../TeamPlayer/CreatePlayerForm';
 
 export default class SquadView extends React.Component{
     constructor(props) {

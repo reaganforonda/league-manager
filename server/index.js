@@ -44,6 +44,7 @@ app.get('/api/auth/logout', authController.logout);
 app.post('/api/auth/register', authController.register);
 
 // LEAGUE ENPOINTS
+app.get('/api/leagues', leagueController.getAllLeagues);
 app.post('/api/register/league', leagueController.createLeague)
 
 // TEAM ENDPOINTS

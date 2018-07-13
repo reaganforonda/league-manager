@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {getAllLeagues} from '../../../ducks/reducers/leagueReducer'
 
-export default class CoachTeamForm extends React.Component{
+export class CoachTeamForm extends React.Component{
     constructor(props){
         super(props);
 
@@ -15,6 +17,10 @@ export default class CoachTeamForm extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleInputChange = this.handleSubmitForm.bind(this);
         this.resetState = this.resetState.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.getAllLeagues();
     }
 
     handleInputChange(e){
@@ -45,9 +51,24 @@ export default class CoachTeamForm extends React.Component{
     }
 
     render(){
+
+        let leagues=[]
+
+        if(this.props.leagues){
+            leagues = this.props.leagues.map((value, index)=> {
+                return (
+                    <select key={value.league_name+index}>
+                        <option value={value.league_name}>{value.league_name}</option>
+                    </select>
+                )
+            })
+        }
+        
+        
         return(
             <div className='coach-team-form-container'>
                 <form className='coach-team-form'>
+                    {leagues}
                     <input type='text' name='teamName' placeholder='Team Name' onChange={(e)=>this.handleInputChange(e)}/>
                     <input type='text' name='city' placeholder='City' onChange={(e)=>this.handleInputChange(e)}/>
                     <input type='text' name='state' placeholder='State' onChange={(e)=>this.handleInputChange(e)}/>
@@ -58,3 +79,11 @@ export default class CoachTeamForm extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        leagues: state.leagueReducer.leagues
+    }
+}
+
+export default connect(mapStateToProps, {getAllLeagues})(CoachTeamForm);
