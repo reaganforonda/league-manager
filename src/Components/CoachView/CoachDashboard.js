@@ -3,13 +3,26 @@ import Menu from './CoachMenus/CoachMenu'
 import HeaderMenu from './CoachMenus/CoachHeaderMenu';
 import {Switch, Route} from 'react-router-dom';
 import SquadView from './Squad/SquadView';
-import TeamView from './TeamView/CoachTeamView'
+import TeamView from './TeamView/CoachTeamView';
+import axios from 'axios'
+import { connect } from 'react-redux';
 
-export default class CoachDashbaord extends React.Component{
+export class CoachDashbaord extends React.Component{
     constructor(props) {
         super(props);
 
         this.state={}
+    }
+
+    componentDidMount = async()=>{
+        await axios.get('/api/auth/me').then((user)=> {
+            if(typeof user.data.acct_type === 2){
+                console.log("Login Successful");
+            }
+        }).catch(err=> {
+            console.log(err);
+            this.props.history.push('/login')
+        })
     }
 
     render(){
@@ -28,3 +41,11 @@ export default class CoachDashbaord extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return{
+        user: state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps, {})(CoachDashbaord)

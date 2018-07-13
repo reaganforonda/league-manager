@@ -35,7 +35,30 @@ module.exports = {
             console.log(result);
             res.status(200).send(result);
         }).catch((err) => {
-            console.log(err);
+            console.log(`Server error while attempting to create Player: ${err}`);
+            res.sendStatus(500);
+        })
+    },
+
+    createTeam : (req, res, next) => {
+        const db = req.app.get('db');
+
+        const {
+            leagueID,
+            userID,
+            teamName,
+            city,
+            state,
+            zip
+        } = req.body
+
+        db.CREATE_TEAM([
+            leagueID, userID, teamName, city, state, zip
+        ]).then((result) => {
+            console.log(result);
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server error while attempting to create team: ${err}`)
             res.sendStatus(500);
         })
     }

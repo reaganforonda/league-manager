@@ -1,21 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getAllLeagues} from '../../../ducks/reducers/leagueReducer'
+import {getAllLeagues} from '../../../ducks/reducers/leagueReducer';
+import axios from 'axios'
 
 export class CoachTeamForm extends React.Component{
     constructor(props){
         super(props);
 
         this.state={
-            leagueID: 1,
+            leagueID: '',
             teamName: '',
             city: '',
             state: '',
-            zip: ''
+            zip: '',
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleInputChange = this.handleSubmitForm.bind(this);
+        this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
         this.resetState = this.resetState.bind(this);
     }
 
@@ -27,22 +29,37 @@ export class CoachTeamForm extends React.Component{
         this.setState({[e.target.name]: e.target.value})
     }
 
+    handleSelect(e){
+        this.setState({leagueID: e.target.value})
+    }
+
     handleSubmitForm(e){
-        e.preventDefault();
+        e.preventDefault()
 
-        const team = {
-            leagueID: this.state.leagueID,
-            teamName: this.state.teamName,
-            city: this.state.city,
-            state: this.state.state,
-            zip: this.state.zip
+        if(this.state.leagueID && this.state.teamName && this.state.city && 
+            this.state.state && this.state.zip && this.props.user.user_id){
+
+            const team = {
+                leagueID: this.state.leagueID,
+                userID: this.props.user.user_id,
+                teamName: this.state.teamName,
+                city: this.state.city,
+                state: this.state.state,
+                zip: this.state.zip
+            }
+
+            axios.post('/api/team', team).then((result)=> {
+                console.log(result);
+                this.resetState();
+            }).catch((err)=> {
+                console.log(err.response);
+            })
         }
-
     }
 
     resetState(){
         this.setState({
-            leagueID: 1,
+            leagueID: '',
             teamName: '',
             city: '',
             state: '',
@@ -51,30 +68,33 @@ export class CoachTeamForm extends React.Component{
     }
 
     render(){
-
         let leagues=[]
-
         if(this.props.leagues){
             leagues = this.props.leagues.map((value, index)=> {
                 return (
-                    <select key={value.league_name+index}>
-                        <option value={value.league_name}>{value.league_name}</option>
-                    </select>
+                    <option key={value.league_name+index} value={value.league_id}>{value.league_name}</option>
                 )
             })
         }
-        
-        
+
         return(
             <div className='coach-team-form-container'>
                 <form className='coach-team-form'>
-                    {leagues}
-                    <input type='text' name='teamName' placeholder='Team Name' onChange={(e)=>this.handleInputChange(e)}/>
-                    <input type='text' name='city' placeholder='City' onChange={(e)=>this.handleInputChange(e)}/>
-                    <input type='text' name='state' placeholder='State' onChange={(e)=>this.handleInputChange(e)}/>
-                    <input type='number' name='zip' placeholder='Zipcode' onChange={(e)=>this.handleInputChange(e)}/>
-                    <input type='submit' placeholder='Create Team'/>
+                    <select required onChange={(e)=>this.handleSelect(e)} >
+                        <option value='Select League'>Select League</option>
+                        {leagues}
+                    </select>
+                    <input value={this.state.teamName} type='text' name='teamName' 
+                        placeholder='Team Name' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input value={this.state.city} type='text' name='city' 
+                        placeholder='City' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input value={this.state.state} type='text' name='state' 
+                        placeholder='State' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input value={this.state.zip} type='number' name='zip' 
+                        placeholder='Zipcode' onChange={(e)=>this.handleInputChange(e)}/>
+                    <input type='submit' placeholder='Create Team' onClick={(e)=>this.handleSubmitForm(e)}/>
                 </form>
+                
             </div>
         )
     }
@@ -82,7 +102,8 @@ export class CoachTeamForm extends React.Component{
 
 function mapStateToProps(state){
     return {
-        leagues: state.leagueReducer.leagues
+        leagues: state.leagueReducer.leagues,
+        user: state.userReducer.user
     }
 }
 

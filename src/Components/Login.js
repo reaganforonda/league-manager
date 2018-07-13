@@ -34,10 +34,11 @@ export class Login extends React.Component{
             
             axios.post('/api/auth/login', user).then((res)=> {
                 if(res.data.acct_type){
-                    this.props.setActiveUser(res.data);
                     if(res.data.acct_type === 1){
+                        this.props.setActiveUser(res.data);
                         this.props.history.push('/league/dashboard')
                     } else if(res.data.acct_type === 2) {
+                        this.props.setActiveUser(res.data);
                         this.props.history.push('/coach/dashboard')
                     }
                     this.resetState();

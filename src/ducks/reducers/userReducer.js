@@ -1,5 +1,5 @@
 const INTIAL_STATE = {
-    user: ''
+    user: {}
 }
 
 const SET_ACTIVE_USER = 'SET_ACTIVE_USER';
@@ -14,9 +14,7 @@ export function setActiveUser(user) {
 export default function userReducer(state = INTIAL_STATE, action) {
     switch(action.type) {
         case SET_ACTIVE_USER:
-            Object.assign({}, state, {
-                user: action.payload
-            })
+           return Object.assign({}, state, {user: action.payload})
 
         default:
             return state;
