@@ -50,6 +50,7 @@ app.post('/api/register/league', leagueController.createLeague)
 // TEAM ENDPOINTS
 app.post('/api/team/player', teamController.createPlayer)
 app.post('/api/team', teamController.createTeam)
+app.get('/api/teams/:userID', teamController.getManagedTeams)
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)

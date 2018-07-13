@@ -61,5 +61,18 @@ module.exports = {
             console.log(`Server error while attempting to create team: ${err}`)
             res.sendStatus(500);
         })
+    },
+
+    getManagedTeams: (req, res)=> {
+        const db = req.app.get('db');
+        const {userID} = req.params;
+
+        db.GET_MANAGED_TEAMS([userID]).then((result) => {
+            console.log(result);
+            res.status(200).send(result);
+        }).catch((err)=> {
+            console.log(`Server error while attempting to get managed teams: ${err}`)
+            res.sendStatus(500);
+        })
     }
 }

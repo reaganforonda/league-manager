@@ -12,7 +12,7 @@ export class CoachTeamForm extends React.Component{
             teamName: '',
             city: '',
             state: '',
-            zip: '',
+            zip: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
