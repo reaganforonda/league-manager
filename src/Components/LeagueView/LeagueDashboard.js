@@ -9,7 +9,7 @@ export class LeagueDashboard extends React.Component{
     componentDidMount = async()=> {
         await axios.get('/api/auth/me').then((user)=> {
             if(typeof user.data.acct_type === 1){
-                console.log(user);
+                console.log("Login Successful");
             }
         }).catch(err=> {
             console.log(err);

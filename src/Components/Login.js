@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setActiveUser} from '../ducks/reducers/userReducer'
 
 export class Login extends React.Component{
     constructor(props){
@@ -31,14 +33,17 @@ export class Login extends React.Component{
             }
             
             axios.post('/api/auth/login', user).then((res)=> {
-                if(res.data.acct_type === 1){
-                    this.props.history.push('/league/dashboard')
-                } else if(res.data.acct_type === 2) {
-                    console.log('hit')
-                    this.props.history.push('/coach/dashboard')
+                if(res.data.acct_type){
+                    this.props.setActiveUser(res.data);
+                    if(res.data.acct_type === 1){
+                        this.props.history.push('/league/dashboard')
+                    } else if(res.data.acct_type === 2) {
+                        this.props.history.push('/coach/dashboard')
+                    }
+                    this.resetState();
                 }
-                this.resetState();
             }).catch((err) => {
+                console.log(err);
                 if(err.response.status === 422){
                     this.setState({displayError: true})
                 } else if (err.response.status === 500){
@@ -86,4 +91,10 @@ export class Login extends React.Component{
     }
 }
 
-export default withRouter(Login);
+function mapStateToProps(state){
+    return {
+        user: state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps, {setActiveUser})(withRouter(Login));

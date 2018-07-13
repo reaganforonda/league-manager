@@ -12,7 +12,7 @@ export function setActiveUser(user) {
 }
 
 export default function userReducer(state = INTIAL_STATE, action) {
-    switch (action.type) {
+    switch(action.type) {
         case SET_ACTIVE_USER:
             Object.assign({}, state, {
                 user: action.payload

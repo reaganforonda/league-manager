@@ -18,7 +18,7 @@ export  function getAllLeagues() {
     }
 }
 
-export default function reducer(state = INITIAL_STATE, action){
+export default function leagueReducer(state = INITIAL_STATE, action){
     switch(action.type){
 
         case GET_ALL_LEAGUES + "_FULFILLED":
