@@ -34,6 +34,7 @@ export class Login extends React.Component{
                 if(res.data.acct_type === 1){
                     this.props.history.push('/league/dashboard')
                 } else if(res.data.acct_type === 2) {
+                    console.log('hit')
                     this.props.history.push('/coach/dashboard')
                 }
                 this.resetState();

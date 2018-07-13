@@ -30,7 +30,7 @@ app.use(
     })
 );
 
-// app.use(middleware.checkSession)
+app.use(middleware.checkSession)
 
 app.use(bodyParser.json());
 app.use(cors());
