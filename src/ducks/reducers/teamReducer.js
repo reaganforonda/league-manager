@@ -8,7 +8,7 @@ const GET_MANAGED_TEAMS = 'GET_MANAGED_TEAMS';
 
 export function getManagedTeams(userID){
     let managedTeams = axios.get(`/api/teams/${userID}`).then((result)=>{
-        console.log(result);
+        console.log(`Get managed tea result: ${result}`);
         return result;
     }).catch((err)=>{
         console.log(`Client Side Error: Attempting to retrive managed teams: ${err}`);

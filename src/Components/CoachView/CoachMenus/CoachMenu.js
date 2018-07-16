@@ -8,7 +8,7 @@ export default function CoachMenu(props){
                 <li><Link className='coach-menu-link' to='/coach/dashboard'>Home</Link></li>
                 <li><Link className='coach-menu-link' to='/coach/dashboard/teamview'>Teams</Link></li>
                 <li><Link className='coach-menu-link' to='/coach/dashboard/squadview'>Squad</Link></li>
-                <li className>Logout</li>
+                <li className='coach-menu-link'>Logout</li>
             </ul>
         </div>
     )

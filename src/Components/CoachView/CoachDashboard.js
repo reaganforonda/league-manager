@@ -6,6 +6,7 @@ import SquadView from './Squad/SquadView';
 import TeamView from './TeamView/CoachTeamView';
 import axios from 'axios'
 import { connect } from 'react-redux';
+import {getManagedTeams} from '../../ducks/reducers/teamReducer'
 
 export class CoachDashbaord extends React.Component{
     constructor(props) {
@@ -18,6 +19,7 @@ export class CoachDashbaord extends React.Component{
         await axios.get('/api/auth/me').then((user)=> {
             if(typeof user.data.acct_type === 2){
                 console.log("Login Successful");
+                this.props.getManagedTeams();
             }
         }).catch(err=> {
             console.log(err);
@@ -48,4 +50,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {})(CoachDashbaord)
+export default connect(mapStateToProps, {getManagedTeams})(CoachDashbaord)

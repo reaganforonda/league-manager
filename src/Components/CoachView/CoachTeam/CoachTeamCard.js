@@ -1,12 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export default class CoachTeamCard extends React.Component{
-    render(){
+export default function CoachTeamCard(props){
+
         return (
             <div className='coach-team-card-container'>
-
+                <p>{this.props.team.team_name}</p>
             </div>
         )
-    }
+
 }
