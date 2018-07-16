@@ -5,7 +5,21 @@ $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
 
 $fontSizeBodyDesktop: 1em;
-$lineHeightBodyDesktop: 1.375;
+$lineHeightBodyDesktop: 1.375em;
+
+$h1FontSizeDesktop: 3em;
+$h1LineHeightDesktop: 1.05em;
+
+.landing-header{
+    margin-top: 30px;
+}
+
+.landing-header h1{
+    padding: 10px 10px;
+    font-size: $h1FontSizeDesktop;
+    line-height: $h1LineHeightDesktop;
+    color: $white;
+}
 
 .landing-container {
     background: url('../images/stadium-510716_1920.jpg') center no-repeat;
@@ -13,10 +27,13 @@ $lineHeightBodyDesktop: 1.375;
     width: 100vw;
     height: 100vh;
     align-items: center;
+    justify-content: space-around;
     display: flex;
+    flex-direction: column;
 }
 
 .landing-buttons {
+    align-items: center;
     display: flex;
     flex-direction: column;
     width: 50%;

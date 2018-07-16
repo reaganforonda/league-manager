@@ -1,12 +1,19 @@
 import React from 'react';
 import CoachTeamViewHeader from './CoachTeamViewHeader'
 import CoachTeamForm from './CoachTeamForm';
+import {connect} from 'react-redux'
 
-export default class CoachTeamView extends React.Component{
+import {getManagedTeams} from '../../../ducks/reducers/teamReducer'
+
+export class CoachTeamView extends React.Component{
     constructor(props){
         super(props);
 
         this.state={}
+    }
+
+    componentDidMount(){
+        this.props.getManagedTeams();
     }
 
     render(){
@@ -18,3 +25,11 @@ export default class CoachTeamView extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        managedTeams: state.teamReducer.managedTeams
+    }
+}
+
+export default connect(mapStateToProps, {getManagedTeams})(CoachTeamView)
