@@ -66,6 +66,7 @@ module.exports = {
     getManagedTeams: (req, res)=> {
         const db = req.app.get('db');
         const {userID} = req.params;
+        console.log(userID);
 
         db.GET_MANAGED_TEAMS([userID]).then((result) => {
             console.log(result);
