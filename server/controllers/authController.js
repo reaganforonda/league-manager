@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 const axios = require('axios');
 const generalUtil = require('../../src/Utilities/generalUtil')
 
