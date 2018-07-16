@@ -16,10 +16,12 @@ $mayaBlue: #6CCFF6;
     font-size: 2.25em;
     line-height: 1.25em;
     padding: 10px;
+    cursor: pointer;
     
 }
 
 .coach-menu-list li:hover{
     background: $mayaBlue;
     color: $white;
+    cursor: pointer;
 }
