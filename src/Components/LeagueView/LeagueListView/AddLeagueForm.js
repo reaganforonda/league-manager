@@ -30,13 +30,18 @@ export class AddLeagueForm extends React.Component{
         this.validateForm = this.validateForm.bind(this);
     }
 
-
     resetState(){
         this.setState({
             leagueName:'',
             city: '',
             state:'',
             zipcode:'',
+            displaySuccessRow: false,
+            validLeagueName: true,
+            validLeagueCity: true,
+            validLeagueState: true,
+            validLeagueZip: true,
+            validForm: false
         })
     }
 
@@ -52,7 +57,7 @@ export class AddLeagueForm extends React.Component{
         }
     }
     
-    validateForm(){
+    async validateForm(){
         if(!generalUtil.validateLeagueName(this.state.leagueName)){
             this.setState({validLeagueName: false})
         } else if(!generalUtil.validateCity(this.state.city)){
@@ -65,35 +70,39 @@ export class AddLeagueForm extends React.Component{
 
         if(this.state.validLeagueName && this.state.validLeagueCity && 
             this.state.validLeagueState && this.state.validLeagueZip) {
-                this.setState({validForm: true})
+                console.log(this.state.validForm)
+                await this.setState({validForm: true})
+                console.log(this.state.validForm)
             } else {
-                this.setState({validForm: false})
+                console.log("Invalid Form")
+                await this.setState({validForm: false})
             }
     }
 
     handleSubmit(e){
         e.preventDefault();
-        this.validateForm();
-
-        if(this.validateAcctType() && this.validForm){
-            let league={
-                user_id: this.props.user.user_id,
-                leagueName: this.state.leagueName,
-                leagueCity: this.state.city,
-                leagueState: this.state.state,
-                leagueZipcode: this.state.zipcode
+        this.validateForm().then(()=> {
+            if(this.validateAcctType() && this.state.validForm){
+                let league={
+                    user_id: this.props.user.user_id,
+                    leagueName: this.state.leagueName,
+                    leagueCity: this.state.city,
+                    leagueState: this.state.state,
+                    leagueZipcode: this.state.zipcode
+                }
+    
+                axios.post('/api/register/league',league).then((league)=> {
+                    this.props.getManagedLeagues(this.props.user.user_id);
+                    this.setState({displaySuccessRow: true})
+                    this.resetState();
+                }).catch((err)=>{
+                    console.log(`Error while attempting to add league: ${err}`)
+                })
+            } else {
+                // TODO: ADD SOMETHING
+                console.log('Error')
             }
-
-            axios.post('/api/register/league',league).then((league)=> {
-                this.props.getManagedLeagues(this.props.user.user_id);
-                this.setState({displaySuccessRow: true})
-                this.resetState();
-            }).catch((err)=>{
-                console.log(`Error while attempting to add league: ${league}`)
-            })
-        } else {
-            // TODO: ADD SOMETHING
-        }
+        })
     }
 
     render(){
