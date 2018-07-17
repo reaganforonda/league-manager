@@ -5,6 +5,7 @@ import LeagueSideMenu from './LeageMenus/LeagueSideMenu'
 import axios from 'axios';
 
 import LeagueTeamView from './LeagueTeams/LeagueTeamView';
+import LeagueListView from './LeagueListView/LeagueListView';
 
 export class LeagueDashboard extends React.Component{
 
@@ -27,6 +28,7 @@ export class LeagueDashboard extends React.Component{
                     <LeagueSideMenu/>
                     <Switch>
                         <Route path='/league/dashboard/teamview' component={LeagueTeamView}/>
+                        <Route path='/league/dashboard/leaguelistview' component={LeagueListView}/>
                     </Switch>
                 </div>
             </div>

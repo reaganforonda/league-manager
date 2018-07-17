@@ -7,7 +7,7 @@ export function LeagueSideMenu(props){
     function logout(e){
         e.preventDefault();
 
-        axios.get('/auth/me/logout').then((result)=> {
+        axios.get('/api/auth/logout').then((result)=> {
             props.history.push('/login');
         }).catch((err)=> {
             console.log(`Error during logout: ${err}`)
@@ -17,7 +17,7 @@ export function LeagueSideMenu(props){
         <div className='league-side-menu-container'>
             <ul className='league-side-menu-list'>
                 <li className='league-side-menu-item'><Link to='/league/dashboard'>Home</Link></li>
-                <li className='league-side-menu-item'>Leagues</li>
+                <li className='league-side-menu-item'><Link to='/league/dashboard/leaguelistview'>Leagues</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/teamview'>Teams</Link></li>
                 <li onClick={(e)=>logout(e)} className='league-side-menu-item'>Log Out</li>
             </ul>
