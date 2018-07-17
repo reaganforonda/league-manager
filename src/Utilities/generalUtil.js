@@ -57,7 +57,8 @@ module.exports= {
          }
      },
 
-    /* Function to validate City State
+    /* 
+     * Function to validate City State
      * @param String State = State that user has entered
      */
     validateState(state) {

@@ -70,9 +70,8 @@ export class AddLeagueForm extends React.Component{
 
         if(this.state.validLeagueName && this.state.validLeagueCity && 
             this.state.validLeagueState && this.state.validLeagueZip) {
-                console.log(this.state.validForm)
+                console.log('Valid Form');
                 await this.setState({validForm: true})
-                console.log(this.state.validForm)
             } else {
                 console.log("Invalid Form")
                 await this.setState({validForm: false})
@@ -111,7 +110,7 @@ export class AddLeagueForm extends React.Component{
                 <form className='add-league-form'>
                     <div className='add-league-form-row'>
                         <input maxLength='40' required type='text' name='leagueName' placeholder='League Name' 
-                            onChange={(e)=>this.handleInputChange(e)}/>
+                            value={this.state.leagueName} onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
                     {
                         this.state.validLeagueName ? null : (<div className='add-league-form-row-error'>
@@ -120,7 +119,7 @@ export class AddLeagueForm extends React.Component{
                     }
                     <div className='add-league-form-row'>
                         <input required type='text' name='city' placeholder='City' 
-                            onChange={(e)=>this.handleInputChange(e)}/>
+                            value={this.state.city} onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
                     {
                         this.state.validLeagueCity ? null : (<div className='add-league-form-row-error'>
@@ -129,7 +128,7 @@ export class AddLeagueForm extends React.Component{
                     }
                     <div className='add-league-form-row'>
                         <input maxLength='2' required type='text' name='state' placeholder='State' 
-                            onChange={(e)=>this.handleInputChange(e)}/>
+                            value={this.state.state} onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
                     {
                         this.state.validLeagueState ? null : (<div className='add-league-form-row-error'>
@@ -138,7 +137,7 @@ export class AddLeagueForm extends React.Component{
                     }
                     <div className='add-league-form-row'>
                         <input required type='number' name='zipcode' placeholder='Zipcode' 
-                            onChange={(e)=>this.handleInputChange(e)}/>
+                            value={this.state.zipcode} onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
                     {
                         this.state.validLeagueZip ? null : (<div className='add-league-form-row-error'>
