@@ -26,7 +26,7 @@ export class LeagueDashboard extends React.Component{
                 <div className='league-dashboard-main-section'>
                     <LeagueSideMenu/>
                     <Switch>
-                        <Route to='/league/dashboard/teamview' component={LeagueTeamView}/>
+                        <Route path='/league/dashboard/teamview' component={LeagueTeamView}/>
                     </Switch>
                 </div>
             </div>
