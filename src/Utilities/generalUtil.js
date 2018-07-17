@@ -16,5 +16,54 @@ module.exports= {
     validateZipCode(zipcode) {
         let re = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
         return re.test(zipcode);
+    },
+
+    /*
+     * Function to validate League Name
+     * @param String leaguename = League Name that user has entered
+     */
+
+    validateLeagueName(leaguename){
+        if(leaguename){
+            if(leaguename.length < 45){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    },
+
+    /*
+     * Function to validate City input
+     * @param String City = City that user has entered
+     */
+
+     validateCity(city){
+         if(city){
+             if(city.length < 45){
+                 return true;
+             } else {
+                 return false;
+             }
+         } else {
+             return false;
+         }
+     },
+
+    /* Function to validate City State
+     * @param String State = State that user has entered
+     */
+    validateState(state) {
+        if(state) {
+            if(state.length < 2) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
