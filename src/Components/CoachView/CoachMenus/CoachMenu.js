@@ -20,7 +20,7 @@ export function CoachMenu(props){
             <ul className='coach-menu-list'>
                 <li><Link className='coach-menu-link' to='/coach/dashboard'>Home</Link></li>
                 <li><Link className='coach-menu-link' to='/coach/dashboard/teamview'>Teams</Link></li>
-                <li><Link className='coach-menu-link' to='/coach/dashboard/squadview'>Squad</Link></li>
+                <li><Link className='coach-menu-link' to='/coach/dashboard/squadview'>Players</Link></li>
                 <li onClick={(e)=> logout(e)}className='coach-menu-link'>Logout</li>
             </ul>
         </div>
