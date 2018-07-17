@@ -25,7 +25,7 @@ module.exports= {
 
     validateLeagueName(leaguename){
         if(leaguename){
-            if(leaguename.length < 45){
+            if(leaguename.length <= 45){
                 return true;
             } else {
                 return false;
@@ -42,7 +42,7 @@ module.exports= {
 
      validateCity(city){
          if(city){
-             if(city.length < 45){
+             if(city.length <= 45){
                  return true;
              } else {
                  return false;
@@ -57,7 +57,7 @@ module.exports= {
      */
     validateState(state) {
         if(state) {
-            if(state.length < 2) {
+            if(state.length <= 2) {
                 return true;
             } else {
                 return false;
