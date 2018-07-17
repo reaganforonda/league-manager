@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
+import generalUtil from '../../../Utilities/generalUtil'
 
 export class AddLeagueForm extends React.Component{
     constructor(props){
@@ -15,13 +16,18 @@ export class AddLeagueForm extends React.Component{
             state:'',
             zipcode:'',
             displaySuccessRow: false,
-            validForm: false
+            validLeagueName: true,
+            validLeagueCity: true,
+            validLeagueState: true,
+            validLeagueZip: true,
+            validForm: false,
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.resetState = this.resetState.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateAcctType = this.validateAcctType.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
 
 
@@ -45,11 +51,31 @@ export class AddLeagueForm extends React.Component{
             return false;
         }
     }
+    
+    validateForm(){
+        if(!generalUtil.validateLeagueName(this.state.leagueName)){
+            this.setState({validLeagueName: false})
+        } else if(!generalUtil.validateCity(this.state.city)){
+            this.setState({validLeagueCity: false})
+        } else if(!generalUtil.validateState(this.state.state)) {
+            this.setState({validLeagueState: false})
+        } else if(!generalUtil.validateZipCode(this.state.zipcode)){
+            this.setState({validLeagueZip: false})
+        }
+
+        if(this.state.validLeagueName && this.state.validLeagueCity && 
+            this.state.validLeagueState && this.state.validLeagueZip) {
+                this.setState({validForm: true})
+            } else {
+                this.setState({validForm: false})
+            }
+    }
 
     handleSubmit(e){
         e.preventDefault();
+        this.validateForm();
 
-        if(this.validateAcctType()){
+        if(this.validateAcctType() && this.validForm){
             let league={
                 user_id: this.props.user.user_id,
                 leagueName: this.state.leagueName,
@@ -75,21 +101,41 @@ export class AddLeagueForm extends React.Component{
             <div className='add-league-form-container'>
                 <form className='add-league-form'>
                     <div className='add-league-form-row'>
-                        <input required type='text' name='leagueName' placeholder='League Name' 
+                        <input maxLength='40' required type='text' name='leagueName' placeholder='League Name' 
                             onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
+                    {
+                        this.state.validLeagueName ? null : (<div className='add-league-form-row-error'>
+                            Invalid League Name
+                        </div>)
+                    }
                     <div className='add-league-form-row'>
                         <input required type='text' name='city' placeholder='City' 
                             onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
+                    {
+                        this.state.validLeagueCity ? null : (<div className='add-league-form-row-error'>
+                            Invalid City
+                        </div>)
+                    }
                     <div className='add-league-form-row'>
-                        <input required type='text' name='state' placeholder='State' 
+                        <input maxLength='2' required type='text' name='state' placeholder='State' 
                             onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
+                    {
+                        this.state.validLeagueState ? null : (<div className='add-league-form-row-error'>
+                            Invalid State
+                        </div>)
+                    }
                     <div className='add-league-form-row'>
                         <input required type='number' name='zipcode' placeholder='Zipcode' 
                             onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
+                    {
+                        this.state.validLeagueZip ? null : (<div className='add-league-form-row-error'>
+                            Invalid Zipcode
+                        </div>)
+                    }
                     <div className='add-league-form-row'>
                         <input type='submit' placeholder='Submit' onClick={(e)=>this.handleSubmit(e)}/>
                     </div>
