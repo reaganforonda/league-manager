@@ -25,5 +25,23 @@ module.exports = {
             res.sendStatus(500);
             console.log(err);
         })
+    },
+
+    getManagedLeagues: (req, res)=> {
+        const db = req.app.get('db');
+        const {userID} = req.params
+
+        if(!userID){
+            res.sendStatus(401);
+        }
+
+        db.GET_MANAGED_LEAGUES([userID]).then((result)=> {
+            console.log(result);
+            res.status(200).send(result);
+        }).catch((err)=> {
+            console.log(`Server Error while attempting to get managed leagues: ${err}`);
+            res.sendStatus(500);
+        })
+        
     }
 }
