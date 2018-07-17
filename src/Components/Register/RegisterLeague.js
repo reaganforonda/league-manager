@@ -61,7 +61,7 @@ export class RegisterLeague extends React.Component{
                 <h1>Create A League</h1>
                 <form className='league-info-form'>
                     <div className='create-league-row'>
-                        <input required type='text' maxLength='40' name='leagueName' 
+                        <input required type='text' maxLength='45' name='leagueName' 
                             onChange={(e)=>this.handleInputChange(e)} placeholder='League Name'/>
                     </div>
                     <div className='create-league-row'>
