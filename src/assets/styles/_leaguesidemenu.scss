@@ -1,4 +1,26 @@
-.league-side-menu-container {
-    border: 1px solid pink;
-    widtH: 25%;
+$registrationBlack: #000300;
+$sheenGreen: #98Ce00;
+$white: #FFFFFC;
+$sonicSilver: #757780;
+$mayaBlue: #6CCFF6;
+
+.league-side-menu-list{
+        // max-width: 400px;
+        min-width: fit-content;
+        // width: 10vw;
+        background: $sheenGreen;
+        height: 100vh;
+}
+
+.league-side-menu-item{
+    font-size: 2.25em;
+    line-height: 1.25em;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.league-side-menu-item:hover{
+    background: $mayaBlue;
+    color: $white;
+    cursor: pointer;
 }

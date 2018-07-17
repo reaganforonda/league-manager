@@ -1,8 +1,10 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Switch, Route} from 'react-router-dom';
 import Header from './LeagueHeader'
 import LeagueSideMenu from './LeageMenus/LeagueSideMenu'
 import axios from 'axios';
+
+import LeagueTeamView from './LeagueTeams/LeagueTeamView';
 
 export class LeagueDashboard extends React.Component{
 
@@ -21,7 +23,12 @@ export class LeagueDashboard extends React.Component{
         return (
             <div className='league-dashboard-container'>
                 <Header/>
-                <LeagueSideMenu/>
+                <div className='league-dashboard-main-section'>
+                    <LeagueSideMenu/>
+                    <Switch>
+                        <Route to='/league/dashboard/teamview' component={LeagueTeamView}/>
+                    </Switch>
+                </div>
             </div>
         )
     }

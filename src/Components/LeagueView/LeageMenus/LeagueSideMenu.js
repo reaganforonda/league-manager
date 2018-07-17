@@ -1,15 +1,28 @@
 import React from 'react'
+import {withRouter, Link} from 'react-router-dom';
+import axios from 'axios';
 
-export default class LeagueSideMenu extends React.Component{
-    render(){
-        return (
-            <div className='league-side-menu-container'>
-                <ol className='league-side-menu-list'>
-                    <li className='league-side-menu-item'>Home</li>
-                    <li className='league-side-menu-item'>Leagues</li>
-                    <li className='league-side-menu-item'>Teams</li>
-                </ol>
-            </div>
-        )
+export function LeagueSideMenu(props){
+
+    function logout(e){
+        e.preventDefault();
+
+        axios.get('/auth/me/logout').then((result)=> {
+            props.history.push('/login');
+        }).catch((err)=> {
+            console.log(`Error during logout: ${err}`)
+        })
     }
+    return (
+        <div className='league-side-menu-container'>
+            <ul className='league-side-menu-list'>
+                <li className='league-side-menu-item'><Link to='/league/dashboard'>Home</Link></li>
+                <li className='league-side-menu-item'>Leagues</li>
+                <li className='league-side-menu-item'><Link to='/league/dashboard/teamview'>Teams</Link></li>
+                <li onClick={(e)=>logout(e)} className='league-side-menu-item'>Log Out</li>
+            </ul>
+        </div>
+    )
 }
+
+export default withRouter(LeagueSideMenu);

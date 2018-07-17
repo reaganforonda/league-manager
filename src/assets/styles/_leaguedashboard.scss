@@ -5,8 +5,7 @@ $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
 
 
-.league-dashboard-container {
-    border: solid 1px red;
+.league-dashboard-main-section {
+    display: flex;
     width: 100vw;
-    height: 100vh;
 }

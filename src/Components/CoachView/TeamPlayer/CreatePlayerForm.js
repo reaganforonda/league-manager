@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import genUtil from '../../../Utilities/generalUtil'
 
-export default class CreatePlayerForm extends React.Component{
+export class CreatePlayerForm extends React.Component{
     constructor(props){
         super(props);
 
@@ -102,3 +104,12 @@ export default class CreatePlayerForm extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        user: state.userReducer.user,
+        managedTeams : state.teamReducer.managedTeams
+    }
+}
+
+export default connect(mapStateToProps, {})(CreatePlayerForm)
