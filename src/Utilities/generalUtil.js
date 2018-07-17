@@ -43,7 +43,12 @@ module.exports= {
      validateCity(city){
          if(city){
              if(city.length <= 45){
-                 return true;
+                let re=/^[a-zA-Z\s]*$/
+                if(re.test(city)){
+                    return true;
+                } else {
+                    return false;
+                }
              } else {
                  return false;
              }
@@ -57,8 +62,13 @@ module.exports= {
      */
     validateState(state) {
         if(state) {
-            if(state.length <= 2) {
-                return true;
+            if(state.length === 2) {
+                let re=/^[A-Z]+$/i
+                if(re.test(state)){
+                    return true;
+                } else {
+                    return false
+                }
             } else {
                 return false;
             }
