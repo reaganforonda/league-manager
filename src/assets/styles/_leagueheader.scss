@@ -1,0 +1,22 @@
+$registrationBlack: #000300;
+$sheenGreen: #98Ce00;
+$white: #FFFFFC;
+$sonicSilver: #757780;
+$mayaBlue: #6CCFF6;
+
+$h1DesktopFS: 3em;
+$h1DesktopLH: 1.05em;
+$h1PhoneFS: 2em;
+$h1PhoneLH: 1.25em;
+
+.header-container{
+    border: solid 1px blue;
+    min-height: fit-content;
+    height: 3vh;
+    padding: 10px 5px;
+}
+
+.header-container h1{
+    font-size: $h1DesktopFS;
+    line-height: $h1DesktopLH;
+}

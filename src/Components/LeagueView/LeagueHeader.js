@@ -4,7 +4,10 @@ export default class LeagueHeader extends React.Component{
     render(){
         return (
             <div className='header-container'>
-                Header
+                <h1>On The Bounce</h1>
+                <div className='profile-section'>
+                    
+                </div>
             </div>
         )
     }
