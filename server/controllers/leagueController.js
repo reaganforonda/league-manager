@@ -14,6 +14,7 @@ module.exports = {
         console.log(validLeagueCity);
         let validLeagueState = generalUtil.validateState(leagueState);
         console.log(validLeagueState);
+        console.log(`Zipcode: ${leagueZip}`)
         let validLeagueZip = generalUtil.validateZipCode(leagueZip);
         console.log(validLeagueZip);
 
