@@ -20,7 +20,7 @@ export class CoachTeamView extends React.Component{
                 <div className='coach-team-view-main'>
                     <Switch>
                         <Route path='/coach/dashboard/teamview/add' component={CoachTeamForm}/>
-                        <Route path='/coach/dashboard/squadview/list' component={CoachTeamList}/>
+                        <Route path='/coach/dashboard/teamview/list' component={CoachTeamList}/>
                     </Switch>
                 </div>
                 

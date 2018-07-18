@@ -10,7 +10,7 @@ const GET_PENDING_APPROVAL_TEAMS = 'GET_PENDING_APPROVAL_TEAMS';
 
 export function getManagedTeams(userID){
     let managedTeams = axios.get(`/api/teams/${userID}`).then((result)=>{
-        return result;
+        return result.data;
     }).catch((err)=>{
         console.log(`Client Side Error: Attempting to retrive managed teams: ${err}`);
     })
