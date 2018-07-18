@@ -7,8 +7,6 @@ import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
 export class ManagedLeagues extends React.Component{
     constructor(props){
         super(props);
-
-        this.state={}
     }
 
     componentDidMount(){
