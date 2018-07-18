@@ -5,19 +5,13 @@ module.exports = {
     createLeague: (req, res) => {
         const db = req.app.get('db');
         
-        
         const {user_id, leagueName, leagueCity, leagueState, leagueZip} = req.body;
         
         let validLeagueName = generalUtil.validateLeagueName(leagueName);
-        console.log(validLeagueName);
         let validLeagueCity = generalUtil.validateCity(leagueCity);
-        console.log(validLeagueCity);
         let validLeagueState = generalUtil.validateState(leagueState);
-        console.log(validLeagueState);
-        console.log(`Zipcode: ${leagueZip}`)
         let validLeagueZip = generalUtil.validateZipCode(leagueZip);
-        console.log(validLeagueZip);
-
+        
         if(validLeagueName && validLeagueCity && validLeagueState && validLeagueZip){
             db.CREATE_LEAGUE([user_id, leagueName, leagueCity, leagueState, leagueZip]).then((league)=> {
                 res.status(200).send(league);
