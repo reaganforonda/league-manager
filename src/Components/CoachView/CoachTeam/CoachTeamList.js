@@ -23,8 +23,6 @@ export class CoachTeamList extends React.Component{
                 return <CoachTeamCard key={team.team_id} team={team}/>
             })
         }
-
-        console.log(managedTeams);
         return (
             <div className='coach-team-list-container'>
                 {managedTeams}
