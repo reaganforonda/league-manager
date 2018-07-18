@@ -153,7 +153,8 @@ export class AddLeagueForm extends React.Component{
 
 function mapStateToProps(state){
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        managedLeagues: state.leagueReducer.mangedLeagues
     }
 }
 

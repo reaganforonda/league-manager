@@ -3,6 +3,7 @@ import {withRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import LeagueListViewHeader from './LeagueListViewHeader'
 import AddLeagueForm from './AddLeagueForm'
+import ManagedLeagues from './ManagedLeagues';
 
 export class LeagueListView extends React.Component{
     constructor(props){
@@ -20,7 +21,9 @@ export class LeagueListView extends React.Component{
                 <div className='league-view-list-main-section'>
                     <Switch>
                         <Route path='/league/dashboard/leaguelistview/add' component={AddLeagueForm}/>
+                        <Route path='/league/dashboard/leaguelistview/list' component={ManagedLeagues}/>
                     </Switch>
+                    
                 </div> 
             </div>
         )
@@ -29,7 +32,7 @@ export class LeagueListView extends React.Component{
 
 function mapStateToProps(state){
     return {
-
+        user: state.userReducer.user
     }
 }
 
