@@ -74,5 +74,18 @@ module.exports = {
             console.log(`Server error while attempting to get managed teams: ${err}`)
             res.sendStatus(500);
         })
+    },
+
+    getTeamsPendingApproval: (req, res) => {
+        const db = req.app.get('db');
+        const {userID} = req.params;
+
+        db.GET_PENDING_APPROVAL_TEAMS([userID]).then((teams) => {
+            console.log(teams);
+            res.status(200).send(result);
+        }).catch((err)=> {
+            console.log(`Server error while attempting to get teams pending approval : ${err}`);
+            res.sendStatus(500);
+        })
     }
 }
