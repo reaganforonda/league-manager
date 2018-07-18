@@ -43,7 +43,6 @@ export class AddLeagueForm extends React.Component{
             validLeagueZip: true,
             validForm: false
         })
-        console.log('hit');
     }
 
     handleInputChange(e){
@@ -147,11 +146,6 @@ export class AddLeagueForm extends React.Component{
                         <input type='submit' placeholder='Submit' onClick={(e)=>this.handleSubmit(e)}/>
                     </div>
                 </form>
-                {
-                    this.state.displaySuccessRow ? (
-                        <div className='add-league-success-row'>League Successfully Added</div>
-                    ):null
-                }
             </div>
         )
     }
