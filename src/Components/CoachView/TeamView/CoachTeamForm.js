@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getAllLeagues} from '../../../ducks/reducers/leagueReducer';
-import axios from 'axios'
+import axios from 'axios';
+import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
 
 export class CoachTeamForm extends React.Component{
     constructor(props){
@@ -49,7 +50,7 @@ export class CoachTeamForm extends React.Component{
             }
 
             axios.post('/api/team', team).then((result)=> {
-                console.log(result);
+                this.props.getManagedTeams(this.props.user.user_id)
                 this.resetState();
             }).catch((err)=> {
                 console.log(err.response);
@@ -107,4 +108,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getAllLeagues})(CoachTeamForm);
+export default connect(mapStateToProps, {getAllLeagues, getManagedTeams})(CoachTeamForm);

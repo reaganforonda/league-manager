@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import CoachTeamCard from './CoachTeamCard'
 
+
 export class CoachTeamList extends React.Component{
     constructor(props){
         super(props);
@@ -15,15 +16,13 @@ export class CoachTeamList extends React.Component{
 
         if(this.props.managedTeams){
             managedTeams = this.props.managedTeams.map((team)=> {
-                <CoachTeamCard team={team}/>
+                return <CoachTeamCard key={team.team_id} team={team}/>
             })
         }
-        console.log(this.props.managedTeams)
 
         return (
             <div className='coach-team-list-container'>
                 {managedTeams}
-                <p>duh</p>
             </div>
         )
     }
