@@ -82,9 +82,22 @@ module.exports = {
 
         db.GET_PENDING_APPROVAL_TEAMS([userID]).then((teams) => {
             console.log(teams);
-            res.status(200).send(teams  );
+            res.status(200).send(teams);
         }).catch((err)=> {
             console.log(`Server error while attempting to get teams pending approval : ${err}`);
+            res.sendStatus(500);
+        })
+    },
+
+    approveTeam: (req, res) => {
+        const db = req.app.get('db');
+        const {teamID} = req.params;
+        const {user} = req.body;
+
+        db.APPROVE_PENDING_TEAM([teamID]).then((result)=> {
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server error while attempting to update team: ${err}`);
             res.sendStatus(500);
         })
     }
