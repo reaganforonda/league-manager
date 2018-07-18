@@ -23,7 +23,7 @@ export function getManagedTeams(userID){
 
 export function getPendingApprovalTeams(userID) {
     let pendingTeams = axios.get(`/api/teams/pending/${userID}`).then((result) => {
-        return result;
+        return result.data;
     }).catch((err)=> {
         console.log(`Client Side Error: Attempting to retrive pending approval teams: ${err}`)
     })
