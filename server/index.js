@@ -52,7 +52,7 @@ app.post('/api/register/league', leagueController.createLeague)
 app.post('/api/team/player', teamController.createPlayer)
 app.post('/api/team', teamController.createTeam)
 app.get('/api/teams/:userID', teamController.getManagedTeams)
-app.get('/api/teams/pending/:userid', teamController.getTeamsPendingApproval)
+app.get('/api/teams/pending/:userID', teamController.getTeamsPendingApproval)
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
