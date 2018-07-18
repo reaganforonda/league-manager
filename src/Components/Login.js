@@ -17,6 +17,7 @@ export class Login extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handelLoginSubmit = this.handelLoginSubmit.bind(this);
         this.resetState = this.resetState.bind(this);
+        this.redirectToRegister = this.redirectToRegister.bind(this);
     }
 
     handleInputChange(e){
@@ -63,6 +64,11 @@ export class Login extends React.Component{
         })
     }
 
+    redirectToRegister(e){
+        e.preventDefault();
+        this.props.history.push('/register');
+    }
+
     render(){
         return (
             <div className='login-page-container'>
@@ -85,7 +91,7 @@ export class Login extends React.Component{
                             <input onClick={(e)=> this.handelLoginSubmit(e)} className='login-submit-btn' type='submit' placeholder='Sign In'/>
                         </div>
                     </form>
-                    <p>Don't have an account? Please Register</p>
+                    <p>Don't have an account? <span onClick={(e)=>this.redirectToRegister(e)}>Please Register</span></p>
                 </div>
             </div>
         )
