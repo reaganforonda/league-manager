@@ -70,10 +70,8 @@ export class AddLeagueForm extends React.Component{
 
         if(this.state.validLeagueName && this.state.validLeagueCity && 
             this.state.validLeagueState && this.state.validLeagueZip) {
-                console.log('Valid Form');
                 await this.setState({validForm: true})
             } else {
-                console.log("Invalid Form")
                 await this.setState({validForm: false})
             }
     }
@@ -87,7 +85,7 @@ export class AddLeagueForm extends React.Component{
                     leagueName: this.state.leagueName,
                     leagueCity: this.state.city,
                     leagueState: this.state.state,
-                    leagueZipcode: this.state.zipcode
+                    leagueZip: this.state.zipcode
                 }
     
                 axios.post('/api/register/league',league).then((league)=> {
