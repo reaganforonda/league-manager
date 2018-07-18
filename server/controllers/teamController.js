@@ -82,7 +82,7 @@ module.exports = {
 
         db.GET_PENDING_APPROVAL_TEAMS([userID]).then((teams) => {
             console.log(teams);
-            res.status(200).send(result);
+            res.status(200).send(teams  );
         }).catch((err)=> {
             console.log(`Server error while attempting to get teams pending approval : ${err}`);
             res.sendStatus(500);
