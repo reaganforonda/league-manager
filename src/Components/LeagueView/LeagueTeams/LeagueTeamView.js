@@ -2,9 +2,13 @@ import React from 'react';
 import {withRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import LeagueTeamViewHeader from './LeagueTeamViewHeader'
-import PendingTeams from './PendingTeams'
+import PendingTeams from './PendingTeams';
+import {getPendingApprovalTeams} from '../../../ducks/reducers/teamReducer'
 
 export class LeagueTeamView extends React.Component{
+    componentDidMount(){
+        this.props.getPendingApprovalTeams(this.props.user.user_id);
+    }
     render(){
         return(
             <div className='league-team-view-container'>
@@ -22,8 +26,9 @@ export class LeagueTeamView extends React.Component{
 
 function mapStateToProps(state){
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        pendingApproval: state.teamReducer.pendingApproval
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(LeagueTeamView))
+export default connect(mapStateToProps, {getPendingApprovalTeams})(withRouter(LeagueTeamView))
