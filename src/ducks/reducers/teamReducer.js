@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 const INITIAL_STATE = {
-    managedTeams: []
+    managedTeams: [],
+    pendingApproval: []
 }
 
 const GET_MANAGED_TEAMS = 'GET_MANAGED_TEAMS';
+const GET_PENDING_APPROVAL_TEAMS = 'GET_PENDING_APPROVAL_TEAMS';
 
 export function getManagedTeams(userID){
     let managedTeams = axios.get(`/api/teams/${userID}`).then((result)=>{
-        console.log(`Get managed tea result: ${result}`);
         return result;
     }).catch((err)=>{
         console.log(`Client Side Error: Attempting to retrive managed teams: ${err}`);
@@ -20,6 +21,19 @@ export function getManagedTeams(userID){
     }
 }
 
+export function getPendingApprovalTeams(userID) {
+    let pendingTeams = axios.get(`/api/teams/${userID}`).then((result) => {
+        return result;
+    }).catch((err)=> {
+        console.log(`Client Side Error: Attempting to retrive pending approval teams: ${err}`)
+    })
+
+    return {
+        type: GET_PENDING_APPROVAL_TEAMS,
+        payload: pendingTeams
+    }
+}
+
 export default function reducer(state = INITIAL_STATE, action){
     switch(action.type){
         case GET_MANAGED_TEAMS + '_PENDING':
@@ -27,6 +41,11 @@ export default function reducer(state = INITIAL_STATE, action){
 
         case GET_MANAGED_TEAMS + '_FULFILLED':
             return Object.assign({}, state, {managedTeams: action.payload})
+        
+        case GET_PENDING_APPROVAL_TEAMS + '_PENDING':
+            return 'LOADING TEAMS'
+        case GET_PENDING_APPROVAL_TEAMS + '_FULFILLED':
+            return Object.assign({}, state, {pendingApproval: action.payload})
 
         default:
             return state;
