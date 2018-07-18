@@ -6,7 +6,7 @@ export class LeagueTeamList extends React.Component{
     render(){
         return(
             <div className='league-team-list-container'>
-                
+
             </div>
         )
     }
