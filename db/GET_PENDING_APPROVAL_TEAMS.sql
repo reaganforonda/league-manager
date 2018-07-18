@@ -1,4 +1,6 @@
-SELECT * FROM teams
-JOIN leagues ON teams.league_id = leagues.league_id
-WHERE teams.user_id = $1
+SELECT *
+FROM teams
+JOIN leagues 
+ON leagues.league_id = teams.league_id
+WHERE leagues.user_id = $1
 AND teams.approved = false
