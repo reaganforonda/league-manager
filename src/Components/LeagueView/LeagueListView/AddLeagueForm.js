@@ -43,6 +43,7 @@ export class AddLeagueForm extends React.Component{
             validLeagueZip: true,
             validForm: false
         })
+        console.log('hit');
     }
 
     handleInputChange(e){
