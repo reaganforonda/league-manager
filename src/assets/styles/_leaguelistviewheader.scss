@@ -21,3 +21,11 @@ $mayaBlue: #6CCFF6;
     justify-content: space-around;
     width: 30%;
 }
+
+.league-list-view-head-menu a{
+    color: $registrationBlack;
+}
+
+.league-list-view-head-menu a:hover{
+    color: $mayaBlue;
+}
