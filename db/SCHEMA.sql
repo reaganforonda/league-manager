@@ -21,6 +21,11 @@ CREATE TABLE users
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(45),
     user_email TEXT,
+    user_first_name VARCHAR(45),
+    user_last_name VARCHAR(45),
+    user_phone VARCHAR(45),
+    user_city VARCHAR(45),
+    user_state VARCHAR(2),
     user_pw TEXT,
     acct_type INTEGER REFERENCES account_types(acct_id)
 );
