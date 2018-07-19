@@ -17,10 +17,16 @@ $mayaBlue: #6CCFF6;
     line-height: 1.25em;
     padding: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .league-side-menu-item:hover{
     background: $mayaBlue;
-    color: $white;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.league-side-menu-item a:visited{
+    color: $registrationBlack;
 }

@@ -10,13 +10,22 @@ $h1PhoneFS: 2em;
 $h1PhoneLH: 1.25em;
 
 .header-container{
-    border: solid 1px blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     min-height: fit-content;
     height: 3vh;
     padding: 10px 5px;
+    background: $mayaBlue;
+    border: solid 1px $registrationBlack;
 }
 
 .header-container h1{
     font-size: $h1DesktopFS;
     line-height: $h1DesktopLH;
+}
+
+.profile-icon{
+    min-height: 15px;
+    height: fit-content ;
 }
