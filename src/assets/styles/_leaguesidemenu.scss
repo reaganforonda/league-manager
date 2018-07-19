@@ -4,12 +4,19 @@ $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
 
+.league-side-menu-container{
+    min-width: fit-content;
+    width: 10%;
+    height: 100vh;
+
+}
+
 .league-side-menu-list{
-        // max-width: 400px;
-        min-width: fit-content;
-        // width: 10vw;
         background: $sheenGreen;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
 }
 
 .league-side-menu-item{
