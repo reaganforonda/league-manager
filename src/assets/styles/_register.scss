@@ -4,8 +4,51 @@ $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
 
+$h1DesktopFS: 3em;
+$h1DesktopLH: 1.05em;
+$h1PhoneFS: 2em;
+$h1PhoneLH: 1.25em;
+
+$h2DesktopFS: 2em; //TODO:
+$h2DesktopLH: 1.75em; //TODO:
+
 .registration-container{
     background: $sonicSilver;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-form-container{
+    background: $mayaBlue;
+    width: 50%;
+    min-width: fit-content;
+    min-height: fit-content;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.registration-form-row {
+    margin: 10px 0;
+    min-width: fit-content;
+    width: 50%;
+    padding: 10px 0;
+}
+
+.registration-form-row h1{
+    text-align: center;
+    font-size: $h1DesktopFS;
+    line-height: $h1DesktopLH;
+    padding: 10px 0px;
+}
+
+.registration-form-row h2 {
+    font-size: $h2DesktopFS;
+    text-align: center;
 }

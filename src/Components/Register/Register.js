@@ -87,7 +87,7 @@ export class Register extends React.Component{
     render(){
         return (
             <div className='registration-container'>
-                <form className='registration-form container'>
+                <form className='registration-form-container'>
                     <div className='registration-form-row'>
                         <h1>Join On The Bounce </h1>
                     </div>
