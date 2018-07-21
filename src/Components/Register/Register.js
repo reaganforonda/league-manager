@@ -106,19 +106,19 @@ export class Register extends React.Component{
                     </div>
 
                     <div className='registration-form-row'>
-                        <input onChange={(e) => this.handleInputChange(e)} name='userName' 
+                        <input className='registration-form-row-ipnut' onChange={(e) => this.handleInputChange(e)} name='userName' 
                             maxLength='45' required type='text' placeholder='User Name'/>
                     </div>
                     <div className='registration-form-row'>
-                        <input onChange={(e) => this.handleInputChange(e)} name='userEmail' 
+                        <input className='registration-form-row-ipnut' onChange={(e) => this.handleInputChange(e)} name='userEmail' 
                             maxLength='255' required type='email' placeholder='Email'/>
                     </div>
                     <div className='registration-form-row'>
-                        <input onChange={(e) => this.handleInputChange(e)} name='pw'
+                        <input className='registration-form-row-ipnut' onChange={(e) => this.handleInputChange(e)} name='pw'
                             maxLength='20' type='password' required placeholder='Password'/>
                     </div>
                     <div className='registration-form-row'>
-                        <input onChange={(e)=> this.handleInputChange(e)} name='confirmPW' 
+                        <input className='registration-form-row-ipnut' onChange={(e)=> this.handleInputChange(e)} name='confirmPW' 
                             maxLength='20' type='password' required placeholder='Confirm Password'/>
                     </div>
                     <div className='registration-form-row'>

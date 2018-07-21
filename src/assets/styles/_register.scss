@@ -9,8 +9,17 @@ $h1DesktopLH: 1.05em;
 $h1PhoneFS: 2em;
 $h1PhoneLH: 1.25em;
 
-$h2DesktopFS: 2em; //TODO:
-$h2DesktopLH: 1.75em; //TODO:
+/* H2 */
+$h2DesktopFS: 2.25em;
+$h2DesktopLH: 1.25em;
+$h2PhoneFS: 1.625em;
+$h2PhoneLH: 1.15384615em;
+
+$bodyDesktopFS: 1em;
+$bodyDesktopLH: 1.375em;
+$bodyPhoneFS: 1em;
+$bodyPhoneLH: 1.25em;
+
 
 .registration-container{
     background: $sonicSilver;
@@ -38,7 +47,8 @@ $h2DesktopLH: 1.75em; //TODO:
     margin: 10px 0;
     min-width: fit-content;
     width: 50%;
-    padding: 10px 0;
+    padding: 10px 10px; ;
+    border: solid 1px yellow;
 }
 
 .registration-form-row h1{
@@ -52,3 +62,10 @@ $h2DesktopLH: 1.75em; //TODO:
     font-size: $h2DesktopFS;
     text-align: center;
 }
+
+.registration-form-row-ipnut {
+    width: 100%;
+    font-size: $bodyDesktopFS;
+    line-height: $bodyDesktopLH;
+    padding: 3px 0;
+}   
