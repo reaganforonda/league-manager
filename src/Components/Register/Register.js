@@ -1,6 +1,5 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
-import { match } from 'minimatch';
 import axios from 'axios';
 import * as generalUtil from '../../Utilities/generalUtil';
 
@@ -42,7 +41,7 @@ export class Register extends React.Component{
         let validUserName = this.state.userName !== '' && (this.state.userEmail.length <= 45);
         let validEmail = generalUtil.validateEmail(this.state.userEmail);
         let matchingPW = this.matchingPassword();
-        return validUserName && validUserType && validEmail;
+        return validUserName && validUserType && validEmail && matchingPM;
     }
 
     handleRegisterRequest(user){
@@ -50,6 +49,11 @@ export class Register extends React.Component{
             this.registerRedirect(~~user.userType, ~~newUser.status)
         }).catch((err)=>{
             console.log(`Error: ${err.response.status}`)
+            if(err.response.status === 500){
+                this.props.history.push('/error/500')
+            } else if (err.response.status === 401){
+                this.props.history.push('/error/401');
+            }
         })
     }
 
