@@ -89,7 +89,7 @@ export class RegisterLeague extends React.Component{
 
 function mapStateToProps(state){
     return {
-        user = state.userReducer.user
+        user: state.userReducer.user
     }
 }
 
