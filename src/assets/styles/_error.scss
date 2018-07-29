@@ -31,12 +31,14 @@ $h2PhoneLH: 1.15384615em;
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background: $registrationBlack;
 }
 
 .error-view-container h1 {
     font-size: $h1DesktopFS;
     line-height: $h1DesktopLH;
     margin-bottom: 10px;
+    color: $mayaBlue;
 }
 
 .error-view-container button {
