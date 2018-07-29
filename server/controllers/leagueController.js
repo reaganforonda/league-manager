@@ -1,4 +1,3 @@
-// const axios = require('axios');
 const generalUtil = require('../../src/Utilities/generalUtil')
 
 module.exports = {
