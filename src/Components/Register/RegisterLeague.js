@@ -1,6 +1,7 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 export class RegisterLeague extends React.Component{
     constructor(props){
@@ -40,7 +41,8 @@ export class RegisterLeague extends React.Component{
         e.preventDefault();
 
         let league = {
-            user_id: 1, // TODO:
+            user_id: 1, // TODO:  Change to dynamic User_ID using react redux
+            // user_id: this.props.user.user_id
             leagueName: this.state.leagueName,
             leagueCity: this.state.leagueCity,
             leagueState: this.state.leagueState,
@@ -85,4 +87,10 @@ export class RegisterLeague extends React.Component{
     }
 }
 
-export default withRouter(RegisterLeague)
+function mapStateToProps(state){
+    return {
+        user = state.userReducer.user
+    }
+}
+
+export default connect(mapStateToProps, {})(withRouter(RegisterLeague))

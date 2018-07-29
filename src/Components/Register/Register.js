@@ -122,7 +122,7 @@ export class Register extends React.Component{
                             maxLength='20' type='password' required placeholder='Confirm Password'/>
                     </div>
                     <div className='registration-form-row'>
-                        <input onClick={(e)=>this.handleSubmitForm(e)} type='submit' placeholder='Register'/>
+                        <input className='registration-submit-btn' onClick={(e)=>this.handleSubmitForm(e)} type='submit' placeholder='Register'/>
                     </div>
                 </form>
             </div>
