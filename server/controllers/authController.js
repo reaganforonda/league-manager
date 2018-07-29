@@ -61,7 +61,7 @@ module.exports = {
                 const userPW = user[0].user_pw;
                 const confirmedPW = bcrypt.compareSync(pw, userPW);
                 if(confirmedPW){
-                    req.session.user.user_id = user[0].user_id;
+                    req.session.user.user_id = userID;
                     req.session.user.acct_type = 1;
                     res.status(200).send(user[0])
                 } else {
@@ -72,7 +72,7 @@ module.exports = {
                 const userPW = user[0].user_pw;
                 const confirmedPW = bcrypt.compareSync(pw, userPW);
                 if(confirmedPW){
-                    req.session.user.user_id = user[0].user_id;
+                    req.session.user.user_id = userID;
                     req.session.user.acct_type = 2;
                     res.status(200).send(user[0]);
                 } else {
