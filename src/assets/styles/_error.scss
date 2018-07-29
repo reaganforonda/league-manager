@@ -37,11 +37,22 @@ $h2PhoneLH: 1.15384615em;
 .error-view-container h1 {
     font-size: $h1DesktopFS;
     line-height: $h1DesktopLH;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    padding: 20px 0;
     color: $mayaBlue;
 }
 
 .error-view-container button {
     font-size: $bodyDesktopFS;
     line-height: $bodyDesktopLH;
+    border: 0;
+    padding: 5px 5px;
+    min-width: fit-content;
+    width: 100px;
+    border-radius: 3px;
+}
+
+.error-view-container button:hover{
+    cursor: pointer;
+    border: 1px solid $sheenGreen;
 }
