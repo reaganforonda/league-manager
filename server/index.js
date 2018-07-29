@@ -15,7 +15,8 @@ const teamController = require('./controllers/teamController')
 const {
     SERVER_PORT,
     CONNECTION_STRING,
-    SECRET_SESSION
+    SECRET_SESSION,
+    MODE
 } = process.env;
 
 app.use(bodyParser.json());
