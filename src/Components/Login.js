@@ -49,8 +49,8 @@ export class Login extends React.Component{
                 if(err.response.status === 422){
                     this.setState({displayError: true})
                 } else if (err.response.status === 500){
-                    // TODO: REDIRECT
-                    console.log('Server Error')
+                    this.props.history.push('/error/500');
+                    //TODO: How to prevent anyone to access this page?
                 }
             })
         }
