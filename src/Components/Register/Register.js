@@ -41,7 +41,7 @@ export class Register extends React.Component{
         let validUserName = this.state.userName !== '' && (this.state.userEmail.length <= 45);
         let validEmail = generalUtil.validateEmail(this.state.userEmail);
         let matchingPW = this.matchingPassword();
-        return validUserName && validUserType && validEmail && matchingPM;
+        return validUserName && validUserType && validEmail && matchingPW;
     }
 
     handleRegisterRequest(user){
