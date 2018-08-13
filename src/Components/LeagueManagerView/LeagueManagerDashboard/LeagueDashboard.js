@@ -1,11 +1,11 @@
 import React from 'react'
 import {withRouter, Switch, Route} from 'react-router-dom';
-import Header from './LeagueHeader'
-import LeagueSideMenu from './LeageMenus/LeagueSideMenu'
+import Header from '../LeagueHeader'
+import LeagueSideMenu from '../LeagueManagerMenus/LeagueSideMenu'
 import axios from 'axios';
 
-import LeagueTeamView from './LeagueTeams/LeagueTeamView';
-import LeagueListView from './LeagueListView/LeagueListView';
+import LeagueTeamView from './LeagueTeamView';
+import LeagueListView from '../LeagueListView/LeagueListView';
 import LeagueAdminView from '../LeagueAdminView/LeagueAdminView';
 
 export class LeagueDashboard extends React.Component{

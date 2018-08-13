@@ -8,6 +8,9 @@ import axios from 'axios';
 export class ManagedLeagues extends React.Component{
     constructor(props){
         super(props);
+
+        this.handleLeagueSelect = this.handleLeagueSelect.bind(this);
+        this.retreiveLeagueInfo = this.retreiveLeagueInfo.bind(this);
     }
 
     componentDidMount(){
@@ -15,11 +18,17 @@ export class ManagedLeagues extends React.Component{
     }
 
     handleLeagueSelect(leagueID){
-        
+        this.retreiveLeagueInfo(leagueID);
     }
 
     retreiveLeagueInfo(leagueID){
-        
+        axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
+
+            console.log(league);
+        }).catch((err)=> {
+            console.log(err);
+            // TODO:
+        })
     }
 
     render(){
@@ -27,7 +36,7 @@ export class ManagedLeagues extends React.Component{
 
         if(this.props.managedLeagues){
             managedLeagues = this.props.managedLeagues.map((league)=> {
-                return <ManagedLeaguesCard key={league.league_id} league={league}/>
+                return <ManagedLeaguesCard key={league.league_id} league={league} selectLeague={this.handleLeagueSelect(league.league_id)}/>
             })
         }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {withRouter, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import LeagueTeamViewHeader from './LeagueTeamViewHeader'
-import PendingTeams from './PendingTeams';
+import LeagueTeamViewHeader from '../LeagueTeams/LeagueTeamViewHeader'
+import PendingTeams from '../LeagueTeams/PendingTeams';
 import {getPendingApprovalTeams} from '../../../ducks/reducers/teamReducer'
 
 export class LeagueTeamView extends React.Component{

@@ -4,7 +4,7 @@ import Landing from './Components/Landing';
 import Login from './Components/Login';
 import CoachDashboard from './Components/CoachView/CoachDashboard';
 import Register from './Components/Register/Register';
-import LeagueDashboard from './Components/LeagueView/LeagueDashboard';
+import LeagueDashboard from './Components/LeagueManagerView/LeagueManagerDashboard/LeagueDashboard';
 import Error500View from './Components/ErrorViews/Error500View';
 import Error400View from './Components/ErrorViews/Error400View';
 import Error401View from './Components/ErrorViews/Error401View';
