@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './CoachMenus/CoachMenu'
+import Menu from './CoachMenus/CoachViewSideMenu'
 import HeaderMenu from './CoachMenus/CoachHeaderMenu';
 import {Switch, Route} from 'react-router-dom';
 import SquadView from './Squad/SquadView';
@@ -12,7 +12,9 @@ export class CoachDashbaord extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state={}
+        this.state={
+            
+        }
     }
 
     componentDidMount = async()=>{
