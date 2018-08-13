@@ -53,11 +53,9 @@ module.exports = {
 
     getLeagueInfo: (req, res) => {
         const db=req.app.get('db');
-        const {userID} = req.params;
-        const {leagueID} = req.body;
+        const {userID, leagueID} = req.params;
 
         db.GET_LEAGUE([userID, leagueID]).then((result)=> {
-            console.log(result);
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server Error while attempting to retreive league info: ${err}`);
