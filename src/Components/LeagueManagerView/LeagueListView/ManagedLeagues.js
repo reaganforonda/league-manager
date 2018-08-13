@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import ManagedLeaguesCard from './ManagedLeaguesCard'
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
+import axios from 'axios';
 
 export class ManagedLeagues extends React.Component{
     constructor(props){
@@ -13,15 +14,21 @@ export class ManagedLeagues extends React.Component{
         this.props.getManagedLeagues(this.props.user.user_id);
     }
 
-    render(){
+    handleLeagueSelect(leagueID){
+        
+    }
 
+    retreiveLeagueInfo(leagueID){
+        
+    }
+
+    render(){
         let managedLeagues=[];
 
         if(this.props.managedLeagues){
             managedLeagues = this.props.managedLeagues.map((league)=> {
                 return <ManagedLeaguesCard key={league.league_id} league={league}/>
             })
-            
         }
 
         return (

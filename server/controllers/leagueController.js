@@ -44,12 +44,24 @@ module.exports = {
         }
 
         db.GET_MANAGED_LEAGUES([userID]).then((result)=> {
-            console.log(result);
             res.status(200).send(result);
         }).catch((err)=> {
             console.log(`Server Error while attempting to get managed leagues: ${err}`);
             res.sendStatus(500);
         })
-        
+    },
+
+    getLeagueInfo: (req, res) => {
+        const db=req.app.get('db');
+        const {userID} = req.params;
+        const {leagueID} = req.body;
+
+        db.GET_LEAGUE([userID, leagueID]).then((result)=> {
+            console.log(result);
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server Error while attempting to retreive league info: ${err}`);
+            res.sendStatus(500);
+        })
     }
 }
