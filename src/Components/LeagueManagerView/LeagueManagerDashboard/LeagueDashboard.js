@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {withRouter, Switch, Route} from 'react-router-dom';
 import Header from './LeagueHeader'
 import LeagueSideMenu from './LeageMenus/LeagueSideMenu'
