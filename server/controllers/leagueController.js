@@ -55,15 +55,27 @@ module.exports = {
         const db=req.app.get('db');
         const {userID, leagueID} = req.params;
 
-        console.log(`UserID: ${userID}`);
-        console.log(`League ID: ${leagueID}`)
-
         db.GET_LEAGUE([userID, leagueID]).then((result)=> {
-            console.log(`Result: ${result}`)
-            console.log(result[0]);
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server Error while attempting to retreive league info: ${err}`);
+            res.sendStatus(500);
+        })
+    },
+
+    createNewSeason: (req, res) => {
+        const db=req.app.get('db');
+        const {userID, leagueID, seasonStartDate, seasonEndDate} = req.body;
+        
+        if(!userID){
+            res.sendStatus(401);
+            // TODO: Check error code
+        }
+
+        db.CREATE_NEW_SEASON([leagueID, seasonStartDate, seasonEndDate]).then((result)=> {
+            res.status(200).send(result);
+        }).catch((err)=> {
+            console.log(`Server error while attempting to add new season: ${err}`)
             res.sendStatus(500);
         })
     }
