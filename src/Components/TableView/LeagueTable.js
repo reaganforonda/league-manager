@@ -6,12 +6,11 @@ export default class LeagueTable extends React.Component{
 
         this.state={}
     }
-    
+
 
     render(){
         return (
             <div className='league-table-container'>
-            
             </div>
         )
     }
