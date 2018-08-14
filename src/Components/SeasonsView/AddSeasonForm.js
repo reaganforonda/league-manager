@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import axios from 'axios';
 
 export class AddSeasonForm extends React.Component{
     constructor(props){
@@ -10,20 +11,36 @@ export class AddSeasonForm extends React.Component{
             seasonStartDate: '',
             seasonEndDate: '',
         }
+
+        this.addNewSeason = this.addNewSeason.bind(this);
     }
 
-    addNewSeason(){
-        
+    addNewSeason(e){
+        e.preventDefault();
+        let season={
+            leagueID: this.props.selectedLeague.league_id,
+            seasonStartDate: this.state.seasonStartDate,
+            seasonEndDate: this.state.seasonEndDate
+        }
+        axios.post('/api/league/season', season).then((result)=> {
+            console.log("OKAYALKJDLKFJD")
+            // TODO:
+        }).catch((err)=> {
+            console.log(`ERROR: ${err}`)
+        })
     }
 
     render(){
         return(
             <form className='add-season-form'>
                 <div className='add-season-form-row'>
-                    Season Start Date
+                    <input type="date" placeholder='Season Start Date'/>
                 </div>
                 <div className='add-season-form-row'>
-                    Season End Date
+                    <input type="date" placeholder='Season End Date'/>
+                </div>
+                <div className='add-season-form-row'>
+                    <input type="submit">Submit</input>
                 </div>
             </form>
         )
