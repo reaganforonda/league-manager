@@ -16,7 +16,7 @@ export class LeagueAdminView extends React.Component{
             <div className='league-admin-view-container'>
                 <LeagueAdminHeader/>
                 <main className='league-admin-view-main'>
-                Selected League: {this.props.selectedLeague};    
+                    League Name: {this.props.selectedLeague.league_name}
                 </main>
             </div>
         )

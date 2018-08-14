@@ -57,7 +57,7 @@ module.exports = {
 
         db.GET_LEAGUE([userID, leagueID]).then((result)=> {
             console.log(result[0]);
-            res.status(200).send(result[0]);
+            res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server Error while attempting to retreive league info: ${err}`);
             res.sendStatus(500);

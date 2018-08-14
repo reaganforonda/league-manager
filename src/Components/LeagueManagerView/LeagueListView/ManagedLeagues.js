@@ -19,15 +19,14 @@ export class ManagedLeagues extends React.Component{
     }
 
     handleLeagueSelect(leagueID){
-        let selectedLeague = this.retreiveLeagueInfo(leagueID);
-        
-        this.props.loadLeagueInfo(selectedLeague);
-        this.props.history.push('/league/dashboard/leagueadmin/')
+        this.retreiveLeagueInfo(leagueID);
+        // this.props.history.push('/league/dashboard/leagueadmin/')
     }
 
-    retreiveLeagueInfo(leagueID){
-        axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
-            return league.data
+    retreiveLeagueInfo = async (leagueID)=>{
+        await axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
+            this.props.loadLeagueInfo(league.data);
+            this.props.history.push('/league/dashboard/leagueadmin/')
         }).catch((err)=> {
             console.log(err);
             // TODO:
