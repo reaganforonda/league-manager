@@ -25,7 +25,7 @@ export class AddSeasonForm extends React.Component{
 
         axios.post('/api/league/season', season).then((result)=> {
             console.log("OKAYALKJDLKFJD")
-            console.log('Result');
+            console.log(result);
             // TODO:
         }).catch((err)=> {
             console.log(`ERROR: ${err}`)
