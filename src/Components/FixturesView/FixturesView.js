@@ -1,5 +1,6 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Switch, Route} from 'react-router-dom';
+import FixturesViewHeader from './FixturesViewHeader';
 
 export class FixturesView extends React.Component{
     constructor(props){
@@ -11,8 +12,13 @@ export class FixturesView extends React.Component{
     render(){
         return (
             <div className='fixtures-view-container'>
-                Fixtures View
+                <FixturesViewHeader/>
+                <main className='fixtures-view-main'>
+                    
+                </main>
             </div>
         )
     }
 }
+
+export default withRouter(FixturesView)

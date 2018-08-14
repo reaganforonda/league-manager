@@ -1,5 +1,4 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import LeagueAdminHeader from './LeagueAdminHeader';
 import {withRouter, Switch, Route} from 'react-router-dom';
@@ -18,7 +17,6 @@ export class LeagueAdminView extends React.Component{
             <div className='league-admin-view-container'>
                 <LeagueAdminHeader/>
                 <main className='league-admin-view-main'>
-                    League Name: {this.props.selectedLeague.league_name}
                     <Switch>
                         <Route path='/league/dashboard/leagueadmin/fixtures' component={FixturesView}/>
                     </Switch>

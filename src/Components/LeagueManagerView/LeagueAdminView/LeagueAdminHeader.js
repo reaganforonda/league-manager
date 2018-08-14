@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 export default function LeagueAdminHeader(props){
     return (
@@ -8,7 +9,7 @@ export default function LeagueAdminHeader(props){
                     Home
                 </li>
                 <li className='league-admin-header-menu-item'>
-                    Fixtures
+                    <Link to='/league/dashboard/leagueadmin/fixtures'>Fixtures</Link>
                 </li>
                 <li className='league-admin-header-menu-item'>
                     Seasons

@@ -5,6 +5,9 @@ export default function FixturesViewHeader(props){
         <header className='fixture-view-header'>
             <ul className='fixture-view-header-menu'>
                 <li className='fixture-view-header-menu-item'>
+                    Upcoming Fixtures
+                </li>
+                <li className='fixture-view-header-menu-item'>
                     Add Fixture
                 </li>
                 <li className='fixture-view-header-menu-item'>
