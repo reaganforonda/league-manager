@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 export default function FixturesViewHeader(props){
     return (
@@ -8,7 +9,7 @@ export default function FixturesViewHeader(props){
                     Upcoming Fixtures
                 </li>
                 <li className='fixture-view-header-menu-item'>
-                    Add Fixture
+                    <Link to='/league/dashboard/leagueadmin/fixtures/add'>Add Fixture</Link>
                 </li>
                 <li className='fixture-view-header-menu-item'>
                     Update Fixture Stats
