@@ -32,7 +32,6 @@ module.exports = {
             position,
             active
         ]).then((result) => {
-            console.log(result);
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server error while attempting to create Player: ${err}`);
@@ -55,7 +54,6 @@ module.exports = {
         db.CREATE_TEAM([
             leagueID, userID, teamName, city, state, zip
         ]).then((result) => {
-            console.log(result);
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server error while attempting to create team: ${err}`)
@@ -68,7 +66,6 @@ module.exports = {
         const {userID} = req.params;
 
         db.GET_MANAGED_TEAMS([userID]).then((result) => {
-            console.log(result);
             res.status(200).send(result);
         }).catch((err)=> {
             console.log(`Server error while attempting to get managed teams: ${err}`)
@@ -81,7 +78,6 @@ module.exports = {
         const {userID} = req.params;
 
         db.GET_PENDING_APPROVAL_TEAMS([userID]).then((teams) => {
-            console.log(teams);
             res.status(200).send(teams);
         }).catch((err)=> {
             console.log(`Server error while attempting to get teams pending approval : ${err}`);
