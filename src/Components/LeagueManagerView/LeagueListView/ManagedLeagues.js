@@ -23,8 +23,7 @@ export class ManagedLeagues extends React.Component{
 
     retreiveLeagueInfo(leagueID){
         axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
-
-            console.log(league);
+            return league.data
         }).catch((err)=> {
             console.log(err);
             // TODO:
@@ -36,7 +35,7 @@ export class ManagedLeagues extends React.Component{
 
         if(this.props.managedLeagues){
             managedLeagues = this.props.managedLeagues.map((league)=> {
-                return <ManagedLeaguesCard key={league.league_id} league={league} selectLeague={this.handleLeagueSelect(league.league_id)}/>
+                return <ManagedLeaguesCard key={league.league_id} league={league} selectLeague={()=>this.handleLeagueSelect(league.league_id)}/>
             })
         }
 
