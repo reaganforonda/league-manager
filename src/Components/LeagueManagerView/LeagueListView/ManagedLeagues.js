@@ -20,6 +20,7 @@ export class ManagedLeagues extends React.Component{
 
     handleLeagueSelect(leagueID){
         let selectedLeague = this.retreiveLeagueInfo(leagueID);
+        
         this.props.loadLeagueInfo(selectedLeague);
         this.props.history.push('/league/dashboard/leagueadmin/')
     }
@@ -30,7 +31,7 @@ export class ManagedLeagues extends React.Component{
         }).catch((err)=> {
             console.log(err);
             // TODO:
-        })
+        })  
     }
 
     render(){

@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import LeagueAdminHeader from './LeagueAdminHeader'
 
 export class LeagueAdminView extends React.Component{
     constructor(props){
@@ -13,7 +14,10 @@ export class LeagueAdminView extends React.Component{
     render(){
         return(
             <div className='league-admin-view-container'>
-                {this.props.selectedLeague};    
+                <LeagueAdminHeader/>
+                <main className='league-admin-view-main'>
+                Selected League: {this.props.selectedLeague};    
+                </main>
             </div>
         )
     }

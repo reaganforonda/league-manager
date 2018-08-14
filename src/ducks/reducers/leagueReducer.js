@@ -11,13 +11,14 @@ const GET_MANAGED_LEAGUES = 'GET_MANAGED_LEAGUES';
 const LOAD_LEAGUE_INFO = 'LOAD_LEAGUE_INFO';
 
 export function loadLeagueInfo(league){
+    console.log(league);
     return {
         type: LOAD_LEAGUE_INFO,
         payload: league
     }
 }
 
-export  function getAllLeagues() {
+export function getAllLeagues() {
     let leagues = axios.get('/api/leagues').then((result)=>{
         return result.data;
     })
@@ -50,9 +51,8 @@ export default function leagueReducer(state = INITIAL_STATE, action){
             return "Loading";
         case GET_MANAGED_LEAGUES + '_FULFILLED':
             return Object.assign({}, state, {managedLeagues: action.payload})
-        case LOAD_LEAGUE_INFO:
+        case LOAD_LEAGUE_INFO + '_FULFILLED':
             return Object.assign({}, state, {selectedLeague: action.payload})
-
         default:
             return state;
     }
