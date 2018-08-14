@@ -22,8 +22,10 @@ export class AddSeasonForm extends React.Component{
             seasonStartDate: this.state.seasonStartDate,
             seasonEndDate: this.state.seasonEndDate
         }
+
         axios.post('/api/league/season', season).then((result)=> {
             console.log("OKAYALKJDLKFJD")
+            console.log('Result');
             // TODO:
         }).catch((err)=> {
             console.log(`ERROR: ${err}`)
@@ -40,7 +42,7 @@ export class AddSeasonForm extends React.Component{
                     <input type="date" placeholder='Season End Date'/>
                 </div>
                 <div className='add-season-form-row'>
-                    <input type="submit">Submit</input>
+                    <input onClick={(e)=>this.addNewSeason(e)} type="submit">Submit</input>
                 </div>
             </form>
         )
