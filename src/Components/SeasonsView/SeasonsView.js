@@ -1,7 +1,8 @@
-import React from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
-import {connect} from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom';
+import React from 'react';
+import {connect} from 'react-redux';
+import SeasonsViewHeader from './SeasonsViewHeader'
 
-export default class SeasonsView extends React.Component{
+export class SeasonsView extends React.Component{
     constructor(props){
         super(props);
 
@@ -11,7 +12,10 @@ export default class SeasonsView extends React.Component{
     render(){
         return (
             <div className='seasons-view-container'>
-                Seasons View
+                <SeasonsViewHeader/>
+                <main className='seasons-view-main'>
+                    Main
+                </main>
             </div>
         )
     }

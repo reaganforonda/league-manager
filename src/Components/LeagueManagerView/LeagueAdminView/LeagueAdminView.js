@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import LeagueAdminHeader from './LeagueAdminHeader';
 import {withRouter, Switch, Route} from 'react-router-dom';
 import FixturesView from '../../FixturesView/FixturesView';
+import SeasonsView from '../../SeasonsView/SeasonsView';
 
 export class LeagueAdminView extends React.Component{
     constructor(props){
@@ -19,9 +20,10 @@ export class LeagueAdminView extends React.Component{
                 <main className='league-admin-view-main'>
                     <Switch>
                         <Route path='/league/dashboard/leagueadmin/fixtures' component={FixturesView}/>
+                        <Route path='/league/dashboard/leagueadmin/seasons' component={SeasonsView}/>
                     </Switch>
                 </main>
-            </div>
+            </div>  
         )
     }
 }

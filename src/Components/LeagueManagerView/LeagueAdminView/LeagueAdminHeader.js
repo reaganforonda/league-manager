@@ -12,7 +12,7 @@ export default function LeagueAdminHeader(props){
                     <Link to='/league/dashboard/leagueadmin/fixtures'>Fixtures</Link>
                 </li>
                 <li className='league-admin-header-menu-item'>
-                    Seasons
+                    <Link to='/league/dashboard/leagueadmin/seasons'>Seasons</Link>
                 </li>
             </ul>
         </div>
