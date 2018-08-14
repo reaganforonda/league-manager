@@ -20,8 +20,6 @@ export class ManagedLeagues extends React.Component{
     handleLeagueSelect = async (leagueID)=>{
         console.log(leagueID)
         await axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
-            console.log(league)
-            // TODO:
             this.props.loadLeagueInfo(league.data);
             this.props.history.push('/league/dashboard/leagueadmin/')
         }).catch((err)=> {
