@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import ManagedLeaguesCard from './ManagedLeaguesCard'
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
-import axios from 'axios';
+import {loadLeagueInfo} from '../../../ducks/reducers/leagueReducer'
 
 export class ManagedLeagues extends React.Component{
     constructor(props){
@@ -18,7 +19,9 @@ export class ManagedLeagues extends React.Component{
     }
 
     handleLeagueSelect(leagueID){
-        this.retreiveLeagueInfo(leagueID);
+        let selectedLeague = this.retreiveLeagueInfo(leagueID);
+        this.props.loadLeagueInfo(selectedLeague);
+        this.props.history.push('/league/dashboard/leagueadmin/')
     }
 
     retreiveLeagueInfo(leagueID){
@@ -48,12 +51,13 @@ export class ManagedLeagues extends React.Component{
         )
     }
 }
-    
+
 function mapStateToProps(state){
     return {
         user: state.userReducer.user,
-        managedLeagues: state.leagueReducer.managedLeagues
+        managedLeagues: state.leagueReducer.managedLeagues,
+        selectedLeague: state.leagueReducer.selectedLeague
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues})(withRouter(ManagedLeagues))
+export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo})(withRouter(ManagedLeagues))

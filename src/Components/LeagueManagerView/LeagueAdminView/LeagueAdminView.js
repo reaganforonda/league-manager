@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 export class LeagueAdminView extends React.Component{
     constructor(props){
@@ -12,10 +13,17 @@ export class LeagueAdminView extends React.Component{
     render(){
         return(
             <div className='league-admin-view-container'>
-                League Admin    
+                {this.props.selectedLeague};    
             </div>
         )
     }
 }
 
-export default withRouter(LeagueAdminView)
+function mapStateToProps(state) {
+    return {
+        user: state.userReducer.user,
+        selectedLeague: state.leagueReducer.selectedLeague
+    }
+}
+
+export default connect(mapStateToProps, {})(withRouter(LeagueAdminView));
