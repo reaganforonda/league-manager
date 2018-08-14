@@ -56,10 +56,11 @@ module.exports = {
         const {userID, leagueID} = req.params;
 
         db.GET_LEAGUE([userID, leagueID]).then((result)=> {
-            res.status(200).send(result);
+            console.log(result[0]);
+            res.status(200).send(result[0]);
         }).catch((err) => {
             console.log(`Server Error while attempting to retreive league info: ${err}`);
             res.sendStatus(500);
         })
     }
-}
+}   

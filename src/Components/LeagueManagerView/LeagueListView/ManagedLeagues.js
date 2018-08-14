@@ -48,7 +48,7 @@ export class ManagedLeagues extends React.Component{
         )
     }
 }
-
+    
 function mapStateToProps(state){
     return {
         user: state.userReducer.user,
