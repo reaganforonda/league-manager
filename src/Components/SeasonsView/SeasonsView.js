@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {withRouter, Switch, Route} from 'react-router-dom';
 import SeasonsViewHeader from './SeasonsViewHeader'
+import AddSeasonForm from './AddSeasonForm';
 
 export class SeasonsView extends React.Component{
     constructor(props){
@@ -14,7 +16,9 @@ export class SeasonsView extends React.Component{
             <div className='seasons-view-container'>
                 <SeasonsViewHeader/>
                 <main className='seasons-view-main'>
-                    Main
+                    <Switch>
+                        <Route path='/league/dashboard/leagueadmin/seasons/add' component={AddSeasonForm}/>
+                    </Switch>
                 </main>
             </div>
         )
@@ -27,4 +31,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {})(SeasonsView)
+export default connect(mapStateToProps, {})(withRouter(SeasonsView));
