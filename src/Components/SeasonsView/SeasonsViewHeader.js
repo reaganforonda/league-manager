@@ -9,7 +9,7 @@ export default function SeasonsViewHeader(props){
                     Home
                 </li>
                 <li className='seasons-view-header-menu-item'>
-                    <Link to='/league/dashboard/leagueadmin/seasons/add'/>
+                    <Link to='/league/dashboard/leagueadmin/seasons/add'>Add Season</Link>
                 </li>
             </ul>
         </header>
