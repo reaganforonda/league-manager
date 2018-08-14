@@ -55,7 +55,11 @@ module.exports = {
         const db=req.app.get('db');
         const {userID, leagueID} = req.params;
 
+        console.log(`UserID: ${userID}`);
+        console.log(`League ID: ${leagueID}`)
+
         db.GET_LEAGUE([userID, leagueID]).then((result)=> {
+            console.log(`Result: ${result}`)
             console.log(result[0]);
             res.status(200).send(result);
         }).catch((err) => {
