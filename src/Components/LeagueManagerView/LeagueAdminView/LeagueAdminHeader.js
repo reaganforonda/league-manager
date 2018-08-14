@@ -8,7 +8,7 @@ export default function LeagueAdminHeader(props){
                     Home
                 </li>
                 <li className='league-admin-header-menu-item'>
-                    Games
+                    Fixtures
                 </li>
                 <li className='league-admin-header-menu-item'>
                     Seasons
