@@ -3,8 +3,8 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import ManagedLeaguesCard from './ManagedLeaguesCard'
-import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
-import {loadLeagueInfo} from '../../../ducks/reducers/leagueReducer'
+import {loadLeagueInfo, getAllSeasons, getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
+
 
 export class ManagedLeagues extends React.Component{
     constructor(props){
@@ -18,8 +18,8 @@ export class ManagedLeagues extends React.Component{
     }
 
     handleLeagueSelect = async (leagueID)=>{
-        console.log(leagueID)
         await axios.get(`api/league/${this.props.user.user_id}/${leagueID}`).then((league)=> {
+            this.props.getAllSeasons(leagueID);
             this.props.loadLeagueInfo(league.data);
             this.props.history.push('/league/dashboard/leagueadmin/')
         }).catch((err)=> {
@@ -51,8 +51,9 @@ function mapStateToProps(state){
     return {
         user: state.userReducer.user,
         managedLeagues: state.leagueReducer.managedLeagues,
-        selectedLeague: state.leagueReducer.selectedLeague
+        selectedLeague: state.leagueReducer.selectedLeague,
+        seasonsLeague: state.leagueReducer.seasonsLeague
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo})(withRouter(ManagedLeagues))
+export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo, getAllSeasons})(withRouter(ManagedLeagues))
