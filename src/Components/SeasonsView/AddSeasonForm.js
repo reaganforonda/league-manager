@@ -34,17 +34,22 @@ export class AddSeasonForm extends React.Component{
 
     render(){
         return(
-            <form className='add-season-form'>
-                <div className='add-season-form-row'>
-                    <input type="date" placeholder='Season Start Date'/>
-                </div>
-                <div className='add-season-form-row'>
-                    <input type="date" placeholder='Season End Date'/>
-                </div>
-                <div className='add-season-form-row'>
-                    <input onClick={(e)=>this.addNewSeason(e)} type="submit">Submit</input>
-                </div>
-            </form>
+            <div className='add-season-container'>
+                <form className='add-season-form'>
+                    <div className='add-season-form-row'>
+                        <input type="date" placeholder='Season Start Date'/>
+                    </div>
+                    <br/>
+                    <div className='add-season-form-row'>
+                        <input type="date" placeholder='Season End Date'/>
+                    </div>
+                    
+                    <div className='add-season-form-row'>
+                        <button onClick={(e)=>this.addNewSeason(e)} type="submit">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
         )
     }
 }

@@ -40,4 +40,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {})(AddFixtureForm)
+export default connect(mapStateToProps, {})(withRouter(AddFixtureForm));
