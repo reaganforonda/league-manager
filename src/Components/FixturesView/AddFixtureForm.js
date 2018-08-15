@@ -9,13 +9,20 @@ export class AddFixtureForm extends React.Component{
         this.state = {}
     }
 
+    componentDidMount(){
+        console.log(this.props.selectedLeague)
+    }
+
 
     render(){
+        let seasons=[]
+
         return (
             <form className='add-fixture-form'>
                 <div className='add-fixture-form-row'>
-                    Fixture Date
+                    
                 </div>
+                
                 <div className='add-fixture-form-row'>
                     Season
                 </div>
@@ -36,7 +43,8 @@ export class AddFixtureForm extends React.Component{
 function mapStateToProps(state){
     return {
         user: state.userReducer.user,
-        selectedLeague: state.leagueReducer.selectedLeague
+        selectedLeague: state.leagueReducer.selectedLeague,
+        seasonsLeague: state.leagueReducer.seasonsLeague
     }
 }
 
