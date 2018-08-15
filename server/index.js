@@ -50,7 +50,7 @@ app.get('/api/leagues/:userID', leagueController.getManagedLeagues)
 app.post('/api/register/league', leagueController.createLeague)
 app.get('/api/league/:userID/:leagueID', leagueController.getLeagueInfo)
 app.post('/api/league/season', leagueController.createNewSeason)
-app.get('/api/league/seasons/:leagueiID', leagueController.getSeasons)
+app.get('/api/season/:leagueID', leagueController.getSeasons)
 
 // TEAM ENDPOINTS
 app.post('/api/team/player', teamController.createPlayer)
