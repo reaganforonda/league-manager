@@ -13,23 +13,28 @@ export class AddSeasonForm extends React.Component{
         }
 
         this.addNewSeason = this.addNewSeason.bind(this);
+        this.handleInputSelect = this.handleInputSelect.bind(this);
     }
 
     addNewSeason(e){
         e.preventDefault();
         let season={
+            userID: this.props.user.user_id,
             leagueID: this.props.selectedLeague.league_id,
             seasonStartDate: this.state.seasonStartDate,
             seasonEndDate: this.state.seasonEndDate
         }
 
         axios.post('/api/league/season', season).then((result)=> {
-            console.log("OKAYALKJDLKFJD")
             console.log(result);
             // TODO:
         }).catch((err)=> {
             console.log(`ERROR: ${err}`)
-        })
+        })        
+    };
+
+    handleInputSelect(e){
+        this.setState({[e.target.name]: e.target.value})
     }
 
     render(){
@@ -37,11 +42,11 @@ export class AddSeasonForm extends React.Component{
             <div className='add-season-container'>
                 <form className='add-season-form'>
                     <div className='add-season-form-row'>
-                        <input type="date" placeholder='Season Start Date'/>
+                        Season Start Date: <input onChange={(e)=>this.handleInputSelect(e)} name='seasonStartDate' type="date" placeholder='Season Start Date'/>
                     </div>
                     <br/>
                     <div className='add-season-form-row'>
-                        <input type="date" placeholder='Season End Date'/>
+                        Season End Date: <input onChange={(e)=>this.handleInputSelect(e)} name='seasonEndDate' type="date" placeholder='Season End Date'/>
                     </div>
                     
                     <div className='add-season-form-row'>
