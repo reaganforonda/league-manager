@@ -78,5 +78,17 @@ module.exports = {
             console.log(`Server error while attempting to add new season: ${err}`)
             res.sendStatus(500);
         })
+    },
+
+    getSeasons: (req, res) => {
+        const db = req.app.get('db');
+        const {leagueID} = req.params;
+
+        db.GET_ALL_SEASON_BY_LEAGUE([leagueID]).then((result)=> {
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server error while attempting to retreive all seasons: ${err}`);
+            res.sendStatus(500);
+        })
     }
 }   
