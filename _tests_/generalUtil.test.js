@@ -165,3 +165,46 @@ test('Should return True', ()=> {
 
     expect(testResult).toBeTruthy();
 });
+
+/*
+ * Test validateDates
+ * Check if Start Date is before End Date
+ * Return true if Start Dat is before End Date
+ */
+
+ test('Should Return True', ()=> {
+    let testValue1 = '2018-08-15';
+    let testValue2 = '2018-12-31';
+
+    let testResult = generalUtil.validateTwoDates(testValue1, testValue2);
+
+    expect(testResult).toBeTruthy();
+ });
+
+
+ test('Should Return True', ()=> {
+    let testValue1 = '2018-01-31';
+    let testValue2 = '2019-02-01';
+
+    let testResult = generalUtil.validateTwoDates(testValue1, testValue2);
+
+    expect(testResult).toBeTruthy();
+ });
+
+ test('Should Return False', ()=> {
+    let testValue1 = '2017-08-15';
+    let testValue2 = '2015-12-31';
+
+    let testResult = generalUtil.validateTwoDates(testValue1, testValue2);
+
+    expect(testResult).toBeFalsy();
+ });
+
+ test('Should Return False', ()=> {
+    let testValue1 = '2017-12-31';
+    let testValue2 = '2017-12-30';
+
+    let testResult = generalUtil.validateTwoDates(testValue1, testValue2);
+
+    expect(testResult).toBeFalsy();
+ });
