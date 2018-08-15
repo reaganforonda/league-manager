@@ -1,0 +1,55 @@
+$registrationBlack: #000300;
+$sheenGreen: #98Ce00;
+$white: #FFFFFC;
+$sonicSilver: #757780;
+$mayaBlue: #6CCFF6;
+
+
+$h1DesktopFS: 3em;
+$h1DesktopLH: 1.05em;
+$h1PhoneFS: 2em;
+$h1PhoneLH: 1.25em;
+
+/* Body */
+$bodyDesktopFS: 1em;
+$bodyDesktopLH: 1.375em;
+$bodyPhoneFS: 1em;
+$bodyPhoneLH: 1.25em;
+
+
+/* H2 */
+$h2DesktopFS: 2.25em;
+$h2DesktopLH: 1.25em;
+$h2PhoneFS: 1.625em;
+$h2PhoneLH: 1.15384615em;
+
+
+.fixture-view-header{
+    width: 100%;
+}
+
+.fixture-view-header-menu {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    color: $registrationBlack;
+    border-bottom: solid 1px $sonicSilver;
+}
+
+.fixture-view-header-menu-item {
+    font-size: $bodyDesktopFS;
+    line-height: $bodyDesktopLH;
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: $registrationBlack;
+    border-bottom: 1px solid $sonicSilver
+}
+
+.fixture-view-header-menu-item :nth-child(1){
+    color: $registrationBlack;
+}
+.fixture-view-header-menu-item :nth-child(1):visited{
+    color: $registrationBlack;
+}
+
