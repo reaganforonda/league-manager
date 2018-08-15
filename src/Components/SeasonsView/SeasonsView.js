@@ -16,7 +16,6 @@ export class SeasonsView extends React.Component{
             <div className='seasons-view-container'>
                 <SeasonsViewHeader/>
                 <main className='seasons-view-main'>
-                    MAIN
                     <Switch>
                         <Route path='/league/dashboard/leagueadmin/seasons/add' component={AddSeasonForm}/>
                     </Switch>
