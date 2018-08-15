@@ -76,5 +76,18 @@ module.exports= {
         } else {
             return false;
         }
+    },
+
+    /* Function to validate if start End is Before End Date
+     * @param String startDate = Start Date
+     * @param String endDate = End Date
+     */
+
+    validateTwoDates(startDate, endDate){
+        if( startDate < endDate) {
+            return true;
+        } else {
+            return false
+        }
     }
 }
