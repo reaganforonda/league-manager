@@ -15,7 +15,7 @@ const GET_ALL_SEASONS = 'GET_ALL_SEASONS';
 
 export function getAllSeasons(leagueID){
     const seasons = axios.get(`/api/season/${leagueID}`).then((result) => {
-        return result;
+        return result.data;
     })
 
 
