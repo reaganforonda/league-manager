@@ -25,3 +25,29 @@ $h2PhoneLH: 1.15384615em;
 .seasons-view-header{
     width: 100%;
 }
+
+.seasons-view-header-menu{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    color: $registrationBlack;
+    border-bottom: solid 1px $sonicSilver;
+}
+
+.seasons-view-header-menu-item{
+    font-size: $bodyDesktopFS;
+    line-height: $bodyDesktopLH;
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: $registrationBlack;
+    border-bottom: 1px solid $sonicSilver
+}
+
+.seasons-view-header-menu-item :nth-child(1){
+    color: $registrationBlack;
+}
+
+.seasons-view-header-menu-item :nth-child(1):visited{
+    color: $registrationBlack;
+}
