@@ -9,13 +9,16 @@ export class AddFixtureForm extends React.Component{
         this.state = {}
     }
 
-    componentDidMount(){
-        console.log(this.props.selectedLeague)
-    }
-
-
     render(){
         let seasons=[]
+
+        if(this.props.seasonsLeague){
+            seasons = this.props.seasonsLeague.map((value, index)=> {
+                return(
+                    <option key={value.season_start_date + index} value={value.season_id}>{value.season_start_date} - {value.season_end_date}</option>
+                )
+            })
+        }
 
         return (
             <form className='add-fixture-form'>
@@ -24,16 +27,33 @@ export class AddFixtureForm extends React.Component{
                 </div>
                 
                 <div className='add-fixture-form-row'>
-                    Season
+                    <select>
+                        <option value='Select Season'>
+                            Select Season
+                        </option>
+                        {seasons}
+                    </select>
                 </div>
                 <div className='add-fixture-form-row'>
-                    Stadium
+                    <select>
+                        <option value='Select Location'>
+                            Select Location
+                        </option>
+                    </select>
                 </div>
                 <div className='add-fixture-form-row'>
-                    Home Team
+                    <select>
+                        <option value='Home Team'>
+                            Home Teams
+                        </option>
+                    </select>
                 </div>
                 <div className='add-fixture-form-row'>
-                    Away Team
+                    <select>
+                        <option value='Home Team'>
+                            Away Team
+                        </option>
+                    </select>
                 </div>
             </form>
         )
