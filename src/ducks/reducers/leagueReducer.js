@@ -3,12 +3,15 @@ import axios from 'axios';
 const INITIAL_STATE = {
     leagues: [],
     managedLeagues: [],
-    selectedLeague: []
+    selectedLeague: [],
+    selectedSeasonLeague: [],
+    seasonsLeague: [],
 }
 
 const GET_ALL_LEAGUES = 'GET_ALL_LEAGUES';
 const GET_MANAGED_LEAGUES = 'GET_MANAGED_LEAGUES';
 const LOAD_LEAGUE_INFO = 'LOAD_LEAGUE_INFO';
+const GET_ALL_SEASONS = 'GET_ALL_SEASONS';
 
 export function loadLeagueInfo(league){
     return {
