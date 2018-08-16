@@ -75,4 +75,4 @@ export default function leagueReducer(state = INITIAL_STATE, action){
         default:
             return state;
     }
-}
+}  
