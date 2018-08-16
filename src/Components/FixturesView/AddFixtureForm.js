@@ -28,11 +28,13 @@ export class AddFixtureForm extends React.Component{
             locations = this.props.allStadiums.map((value, index) => {
                 return(
                     <option key={value.stadium_id + index} value={value.stadium_id}>
-                        {value.location_name}
+                        {value.stadium_name}
                     </option>
                 )
             })
         }
+
+        console.log(this.props.allStadiums)
 
         return (
             <form className='add-fixture-form'>
