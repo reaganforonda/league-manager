@@ -7,6 +7,7 @@ import axios from 'axios';
 import LeagueTeamView from './LeagueTeamView';
 import LeagueListView from '../LeagueListView/LeagueListView';
 import LeagueAdminView from '../LeagueAdminView/LeagueAdminView';
+import StadiumView from '../../StadiumView/StadiumView';
 
 export class LeagueDashboard extends React.Component{
 
@@ -31,6 +32,7 @@ export class LeagueDashboard extends React.Component{
                         <Route path='/league/dashboard/teamview' component={LeagueTeamView}/>
                         <Route path='/league/dashboard/leaguelistview' component={LeagueListView}/>
                         <Route path='/league/dashboard/leagueadmin/' component={LeagueAdminView}/>
+                        <Route path='/league/dashboard/locations' component={StadiumView}/>
                     </Switch>
                 </div>
             </div>

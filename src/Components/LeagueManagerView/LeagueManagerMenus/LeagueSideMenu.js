@@ -19,6 +19,7 @@ export function LeagueSideMenu(props){
                 <li className='league-side-menu-item'><Link to='/league/dashboard'>Home</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/leaguelistview'>Leagues</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/teamview'>Teams</Link></li>
+                <li className='league-side-menu-item'><Link to='/league/dashboard/locations'>Locations</Link></li>
                 <li onClick={(e)=>logout(e)} className='league-side-menu-item'>Log Out</li>
             </ul>
         </div>
