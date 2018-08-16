@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import * as generalUtil from '../../Utilities/generalUtil'
 
 export class AddFixtureForm extends React.Component{
     constructor(props){
@@ -15,7 +16,9 @@ export class AddFixtureForm extends React.Component{
         if(this.props.seasonsLeague){
             seasons = this.props.seasonsLeague.map((value, index)=> {
                 return(
-                    <option key={value.season_start_date + index} value={value.season_id}>{value.season_start_date} - {value.season_end_date}</option>
+                    <option key={value.season_start_date + index} value={value.season_id}>
+                        {generalUtil.truncateDate(value.season_start_date)} - {generalUtil.truncateDate(value.season_end_date)}
+                    </option>
                 )
             })
         }
