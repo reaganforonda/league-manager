@@ -10,8 +10,15 @@ const GET_MANAGED_TEAMS = 'GET_MANAGED_TEAMS';
 const GET_PENDING_APPROVAL_TEAMS = 'GET_PENDING_APPROVAL_TEAMS';
 const GET_TEAMS_BY_LEAGUE = "GET_TEAMS_BY_LEAGUE";
 
-export function getTeamsByLeague(leagueID){
-    
+export function getTeamsByLeague(leagueID, userID){
+    let teamsByLeagueID = axios.get(`/api/allteams/${userID}/${leagueID}`).then((result) => {
+        return result.data
+    })
+
+    return {
+        type: GET_TEAMS_BY_LEAGUE,
+        payload: teamsByLeagueID
+    }
 }
 
 export function getManagedTeams(userID){
@@ -52,6 +59,11 @@ export default function reducer(state = INITIAL_STATE, action){
             return 'LOADING TEAMS'
         case GET_PENDING_APPROVAL_TEAMS + '_FULFILLED':
             return Object.assign({}, state, {pendingApproval: action.payload})
+
+        case GET_TEAMS_BY_LEAGUE + '_PENDING':
+            return "LOADING TEAMS";
+        case GET_TEAMS_BY_LEAGUE + "_FULFILLED":
+            return Object.assign({}, state, {teamsByLeague: action.payload})
 
         default:
             return state;
