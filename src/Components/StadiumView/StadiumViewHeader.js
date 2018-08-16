@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function StadiumViewHeader(props){
     return (
@@ -8,7 +9,7 @@ export default function StadiumViewHeader(props){
                     All Stadiums
                 </li>
                 <li className='stadium-view-header-menu-item'>
-                    Add Stadium
+                    <Link to='/league/dashboard/locations/add'>Add Location</Link>
                 </li>
             </ul>
         </header>
