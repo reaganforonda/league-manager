@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import axios from 'axios';
 
 export class AddStadiumForm extends React.Component{
     constructor(props){
@@ -28,6 +29,7 @@ export class AddStadiumForm extends React.Component{
         e.preventDefault();
 
         let location = {
+            user: this.props.user,
             stadium_name : this.state.locationName,
             stadium_address: this.state.locationAddress,
             stadium_city: this.state.locationCity,
@@ -35,8 +37,12 @@ export class AddStadiumForm extends React.Component{
             stadium_zip: this.state.locationZip
         }
 
-        console.log(location);
-        this.resetForm();
+        axios.post('/api/stadium', location).then((result) => {
+            console.log(result);
+            this.resetForm();
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
     resetForm(){
