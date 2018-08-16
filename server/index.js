@@ -56,7 +56,7 @@ app.get('/api/season/:leagueID', leagueController.getSeasons)
 // TEAM ENDPOINTS
 app.get('/api/teams/:userID', teamController.getManagedTeams)
 app.get('/api/teams/pending/:userID', teamController.getTeamsPendingApproval)
-app.get('/api/allteams/:userID/leagueID', teamController.getTeamsByLeagueID)
+app.get('/api/allteams/:userID/:leagueID', teamController.getTeamsByLeagueID)
 app.post('/api/team/player', teamController.createPlayer)
 app.post('/api/team', teamController.createTeam)
 app.put('/api/team/update/:teamID', teamController.approveTeam)
