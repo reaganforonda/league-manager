@@ -89,5 +89,13 @@ module.exports= {
         } else {
             return false
         }
+    },
+
+    /* Function to truncate date receive from Postgres to Readable string
+     * @param String date = date received from Postgres
+     */
+    truncateDate(date){
+        let truncatedDate = date.slice(0,10);
+        return truncatedDate
     }
 }
