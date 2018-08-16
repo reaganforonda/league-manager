@@ -100,13 +100,13 @@ module.exports = {
 
     getTeamsByLeagueID: (req, res) => {
         const db = req.app.get('db');
-        const {userID, leagueID} = req.params
+        const {userID, leagueID} = req.params;
         
         db.GET_TEAMS_IN_LEAGUE([userID, leagueID]).then((result) => {
             res.status(200).send(result);
-        }).catch(err) => {
+        }).catch((err) => {
             console.log(`Server error while attempting to get teams by league id: ${err}`)
             res.sendStatus(500);
-        }
+        })
     },
 }
