@@ -10,6 +10,7 @@ const middleware = require('./middlewares/middleware');
 const authController = require('./controllers/authController');
 const leagueController = require('./controllers/leagueController');
 const teamController = require('./controllers/teamController')
+const stadiumControler = require('./controllers/stadiumController')
 
 // Destructure the .env
 const {
@@ -58,6 +59,9 @@ app.post('/api/team', teamController.createTeam)
 app.get('/api/teams/:userID', teamController.getManagedTeams)
 app.get('/api/teams/pending/:userID', teamController.getTeamsPendingApproval)
 app.put('/api/team/update/:teamID', teamController.approveTeam)
+
+// STADIUM ENDPOINTS
+app.post('/api/stadium', stadiumControler.addStadium)
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
