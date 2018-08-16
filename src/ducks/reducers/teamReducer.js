@@ -2,11 +2,17 @@ import axios from 'axios';
 
 const INITIAL_STATE = {
     managedTeams: [],
-    pendingApproval: []
+    pendingApproval: [],
+    teamsByLeague: []
 }
 
 const GET_MANAGED_TEAMS = 'GET_MANAGED_TEAMS';
 const GET_PENDING_APPROVAL_TEAMS = 'GET_PENDING_APPROVAL_TEAMS';
+const GET_TEAMS_BY_LEAGUE = "GET_TEAMS_BY_LEAGUE";
+
+export function getTeamsByLeague(leagueID){
+    
+}
 
 export function getManagedTeams(userID){
     let managedTeams = axios.get(`/api/teams/${userID}`).then((result)=>{
