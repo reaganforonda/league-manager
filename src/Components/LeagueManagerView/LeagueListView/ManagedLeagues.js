@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import ManagedLeaguesCard from './ManagedLeaguesCard'
 import {loadLeagueInfo, getAllSeasons, getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
-import {getAllStadiums} from '../../../ducks/reducers/stadiumReducer'
+import {getAllStadiums} from '../../../ducks/reducers/stadiumReducer';
+import { getTeamsByLeague} from '../../../ducks/reducers/teamReducer';
 
 
 export class ManagedLeagues extends React.Component{
@@ -23,6 +24,7 @@ export class ManagedLeagues extends React.Component{
             this.props.getAllSeasons(leagueID);
             this.props.loadLeagueInfo(league.data);
             this.props.getAllStadiums(leagueID);
+            this.props.getTeamsByLeague(leagueID, this.props.user.user_id)
             this.props.history.push('/league/dashboard/leagueadmin/')
         }).catch((err)=> {
             console.log(err);
@@ -59,4 +61,5 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo, getAllSeasons, getAllStadiums})(withRouter(ManagedLeagues))
+export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo, getAllSeasons, 
+    getAllStadiums, getTeamsByLeague})(withRouter(ManagedLeagues))

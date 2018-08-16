@@ -101,6 +101,8 @@ module.exports = {
     getTeamsByLeagueID: (req, res) => {
         const db = req.app.get('db');
         const {userID, leagueID} = req.params;
+
+        console.log('hit')
         
         db.GET_TEAMS_IN_LEAGUE([userID, leagueID]).then((result) => {
             res.status(200).send(result);

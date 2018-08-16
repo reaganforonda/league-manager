@@ -13,6 +13,7 @@ export class AddFixtureForm extends React.Component{
     render(){
         let seasons=[];
         let locations=[];
+        let teams = [];
 
         if(this.props.seasonsLeague){
             seasons = this.props.seasonsLeague.map((value, index)=> {
@@ -34,7 +35,15 @@ export class AddFixtureForm extends React.Component{
             })
         }
 
-        console.log(this.props.allStadiums)
+        if(this.props.teamsByLeague) {
+            teams = this.props.teamsByLeague.map((value, index)=> {
+                return (
+                    <option key={value.team_id + index} value={value.team_id}>
+                        {value.team_name}
+                    </option>
+                )
+            })
+        }
 
         return (
             <form className='add-fixture-form'>
@@ -63,6 +72,7 @@ export class AddFixtureForm extends React.Component{
                         <option value='Home Team'>
                             Home Teams
                         </option>
+                        {teams}
                     </select>
                 </div>
                 <div className='add-fixture-form-row'>
@@ -70,6 +80,7 @@ export class AddFixtureForm extends React.Component{
                         <option value='Home Team'>
                             Away Team
                         </option>
+                        {teams}
                     </select>
                 </div>
             </form>
@@ -82,7 +93,8 @@ function mapStateToProps(state){
         user: state.userReducer.user,
         selectedLeague: state.leagueReducer.selectedLeague,
         seasonsLeague: state.leagueReducer.seasonsLeague,
-        allStadiums: state.stadiumReducer.allStadiums
+        allStadiums: state.stadiumReducer.allStadiums,
+        teamsByLeague: state.teamReducer.teamsByLeague
     }
 }
 
