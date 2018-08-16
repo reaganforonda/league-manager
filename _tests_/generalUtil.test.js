@@ -208,3 +208,27 @@ test('Should return True', ()=> {
 
     expect(testResult).toBeFalsy();
  });
+
+ /*
+ * Test convertDate
+ * Check if Start Date is before End Date
+ * Return true if Start Dat is before End Date
+ */
+
+ test('Should return a correctly truncated date', ()=> {
+     let testValue = '2018-08-15T06:00:00.000Z';
+     let expectedValue = '2018-08-15';
+
+     let testResult = generalUtil.truncateDate(testValue);
+
+     expect(testResult).toEqual(expectedValue);  
+ });
+
+ test('Should return a correctly truncated date', ()=> {
+    let testValue = '2018-01-01T06:00:00.000Z';
+    let expectedValue = '2018-01-01';
+
+    let testResult = generalUtil.truncateDate(testValue);
+
+    expect(testResult).toEqual(expectedValue);  
+});
