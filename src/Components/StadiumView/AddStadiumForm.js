@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import * as generalUtil from '../../Utilities/generalUtil'
 
 export class AddStadiumForm extends React.Component{
     constructor(props){
@@ -12,12 +13,14 @@ export class AddStadiumForm extends React.Component{
             locationAddress: '',
             locationState: '',
             locationCity: '',
-            locationZip: ''
+            locationZip: '',
+            displayError: false
         };
         
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.resetForm = this.resetForm.bind(this);
+        this.validateForm = this.validateForm.bind(this);
     }
 
     handleInputChange(e){
@@ -38,11 +41,26 @@ export class AddStadiumForm extends React.Component{
             stadium_zip: this.state.locationZip
         }
 
-        axios.post('/api/stadium', location).then((result) => {
-            this.resetForm();
-        }).catch((err) => {
-            console.log(err);
-        })
+        if(this.validateForm()){
+            axios.post('/api/stadium', location).then((result) => {
+                this.resetForm();
+            }).catch((err) => {
+                console.log(err);
+            })
+        } else {
+            this.setState({displayError: true})
+        }
+
+        
+    }
+
+    validateForm(){
+        if(generalUtil.validateCity(this.state.locationCity) && generalUtil.validateState(this.state.locationState) 
+        && generalUtil.validateZipCode(this.setState.locationZip)){
+            return true;
+        } else {
+            return false
+        }
     }
 
     resetForm(){
@@ -51,7 +69,8 @@ export class AddStadiumForm extends React.Component{
             locationAddress: '',
             locationState: '',
             locationCity: '',
-            locationZip: ''
+            locationZip: '',
+            displayError: false
         })
     }
 
@@ -82,7 +101,14 @@ export class AddStadiumForm extends React.Component{
                 <div className='add-stadium-form-row'>
                     <input onClick={(e)=> this.handleSubmit(e)} type='submit' placeholder='Add Location'/>
                 </div>
+
+                {
+                    this.state.displayError ? (<div className='add-stadium-form-row'>
+                        <p>Error in Form Input</p> 
+                    </div>) : null
+                }
             </form>
+            
         )
     }
 }
