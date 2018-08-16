@@ -62,7 +62,7 @@ app.put('/api/team/update/:teamID', teamController.approveTeam)
 
 // STADIUM ENDPOINTS
 app.post('/api/stadium', stadiumControler.addStadium)
-app.get('/api/stadiums', stadiumControler.getStadiums)
+app.get('/api/stadiums/:leagueID', stadiumControler.getStadiums)
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
