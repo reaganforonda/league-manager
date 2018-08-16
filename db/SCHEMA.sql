@@ -77,7 +77,7 @@ CREATE TABLE stadiums(
     stadium_address VARCHAR(45),
     stadium_city VARCHAR(45),
     stadium_state VARCHAR(45),
-    stadum_zip INTEGER
+    stadium_zip INTEGER
 );
 
 CREATE TABLE players (
