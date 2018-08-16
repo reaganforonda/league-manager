@@ -30,6 +30,7 @@ export class AddStadiumForm extends React.Component{
 
         let location = {
             user: this.props.user,
+            league_id : this.props.selectedLeague.league_id,
             stadium_name : this.state.locationName,
             stadium_address: this.state.locationAddress,
             stadium_city: this.state.locationCity,
