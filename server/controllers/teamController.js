@@ -96,5 +96,17 @@ module.exports = {
             console.log(`Server error while attempting to update team: ${err}`);
             res.sendStatus(500);
         })
-    }
+    },
+
+    getTeamsByLeagueID: (req, res) => {
+        const db = req.app.get('db');
+        const {userID, leagueID} = req.params
+        
+        db.GET_TEAMS_IN_LEAGUE([userID, leagueID]).then((result) => {
+            res.status(200).send(result);
+        }).catch(err) => {
+            console.log(`Server error while attempting to get teams by league id: ${err}`)
+            res.sendStatus(500);
+        }
+    },
 }
