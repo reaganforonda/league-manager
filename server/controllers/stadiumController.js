@@ -27,5 +27,13 @@ module.exports = {
 
     getStadiums: (req, res) => {
         const db = req.app.get('db');
+        const {leagueID} = req.params;
+
+        db.GET_STADIUMS([leagueID]).then((result) => {
+            res.status(200).send(result);
+        }).catch((err) => {
+            res.sendStatus(500);
+            console.log(`Server error while attempting to retrieve all stadiums: ${err}`)
+        })
     }
 }
