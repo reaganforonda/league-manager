@@ -73,6 +73,7 @@ CREATE TABLE coaches(
 
 CREATE TABLE stadiums(
     stadium_id SERIAL PRIMARY KEY,
+    league_id INTEGER REFERENCES leagues(league_id),
     stadium_name VARCHAR(45),
     stadium_address VARCHAR(45),
     stadium_city VARCHAR(45),
