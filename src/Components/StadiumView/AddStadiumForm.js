@@ -50,13 +50,11 @@ export class AddStadiumForm extends React.Component{
         } else {
             this.setState({displayError: true})
         }
-
-        
     }
 
     validateForm(){
         if(generalUtil.validateCity(this.state.locationCity) && generalUtil.validateState(this.state.locationState) 
-        && generalUtil.validateZipCode(this.setState.locationZip)){
+        && generalUtil.validateZipCode(this.state.locationZip)){
             return true;
         } else {
             return false
@@ -74,7 +72,7 @@ export class AddStadiumForm extends React.Component{
         })
     }
 
-    render(){
+render(){
         return (
             <form className='add-stadium-form'>
                 <div className='add-stadium-form-row'>
