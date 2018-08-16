@@ -35,7 +35,17 @@ export class AddFixtureForm extends React.Component{
             away_team: this.state.awayTeam
         }
 
-        console.log(fixture);
+        
+    }
+
+    resetForm(){
+        this.setState({
+            season: '',
+            location:'',
+            homeTeam: '',
+            awayTeam: '',
+            fixtureDate: ''
+        })
     }
 
     render(){
