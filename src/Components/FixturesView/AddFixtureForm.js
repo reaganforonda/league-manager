@@ -7,6 +7,7 @@ export class AddFixtureForm extends React.Component{
     constructor(props){
         super(props)
 
+        // awayTeam and homeTeam IDS
         this.state = {
             season: '',
             location:'',
@@ -16,6 +17,7 @@ export class AddFixtureForm extends React.Component{
         }
 
         this.handleSelect = this.handleSelect.bind(this);
+        this.handleSubmit= this.handleSubmit.bind(this);
     }
 
     handleSelect(e){
@@ -25,8 +27,15 @@ export class AddFixtureForm extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         let fixture = {
-            
+            fixture_date: this.state.fixtureDate,
+            league_id : this.props.selectedLeague.league_id,
+            season_id: this.state.season,
+            location: this.state.location,
+            home_team: this.state.homeTeam,
+            away_team: this.state.awayTeam
         }
+
+        console.log(fixture);
     }
 
     render(){
@@ -66,7 +75,7 @@ export class AddFixtureForm extends React.Component{
 
         return (
             <form className='add-fixture-form'>
-                <div className='add-fixture-form-row'>
+                <div onChange={(e)=>this.handleSelect(e)} className='add-fixture-form-row'>
                     <input type='date' name='fixtureDate'/>
                     <br/>
                 </div>
@@ -89,13 +98,13 @@ export class AddFixtureForm extends React.Component{
                 <div className='add-fixture-form-row'>
                     <select name='homeTeam' onChange={(e)=> this.handleSelect(e)}>
                         <option value='Home Team'>
-                            Home Teams
+                            Home Team
                         </option>
                         {teams}
                     </select>
                 </div>
                 <div className='add-fixture-form-row'>
-                    <select name='awayTEam' onChange={(e)=> this.handleSelect(e)}>
+                    <select name='awayTeam' onChange={(e)=> this.handleSelect(e)}>
                         <option value='Home Team'>
                             Away Team
                         </option>
@@ -103,7 +112,7 @@ export class AddFixtureForm extends React.Component{
                     </select>
                 </div>
                 <div className='add-fixture-form-row'>
-                    <input type='submit' placeholder='Submit'/>
+                    <input onClick={(e)=>this.handleSubmit(e)} type='submit' placeholder='Submit'/>
                 </div>
                 
             </form>
