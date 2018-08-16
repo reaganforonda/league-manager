@@ -38,7 +38,6 @@ export class AddStadiumForm extends React.Component{
         }
 
         axios.post('/api/stadium', location).then((result) => {
-            console.log(result);
             this.resetForm();
         }).catch((err) => {
             console.log(err);
