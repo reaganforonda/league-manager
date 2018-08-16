@@ -25,8 +25,8 @@ export default function stadiumReducer(state = INITIAL_STATE, action){
             return "Loading";
 
         case GET_ALL_STADIUMS + "_FULFILLED":
-            return Object.assign({}, state, {allStadiums: action.payloead})
-            
+            return Object.assign({}, state, {allStadiums: action.payload})
+
         default:
             return state
     }
