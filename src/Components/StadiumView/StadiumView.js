@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Switch, Route, withRouter} from 'react-router-dom';
+import StadiumViewHeader from './StadiumViewHeader'
 
 export class StadiumView extends React.Component{
     constructor(props){
@@ -12,7 +13,13 @@ export class StadiumView extends React.Component{
     render(){
         return (
             <div className='stadium-view-container'>
-                Stadium View 
+            <StadiumViewHeader/>
+                <main className='stadium-view-main'>
+                    <Switch>
+                        <Route path='/league/dashboard/locations/all' component={}/>
+                        <Route path='/league/dashboard/locations/add' component={}/>
+                    </Switch>
+                </main>
             </div>
         )
     }
