@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS fixture_results;
+-- DROP TABLE IF EXISTS fixture_results;
 DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS coaches;
 DROP TABLE IF EXISTS fixtures;
