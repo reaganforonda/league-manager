@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom';
 
 export class FixtureListView extends React.Component{
     constructor(props){
@@ -11,6 +12,7 @@ export class FixtureListView extends React.Component{
     render(){
         return (
             <div className='fixture-list-view-container'>
+                Fixture List
             </div>
         )
     }
@@ -26,4 +28,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {})(FixtureListView)
+export default connect(mapStateToProps, {})(withRouter(FixtureListView));

@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter, Switch, Route} from 'react-router-dom';
 import FixturesViewHeader from './FixturesViewHeader';
 import AddFixtureForm from './AddFixtureForm';
+import FixtureListView from './FixtureListView'
 
 export class FixturesView extends React.Component{
     constructor(props){
@@ -16,6 +17,7 @@ export class FixturesView extends React.Component{
                 <FixturesViewHeader/>
                 <main className='fixtures-view-main'>
                     <Switch>
+                        <Route path='/league/dashboard/leagueadmin/fixtures' component={FixtureListView}/>
                         <Route path='/league/dashboard/leagueadmin/fixtures/add' component={AddFixtureForm}/>
                     </Switch>
                 </main>
