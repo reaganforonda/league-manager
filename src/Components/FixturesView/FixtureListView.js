@@ -12,7 +12,7 @@ export class FixtureListView extends React.Component{
     render(){
         return (
             <div className='fixture-list-view-container'>
-                Fixture List
+                
             </div>
         )
     }

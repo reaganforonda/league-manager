@@ -6,7 +6,7 @@ export default function FixturesViewHeader(props){
         <header className='fixture-view-header'>
             <ul className='fixture-view-header-menu'>
                 <li className='fixture-view-header-menu-item'>
-                    <Link to='league/dashboard/leagueadmin/fixtures'>Upcoming Fixtures</Link>
+                    <Link to='/league/dashboard/leagueadmin/fixtures'>Upcoming Fixtures</Link>
                 </li>
                 <li className='fixture-view-header-menu-item'>
                     <Link to='/league/dashboard/leagueadmin/fixtures/add'>Add Fixture</Link>
