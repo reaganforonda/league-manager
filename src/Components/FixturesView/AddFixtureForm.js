@@ -32,7 +32,7 @@ export class AddFixtureForm extends React.Component{
             fixture_date: this.state.fixtureDate,
             league_id : this.props.selectedLeague.league_id,
             season_id: this.state.season,
-            location: this.state.location,
+            stadium_id: this.state.location,
             home_team: this.state.homeTeam,
             away_team: this.state.awayTeam
         }
