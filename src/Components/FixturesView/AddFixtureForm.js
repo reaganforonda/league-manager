@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import * as generalUtil from '../../Utilities/generalUtil'
+import axios from 'axios';
 
 export class AddFixtureForm extends React.Component{
     constructor(props){
@@ -18,6 +19,7 @@ export class AddFixtureForm extends React.Component{
 
         this.handleSelect = this.handleSelect.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
+        this.resetForm = this.resetForm.bind(this);
     }
 
     handleSelect(e){
@@ -35,7 +37,12 @@ export class AddFixtureForm extends React.Component{
             away_team: this.state.awayTeam
         }
 
-        
+        axios.post('/api/fixture', fixture).then((result) => {
+            console.log(result);
+            this.resetForm();
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
     resetForm(){
