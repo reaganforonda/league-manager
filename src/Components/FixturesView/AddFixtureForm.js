@@ -93,7 +93,7 @@ export class AddFixtureForm extends React.Component{
         return (
             <form className='add-fixture-form'>
                 <div onChange={(e)=>this.handleSelect(e)} className='add-fixture-form-row'>
-                    <input type='date' name='fixtureDate'/>
+                    <input  value={this.state.fixtureDate}  type='date' name='fixtureDate'/>
                     <br/>
                 </div>
                 <div className='add-fixture-form-row'>
