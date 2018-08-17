@@ -105,18 +105,22 @@ CREATE TABLE fixtures (
     season_id INTEGER REFERENCES seasons(season_id),
     stadium_id INTEGER REFERENCES stadiums(stadium_id),
     home_team INTEGER REFERENCES teams(team_id),
-    away_team INTEGER REFERENCES teams(team_id)
-);
-
-CREATE TABLE fixture_results(
-    result_id SERIAL PRIMARY KEY,
-    fixture_id INTEGER REFERENCES fixtures(fixture_id),
-    league_id INTEGER REFERENCES leagues(league_id),
-    season_id INTEGER REFERENCES seasons(season_id),
-    home_team INTEGER REFERENCES teams(team_id),
     away_team INTEGER REFERENCES teams(team_id),
     home_team_goals INTEGER,
     away_team_goals INTEGER,
     home_team_points INTEGER,
     away_team_points INTEGER
 );
+
+-- CREATE TABLE fixture_results(
+--     result_id SERIAL PRIMARY KEY,
+--     fixture_id INTEGER REFERENCES fixtures(fixture_id),
+--     league_id INTEGER REFERENCES leagues(league_id),
+--     season_id INTEGER REFERENCES seasons(season_id),
+--     home_team INTEGER REFERENCES teams(team_id),
+--     away_team INTEGER REFERENCES teams(team_id),
+--     home_team_goals INTEGER,
+--     away_team_goals INTEGER,
+--     home_team_points INTEGER,
+--     away_team_points INTEGER
+-- );
