@@ -2,6 +2,8 @@ import React from 'react';
 import {withRouter} from 'react-router-dom'
 import axios from 'axios';
 import * as generalUtil from '../../Utilities/generalUtil';
+import {connect} from 'react-redux';
+import {setActiveUser} from '../../ducks/reducers/userReducer'
 
 export class Register extends React.Component{
     constructor(props){
@@ -22,6 +24,7 @@ export class Register extends React.Component{
         this.handleRegisterRequest = this.handleRegisterRequest.bind(this);
         this.validForm = this.validForm.bind(this);
         this.registerRedirect = this.registerRedirect.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
     }
 
     handleUserTypeChange(e) {
@@ -46,7 +49,7 @@ export class Register extends React.Component{
 
     handleRegisterRequest(user){
         axios.post('/api/auth/register', user).then((newUser) => {
-            this.registerRedirect(~~user.userType, ~~newUser.status)
+            this.handleLogin(user);
         }).catch((err)=>{
             console.log(`Error: ${err.response.status}`)
             if(err.response.status === 500){
@@ -82,10 +85,29 @@ export class Register extends React.Component{
 
     registerRedirect(userType, status){
         if(userType === 1 && status === 200){
-            this.props.history.push('/registerleague')
+            this.props.history.push('/league/dashboard')
         }else if (userType === 2 && status === 200){
             this.props.history.push('/coach/dashboard')
         }
+    }
+
+    handleLogin(user){
+        let newUser = {
+            userName: user.userName,
+            pw : user.pw
+        }
+
+        axios.post('/api/auth/login',newUser).then((res) => {
+            this.props.setActiveUser(res.data);
+            this.registerRedirect(~~user.userType, ~~res.status)
+        }).catch((err) => {
+            console.log(err);
+            if(err.response.status===422){
+                console.log(err);
+            } else if( err.response.status===500){
+                this.props.history.poush('/error/500')
+            }
+        })
     }
 
     render(){
@@ -134,4 +156,10 @@ export class Register extends React.Component{
     }
 }
 
-export default withRouter(Register);
+function mapStateToProps(state){
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, {setActiveUser})( withRouter(Register));
