@@ -17,7 +17,7 @@ export class FixturesView extends React.Component{
                 <FixturesViewHeader/>
                 <main className='fixtures-view-main'>
                     <Switch>
-                        <Route path='/league/dashboard/leagueadmin/fixtures' component={FixtureListView}/>
+                        <Route path='/league/dashboard/leagueadmin/fixtures/list' component={FixtureListView}/>
                         <Route path='/league/dashboard/leagueadmin/fixtures/add' component={AddFixtureForm}/>
                     </Switch>
                 </main>
