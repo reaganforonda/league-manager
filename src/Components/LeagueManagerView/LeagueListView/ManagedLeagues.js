@@ -6,6 +6,7 @@ import ManagedLeaguesCard from './ManagedLeaguesCard'
 import {loadLeagueInfo, getAllSeasons, getManagedLeagues} from '../../../ducks/reducers/leagueReducer'
 import {getAllStadiums} from '../../../ducks/reducers/stadiumReducer';
 import { getTeamsByLeague} from '../../../ducks/reducers/teamReducer';
+import {getAllCurrentFixtures} from '../../../ducks/reducers/fixtureReducer';
 
 
 export class ManagedLeagues extends React.Component{
@@ -57,9 +58,11 @@ function mapStateToProps(state){
         managedLeagues: state.leagueReducer.managedLeagues,
         selectedLeague: state.leagueReducer.selectedLeague,
         seasonsLeague: state.leagueReducer.seasonsLeague,
-        allStadiums : state.stadiumReducer.allStadiums
+        allStadiums : state.stadiumReducer.allStadiums,
+        allCurrentSeasonFixtures : state.fixtureReducer.allCurrentSeasonFixtures
+        
     }
 }
 
 export default connect(mapStateToProps, {getManagedLeagues, loadLeagueInfo, getAllSeasons, 
-    getAllStadiums, getTeamsByLeague})(withRouter(ManagedLeagues))
+    getAllStadiums, getTeamsByLeague, getAllCurrentFixtures})(withRouter(ManagedLeagues))

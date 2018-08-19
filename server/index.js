@@ -68,6 +68,7 @@ app.get('/api/stadiums/:leagueID', stadiumControler.getStadiums)
 
 // FIXTURE ENDPOINTS
 app.post('/api/fixture', fixtureController.addFixture)
+app.get('/api/fixtures/search', fixtureController.getSeasonFixtures);
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
