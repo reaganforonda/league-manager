@@ -22,6 +22,7 @@ module.exports ={
 
     getSeasonFixtures: (req, res) => {
         const db = req.app.get('db');
+        console.log(req.query);
 
         const {
             leagueID,
@@ -34,5 +35,5 @@ module.exports ={
             console.log(`Server error while attempting to retrieve GET_ALL_FIXTURES: ${err}`)
             res.sendStatus(500);
         })
-    },
+    }
 }

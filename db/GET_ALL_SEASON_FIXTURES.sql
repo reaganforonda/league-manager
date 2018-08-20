@@ -1,4 +1,4 @@
 SELECT *
 FROM fixtures
-WHERE league_id = $1
-AND season_id = $2
+WHERE ($1 is null OR league_id = $1)
+AND ($2 is null OR season_id = $2)   
