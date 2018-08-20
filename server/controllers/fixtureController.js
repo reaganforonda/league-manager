@@ -28,7 +28,7 @@ module.exports ={
             seasonID
         } = req.query;
 
-        db.GET_SEASON_FIXTURES([leagueID, seasonID, fixtureDate]).then((result) => {
+        db.GET_ALL_SEASON_FIXTURES([leagueID, seasonID]).then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server error while attempting to retrieve GET_ALL_FIXTURES: ${err}`)
