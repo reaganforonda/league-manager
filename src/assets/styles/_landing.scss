@@ -4,20 +4,44 @@ $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
 
-$fontSizeBodyDesktop: 1em;
-$lineHeightBodyDesktop: 1.375em;
+$h1DesktopFS: 3em;
+$h1DesktopLH: 1.05em;
+$h1PhoneFS: 2em;
+$h1PhoneLH: 1.25em;
 
-$h1FontSizeDesktop: 3em;
-$h1LineHeightDesktop: 1.05em;
+/* Body */
+$bodyDesktopFS: 1em;
+$bodyDesktopLH: 1.375em;
+$bodyPhoneFS: 1em;
+$bodyPhoneLH: 1.25em;
+
+
+/* H2 */
+$h2DesktopFS: 2.25em;
+$h2DesktopLH: 1.25em;
+$h2PhoneFS: 1.625em;
+$h2PhoneLH: 1.15384615em;
 
 .landing-header{
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
 
 .landing-header h1{
     padding: 10px 10px;
-    font-size: $h1FontSizeDesktop;
-    line-height: $h1LineHeightDesktop;
+    font-size: $h1DesktopFS;
+    line-height: $h1DesktopLH;
+    color: $white;
+}
+
+.landing-header h2{
+    padding: 10px 10px;
+    font-size: $h2DesktopFS;
+    line-height: $h2DesktopLH;
     color: $white;
 }
 
@@ -43,8 +67,8 @@ $h1LineHeightDesktop: 1.05em;
 .landing-buttons button {
     margin: 10px auto;
     width: 150px;
-    font-size: $fontSizeBodyDesktop;
-    line-height: $lineHeightBodyDesktop;
+    font-size: $bodyDesktopFS;
+    line-height: $bodyDesktopLH;
     border-radius: 3px;
     border: 0;
     background: $mayaBlue;
