@@ -25,9 +25,9 @@ $h2PhoneLH: 1.15384615em;
 .league-view-header{
     display: flex;
     min-height: fit-content;
-    height: 45px;
-    border: solid 1px red;
+    height: 45px;   
     width: 100%;
+    border-bottom: 2px solid $sonicSilver;
 }
 
 .league-view-header-menu{
@@ -38,7 +38,7 @@ $h2PhoneLH: 1.15384615em;
 }
 
 .league-view-header-menu a {
-    margin-left: 10px;
+    margin-right: 20px;
     color: $registrationBlack;
     cursor: pointer;
 }
