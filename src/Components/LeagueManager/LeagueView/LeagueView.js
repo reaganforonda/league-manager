@@ -1,5 +1,16 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {Switch, Route} from 'react-router-dom';
+import LeagueViewHeader from './LeagueViewHeader';
 
-export class LeagueView
+export default function LeagueView(props){
+    return (
+        <div className='league-view-container'>
+            <LeagueViewHeader/>
+            <div className='league-view-main'>
+                <Switch>
+                
+                </Switch>
+            </div>
+        </div>
+    )
+}
