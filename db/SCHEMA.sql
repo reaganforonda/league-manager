@@ -39,6 +39,7 @@ CREATE TABLE leagues (
     league_zip INTEGER,
     max_teams INTEGER,
     number_games INTEGER,
+    min_players_per_team INTEGER,
     max_players_per_team INTEGER
 );
 
