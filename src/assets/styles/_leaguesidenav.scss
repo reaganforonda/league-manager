@@ -3,6 +3,7 @@ $sheenGreen: #98Ce00;
 $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
+$offBlack: #32373C;
 
 $h1DesktopFS: 3em;
 $h1DesktopLH: 1.05em;
@@ -27,12 +28,17 @@ $h2PhoneLH: 1.15384615em;
     width: 10%;
     padding-left: 5px;
     padding-right: 5px;
-    background: $registrationBlack;
+    background: $offBlack;
     color: $white;
 }
 
 .league-side-nav-menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;   
+}
+
+.league-side-nav-menu a{
+    color: $white;
+    margin: 10px 0;
 }

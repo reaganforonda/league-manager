@@ -3,6 +3,7 @@ $sheenGreen: #98Ce00;
 $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
+$offBlack: #32373C;
 
 $h1DesktopFS: 3em;
 $h1DesktopLH: 1.05em;
@@ -24,12 +25,24 @@ $h2PhoneLH: 1.15384615em;
 .league-view-header{
     display: flex;
     min-height: fit-content;
-    height: 75px;
+    height: 45px;
     border: solid 1px red;
     width: 100%;
 }
 
 .league-view-header-menu{
     display: flex;
+    align-items: center;
     padding: 5px 10px;
+    width: 100%;
+}
+
+.league-view-header-menu a {
+    margin-left: 10px;
+    color: $registrationBlack;
+    cursor: pointer;
+}
+
+.league-view-header-menu a:visited{
+    color: $registrationBlack;
 }
