@@ -5,10 +5,11 @@ import {Link} from 'react-router-dom';
 export default function LeagueViewHeader(props){
     return (
         <header className='league-view-header'>
-            <ul className='league-view-header-menu'>
-                <li>Main</li>
-                <li>Add</li>
-            </ul>
+            <div className='league-view-header-menu'>
+                <Link to='/leaguemanager/leagueview/main'>Main</Link>
+                <Link to='/leaguemanager/leagueview/add'>Add</Link>
+                <Link to='/leaguemanager/leagueview/edit'>Edit</Link>
+            </div>
         </header>
     )
 }
