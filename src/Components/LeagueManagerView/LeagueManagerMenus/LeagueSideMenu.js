@@ -16,8 +16,7 @@ export function LeagueSideMenu(props){
     return (
         <div className='league-side-menu-container'>
             <ul className='league-side-menu-list'>
-                <h2>Manage</h2>
-                <li className='league-side-menu-item'><Link to='/league/dashboard'>Home</Link></li>
+                <li className='league-side-menu-item'><Link to='/league/dashboard'>Dashboard</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/leaguelistview/list'>Leagues</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/teamview'>Teams</Link></li>
                 <li className='league-side-menu-item'><Link to='/league/dashboard/locations'>Locations</Link></li>
