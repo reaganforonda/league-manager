@@ -36,18 +36,21 @@ CREATE TABLE leagues (
     league_name VARCHAR(45),
     league_city VARCHAR(45),
     league_state VARCHAR(45),
-    league_zip INTEGER
+    league_zip INTEGER,
+    max_teams INTEGER,
+    number_games INTEGER,
+    max_players_per_team INTEGER
 );
 
 CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY,
     league_id INTEGER REFERENCES leagues(league_id),
-    user_id INTEGER REFERENCES users(user_id),
+    league_manager INTEGER REFERENCES users(user_id),
+    team_manager INTEGER REFERENCES user(user_id),
     team_name VARCHAR(45),
     team_city VARCHAR(45),
     team_state VARCHAR(2),
-    team_zip INTEGER,
-    approved BOOLEAN
+    team_zip INTEGER
 );
 
 CREATE TABLE seasons(
