@@ -30,3 +30,9 @@ $h2PhoneLH: 1.15384615em;
     background: $registrationBlack;
     color: $white;
 }
+
+.league-side-nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
