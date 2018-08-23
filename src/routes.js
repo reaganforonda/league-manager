@@ -16,6 +16,6 @@ export default (
         <Route path='/error/500' component={Error500View}/>
         <Route path='/error/401' component={Error401View}/>
         <Route path='/error/400' component={Error400View}/>
-        <Route path='/league' component={LeagueManagerMainView}/>
+        <Route path='/leaguemanager' component={LeagueManagerMainView}/>
     </Switch>
 )

@@ -11,7 +11,7 @@ export default function LeagueManagerMainView(props) {
             <main className='league-main-view-main'>
                 <SideNav/>
                 <Switch>
-                    <Route path='/league/dashboard' component={LeagueManagerDashboard}></Route>
+                    <Route path='/leaguemanager/dashboard' component={LeagueManagerDashboard}></Route>
                 </Switch>
             </main>
         </div>

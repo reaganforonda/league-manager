@@ -37,7 +37,7 @@ export class Login extends React.Component{
                 if(res.data.acct_type){
                     if(res.data.acct_type === 1){
                         this.props.setActiveUser(res.data);
-                        this.props.history.push('/league/dashboard')
+                        this.props.history.push('/leaguemanager/dashboard')
                     } else if(res.data.acct_type === 2) {
                         this.props.setActiveUser(res.data);
                         this.props.history.push('/coach/dashboard')
