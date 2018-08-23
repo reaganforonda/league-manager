@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Landing from './Components/Landing';
-import Login from './Components/Login';
+import Landing from './Components/Landing/Landing';
+import Login from './Components/Login/Login';
 import CoachDashboard from './Components/CoachView/CoachDashboard';
 import Register from './Components/Register/Register';
 import LeagueDashboard from './Components/LeagueManagerView/LeagueManagerDashboard/LeagueDashboard';

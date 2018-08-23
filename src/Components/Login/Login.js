@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {setActiveUser} from '../ducks/reducers/userReducer'
+import {setActiveUser} from '../../ducks/reducers/userReducer'
 
 export class Login extends React.Component{
     constructor(props){
