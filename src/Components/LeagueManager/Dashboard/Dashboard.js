@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-export class Dashboard extends React.Component{
+export class LeagueManagerDashboard extends React.Component{
     constructor(props){
         super(props);
 
@@ -24,4 +24,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(Dashboard));
+export default connect(mapStateToProps, {})(withRouter(LeagueManagerDashboard));

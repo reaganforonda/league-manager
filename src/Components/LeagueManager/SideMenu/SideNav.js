@@ -4,6 +4,7 @@ export default function SideNave(props){
     return (
         <div className='league-side-nav'>
             <ul className='league-side-nav-menu'>
+                <li>Dashboard</li>
                 <li>Leagues</li>
                 <li>Seasons</li>
                 <li>Fixtures</li>
