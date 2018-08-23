@@ -6,6 +6,7 @@ import Register from './Components/Register/Register';
 import Error500View from './Components/ErrorViews/Error500View';
 import Error400View from './Components/ErrorViews/Error400View';
 import Error401View from './Components/ErrorViews/Error401View';
+import LeagueManagerMainView from './Components/LeagueManager/MainView/LeagueManagerMainView';
 
 export default (
     <Switch>
@@ -15,5 +16,6 @@ export default (
         <Route path='/error/500' component={Error500View}/>
         <Route path='/error/401' component={Error401View}/>
         <Route path='/error/400' component={Error400View}/>
+        <Route path='/league' component={LeagueManagerMainView}/>
     </Switch>
 )
