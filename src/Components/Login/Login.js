@@ -41,6 +41,7 @@ export class Login extends React.Component{
                     } else if(res.data.acct_type === 2) {
                         this.props.setActiveUser(res.data);
                         this.props.history.push('/coach/dashboard')
+                        // TODO:
                     }
                     this.resetState();
                 }
