@@ -1,12 +1,12 @@
 INSERT INTO account_types
 (acct_name)
 VALUES
-('League Admin');
+('League Manager');
 
 INSERT INTO account_types
 (acct_name)
 VALUES
-('Team Admin');
+('Team Manager');
 
 INSERT INTO account_types
 (acct_name)

@@ -3,7 +3,7 @@ $sheenGreen: #98Ce00;
 $white: #FFFFFC;
 $sonicSilver: #757780;
 $mayaBlue: #6CCFF6;
-
+$offBlack: #32373C;
 
 $h1DesktopFS: 3em;
 $h1DesktopLH: 1.05em;
@@ -16,15 +16,29 @@ $bodyDesktopLH: 1.375em;
 $bodyPhoneFS: 1em;
 $bodyPhoneLH: 1.25em;
 
-
 /* H2 */
 $h2DesktopFS: 2.25em;
 $h2DesktopLH: 1.25em;
 $h2PhoneFS: 1.625em;
 $h2PhoneLH: 1.15384615em;
 
+.league-side-nav {
+    height: 100%;
+    min-width: fit-content;
+    width: 10%;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: $offBlack;
+    color: $white;
+}
 
-.league-dashboard-container{
-    border: solid 1px red;
-    width: 100%;
+.league-side-nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+}
+
+.league-side-nav-menu a{
+    color: $white;
+    margin: 10px 0;
 }

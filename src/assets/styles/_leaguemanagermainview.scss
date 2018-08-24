@@ -23,8 +23,13 @@ $h2DesktopLH: 1.25em;
 $h2PhoneFS: 1.625em;
 $h2PhoneLH: 1.15384615em;
 
+.league-main-view-container {
+    width: 100vw;
+    height: 100vh;
+}
 
-.league-dashboard-container{
-    border: solid 1px red;
+.league-main-view-main {
+    display: flex;
     width: 100%;
+    border: 1px solid purple;
 }
