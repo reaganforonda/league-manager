@@ -55,13 +55,12 @@ export class LeagueAddForm extends React.Component{
             numberGames: this.state.numberGames,
             minPlayersPerTeam: this.state.minPlayersPerTeam,
             maxPlayersPerTeam: this.state.maxPlayersPerTeam,
-            // league_manager: this.props.user.user_id 
-            league_manager: 2 //TODO: switch to actual person logged in
+            league_manager: this.props.user.user_id 
         }
 
         if(this.validForm()){
             axios.post('/api/register/league', league).then((result) => {
-                
+
             }).catch((err) => {
                 console.log(err) //TODO:
             })

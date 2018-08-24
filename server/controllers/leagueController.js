@@ -13,8 +13,7 @@ module.exports = {
             numberGames,
             minPlayersPerTeam,
             maxPlayersPerTeam,
-            // league_manager,
-            league_manager //TODO: switch to actual person logged in
+            league_manager
         } = req.body;
         
         let validLeagueName = generalUtil.validateLeagueName(leagueName);
