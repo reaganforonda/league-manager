@@ -28,7 +28,6 @@ export class LeagueAddForm extends React.Component{
 
     handleInputChange(e){
         this.setState({[e.target.name] : e.target.value});
-        this.enableSubmitButton();
     ;}
 
     resetForm(){

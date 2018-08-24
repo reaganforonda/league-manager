@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import * as genUtil from '../../../Utilities/generalUtil';
+import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
+import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 
 export class TeamAddForm extends React.Component{
     constructor(props) {
@@ -74,7 +76,7 @@ export class TeamAddForm extends React.Component{
             <div className='league-team-add-form-container'>
                 <form className='league-team-add-form'>
                 <div className='league-team-add-form-row'>
-                        League Dropdown {/*TODO:*/}
+                        <LeagueDropDown leagues={this.props.managedLeagues}/>
                     </div>
                     <div className='league-team-add-form-row'>
                         Team Name: <input name='teamName' type='text' value={this.state.teamCity} 
@@ -101,8 +103,9 @@ export class TeamAddForm extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        managedLeagues: state.leagueReducer.managedLeagues
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(TeamAddForm))
+export default connect(mapStateToProps, {getManagedLeagues})(withRouter(TeamAddForm))

@@ -7,6 +7,7 @@ import SideNav from '../SideMenu/SideNav';
 import Header from '../../Header/Header';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 
 export class LeagueManagerMainView extends React.Component {
     constructor(props){
@@ -17,7 +18,7 @@ export class LeagueManagerMainView extends React.Component {
 
     componentDidMount = async ()=> {
         await axios.get('/api/auth/me').then((users) => {
-            
+            this.props.getManagedLeagues(this.props.user.user_id);
         }).catch((err) => {
             this.props.history.push('/')
         })
@@ -42,8 +43,9 @@ export class LeagueManagerMainView extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        managedLeagues : state.leagueReducer.managedLeagues
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(LeagueManagerMainView));
+export default connect(mapStateToProps, {getManagedLeagues})(withRouter(LeagueManagerMainView));
