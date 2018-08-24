@@ -12,6 +12,7 @@ const leagueController = require('./controllers/leagueController');
 const teamController = require('./controllers/teamController')
 const stadiumControler = require('./controllers/stadiumController')
 const fixtureController = require('./controllers/fixtureController')
+const playerController = require('./controllers/playerController');
 
 // Destructure the .env
 const {
@@ -57,9 +58,11 @@ app.get('/api/season/:leagueID', leagueController.getSeasons)
 app.get('/api/teams/:userID', teamController.getManagedTeams)
 app.get('/api/teams/pending/:userID', teamController.getTeamsPendingApproval)
 app.get('/api/allteams/:userID/:leagueID', teamController.getTeamsByLeagueID)
-app.post('/api/team/player', teamController.createPlayer)
 app.post('/api/team', teamController.createTeam)
 app.put('/api/team/update/:teamID', teamController.approveTeam)
+
+// PLAYER ENDOINTS
+app.post('/api/team/player', playerController.createPlayer)
 
 // STADIUM ENDPOINTS
 app.post('/api/stadium', stadiumControler.addStadium)

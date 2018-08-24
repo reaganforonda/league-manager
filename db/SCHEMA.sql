@@ -1,4 +1,4 @@
--- DROP TABLE IF EXISTS fixture_results;
+
 DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS coaches;
 DROP TABLE IF EXISTS fixtures;
@@ -47,7 +47,7 @@ CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY,
     league_id INTEGER REFERENCES leagues(league_id),
     league_manager INTEGER REFERENCES users(user_id),
-    team_manager INTEGER REFERENCES user(user_id),
+    team_manager INTEGER REFERENCES users(user_id),
     team_name VARCHAR(45),
     team_city VARCHAR(45),
     team_state VARCHAR(2),
@@ -115,16 +115,3 @@ CREATE TABLE fixtures (
     home_team_points INTEGER,
     away_team_points INTEGER
 );
-
--- CREATE TABLE fixture_results(
---     result_id SERIAL PRIMARY KEY,
---     fixture_id INTEGER REFERENCES fixtures(fixture_id),
---     league_id INTEGER REFERENCES leagues(league_id),
---     season_id INTEGER REFERENCES seasons(season_id),
---     home_team INTEGER REFERENCES teams(team_id),
---     away_team INTEGER REFERENCES teams(team_id),
---     home_team_goals INTEGER,
---     away_team_goals INTEGER,
---     home_team_points INTEGER,
---     away_team_points INTEGER
--- );
