@@ -34,18 +34,6 @@ module.exports = {
         } 
     },
 
-    getAllLeagues: (req, res) => {
-        const db = req.app.get('db');
-
-        db.GET_ALL_LEAGUES().then((result)=> {
-            console.log(result);
-            res.status(200).send(result)
-        }).catch((err)=> {
-            res.sendStatus(500);
-            console.log(err);
-        })
-    },
-
     getManagedLeagues: (req, res)=> {
         const db = req.app.get('db');
         const {userID} = req.params
