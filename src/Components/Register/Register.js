@@ -85,7 +85,7 @@ export class Register extends React.Component{
 
     registerRedirect(userType, status){
         if(userType === 1 && status === 200){
-            this.props.history.push('/league/leaguemanager')
+            this.props.history.push('/leaguemanager/dashboard')
         }else if (userType === 2 && status === 200){
             this.props.history.push('/coach/dashboard')
         }
