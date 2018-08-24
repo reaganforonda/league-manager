@@ -47,7 +47,7 @@ CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY,
     league_id INTEGER REFERENCES leagues(league_id),
     league_manager INTEGER REFERENCES users(user_id),
-    team_manager INTEGER REFERENCES user(user_id),
+    team_manager INTEGER REFERENCES users(user_id),
     team_name VARCHAR(45),
     team_city VARCHAR(45),
     team_state VARCHAR(2),
