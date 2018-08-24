@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 import * as utilFunctions from '../../../Utilities/generalUtil';
 
 export class LeagueAddForm extends React.Component{
@@ -60,7 +61,7 @@ export class LeagueAddForm extends React.Component{
 
         if(this.validForm()){
             axios.post('/api/register/league', league).then((result) => {
-
+                this.props.getManagedLeagues(this.props.user.user_id)
             }).catch((err) => {
                 console.log(err) //TODO:
             })
@@ -132,4 +133,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(LeagueAddForm));
+export default connect(mapStateToProps, {getManagedLeagues})(withRouter(LeagueAddForm));
