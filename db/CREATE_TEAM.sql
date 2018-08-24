@@ -5,8 +5,7 @@ INSERT INTO teams
     team_name,
     team_city,
     team_state,
-    team_zip,
-    approved
+    team_zip
 )
 VALUES
-($1, $2, $3, $4, $5, $6, false)
+($1, $2, $3, $4, $5, $6)
