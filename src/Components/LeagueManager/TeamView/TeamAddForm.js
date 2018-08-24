@@ -39,9 +39,12 @@ export class TeamAddForm extends React.Component{
             teamZip: this.state.teamZip
         }
 
+        console.log(team);
+
         if(this.validForm()) { 
             axios.post('/api/team', team).then((result) => {
-                //TODO:
+                this.resetForm();
+                this.props.getManagedLeagues(this.props.user.user_id);
             }).catch((err) => {
                 console.log(err) //TODO:
             })
@@ -64,7 +67,7 @@ export class TeamAddForm extends React.Component{
         let validState = genUtil.validState(this.state.teamState);
         let validZip = genUtil.validZip(this.state.teamZip);
 
-        if(validName && validCity && validState && validZip) {
+        if(validName && validCity && validState && validZip && this.state.leagueID !== '') {
             return true;
         } else {
             return false;
@@ -76,10 +79,10 @@ export class TeamAddForm extends React.Component{
             <div className='league-team-add-form-container'>
                 <form className='league-team-add-form'>
                 <div className='league-team-add-form-row'>
-                        <LeagueDropDown leagues={this.props.managedLeagues}/>
+                        <LeagueDropDown selectLeague={this.handleInputChange} leagues={this.props.managedLeagues}/>
                     </div>
                     <div className='league-team-add-form-row'>
-                        Team Name: <input name='teamName' type='text' value={this.state.teamCity} 
+                        Team Name: <input name='teamName' type='text' value={this.state.teamName} 
                             onChange={(e) => this.handleInputChange(e)}/>
                     </div>
                     <div className='league-team-add-form-row'>

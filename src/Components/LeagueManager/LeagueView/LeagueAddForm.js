@@ -58,9 +58,12 @@ export class LeagueAddForm extends React.Component{
             league_manager: this.props.user.user_id 
         }
 
+        
+
         if(this.validForm()){
             axios.post('/api/register/league', league).then((result) => {
-                this.props.getManagedLeagues(this.props.user.user_id)
+                this.props.getManagedLeagues(this.props.user.user_id);
+                this.resetForm();
             }).catch((err) => {
                 console.log(err) //TODO:
             })
@@ -75,8 +78,8 @@ export class LeagueAddForm extends React.Component{
         let validState = utilFunctions.validateState(this.state.leagueState);
         let validZip = utilFunctions.validateZipCode(this.state.leagueZip);
 
-        if(validName && validCity && validState && validZip && this.state.maxTeams && 
-            this.state.numberGames && this.minPlayersPerTeam && this.state.maxPlayersPerTeam) {
+        if(validName && validCity && validState && validZip && this.state.maxTeams !== '' && 
+            this.state.numberGames !== '' && this.minPlayersPerTeam !== '' && this.state.maxPlayersPerTeam !== '') {
                 return true;
             } else {
                 return false;
