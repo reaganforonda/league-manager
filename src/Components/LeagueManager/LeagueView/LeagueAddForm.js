@@ -60,7 +60,11 @@ export class LeagueAddForm extends React.Component{
         }
 
         if(this.validForm()){
-            
+            axios.post('/api/register/league', league).then((result) => {
+                
+            }).catch((err) => {
+                console.log(err) //TODO:
+            })
         } else {
             // TODO: 
         }
