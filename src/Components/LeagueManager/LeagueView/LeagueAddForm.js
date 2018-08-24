@@ -22,6 +22,7 @@ export class LeagueAddForm extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.resetForm = this.resetForm.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.validForm = this.validForm.bind(this);
     };
 
     handleInputChange(e){
@@ -58,7 +59,25 @@ export class LeagueAddForm extends React.Component{
             league_manager: 2 //TODO: switch to actual person logged in
         }
 
-        console.log(league);
+        if(this.validForm()){
+            
+        } else {
+            // TODO: 
+        }
+    };
+
+    validForm(){
+        let validName = utilFunctions.validateLeagueName(this.state.leagueName);
+        let validCity = utilFunctions.validateCity(this.state.leagueCity);
+        let validState = utilFunctions.validateState(this.state.leagueState);
+        let validZip = utilFunctions.validateZipCode(this.state.leagueZip);
+
+        if(validName && validCity && validState && validZip && this.state.maxTeams && 
+            this.state.numberGames && this.minPlayersPerTeam && this.state.maxPlayersPerTeam) {
+                return true;
+            } else {
+                return false;
+            }
     }
 
     render(){
