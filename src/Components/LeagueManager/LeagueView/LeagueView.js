@@ -10,9 +10,8 @@ export default function LeagueView(props){
             <LeagueViewHeader/>
             <div className='league-view-main'>
                 <Switch>
-                    <Route exct path='/leaguemanager/leagueview' component={LeagueMain}/>
+                    <Route exact path='/leaguemanager/leagueview' component={LeagueMain}/>
                     <Route path='/leaguemanager/leagueview/add' component={LeagueAddForm}/>
-                    
                 </Switch>
             </div>
         </div>
