@@ -1,21 +1,20 @@
 const axios = require('axios');
 
 module.exports = {
-    
     createTeam : (req, res, next) => {
         const db = req.app.get('db');
 
         const {
             leagueID,
-            userID,
+            leagueManager,
             teamName,
-            city,
-            state,
-            zip
+            teamCity,
+            teamState,
+            teamZip
         } = req.body
 
         db.CREATE_TEAM([
-            leagueID, userID, teamName, city, state, zip
+            leagueID, leagueManager, teamName, teamCity, teamState, teamZip
         ]).then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
