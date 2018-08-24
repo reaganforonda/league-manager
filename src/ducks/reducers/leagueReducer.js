@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const INITIAL_STATE = {
-    leagues: [],
     managedLeagues: [],
     selectedLeague: [],
     selectedSeasonLeague: [],
