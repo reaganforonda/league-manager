@@ -4,7 +4,18 @@ module.exports = {
     createLeague: (req, res) => {
         const db = req.app.get('db');
         
-        const {user_id, leagueName, leagueCity, leagueState, leagueZip} = req.body;
+        const {
+            leagueName,
+            leagueCity,
+            leagueState,
+            leagueZip,
+            maxTeams,
+            numberGames,
+            minPlayersPerTeam,
+            maxPlayersPerTeam,
+            // league_manager,
+            league_manager //TODO: switch to actual person logged in
+        } = req.body;
         
         let validLeagueName = generalUtil.validateLeagueName(leagueName);
         let validLeagueCity = generalUtil.validateCity(leagueCity);
@@ -12,8 +23,9 @@ module.exports = {
         let validLeagueZip = generalUtil.validateZipCode(leagueZip);
         
         if(validLeagueName && validLeagueCity && validLeagueState && validLeagueZip){
-            db.CREATE_LEAGUE([user_id, leagueName, leagueCity, leagueState, leagueZip]).then((league)=> {
-                res.status(200).send(league);
+            db.CREATE_LEAGUE([league_manager, leagueName, leagueCity, leagueState, leagueZip, maxTeams, 
+                numberGames, minPlayersPerTeam, maxPlayersPerTeam]).then((league)=> {
+                    res.status(200).send(league);
             }).catch((err) => {
                 console.log(err);
                 res.status(500).status(`Server Error: ${err}`)
