@@ -62,10 +62,11 @@ export class TeamAddForm extends React.Component{
     }
 
     validForm(){
-        let validName = genUtil.validName(this.state.teamName);
-        let validCity = genUtil.validCity(this.state.teamCity);
-        let validState = genUtil.validState(this.state.teamState);
-        let validZip = genUtil.validZip(this.state.teamZip);
+        
+        let validName = genUtil.validateLeagueName(this.state.teamName);
+        let validCity = genUtil.validateCity(this.state.teamCity);
+        let validState = genUtil.validateState(this.state.teamState);
+        let validZip = genUtil.validateZipCode(this.state.teamZip);
 
         if(validName && validCity && validState && validZip && this.state.leagueID !== '') {
             return true;
@@ -75,6 +76,14 @@ export class TeamAddForm extends React.Component{
     }
 
     render(){
+        let leagues = []
+
+        if(this.props.managedLeagues) {
+            leagues = this.props.managedLeagues.map((value, index) => {
+                return <option></option>
+            })
+        }
+
         return (
             <div className='league-team-add-form-container'>
                 <form className='league-team-add-form'>
