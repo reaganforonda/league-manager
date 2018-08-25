@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import * as genUtil from '../../../Utilities/generalUtil';
+import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
+import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 
 export class TeamAddForm extends React.Component{
     constructor(props) {
@@ -37,9 +39,12 @@ export class TeamAddForm extends React.Component{
             teamZip: this.state.teamZip
         }
 
+        console.log(team);
+
         if(this.validForm()) { 
             axios.post('/api/team', team).then((result) => {
-                //TODO:
+                this.resetForm();
+                this.props.getManagedLeagues(this.props.user.user_id);
             }).catch((err) => {
                 console.log(err) //TODO:
             })
@@ -57,12 +62,13 @@ export class TeamAddForm extends React.Component{
     }
 
     validForm(){
-        let validName = genUtil.validName(this.state.teamName);
-        let validCity = genUtil.validCity(this.state.teamCity);
-        let validState = genUtil.validState(this.state.teamState);
-        let validZip = genUtil.validZip(this.state.teamZip);
+        
+        let validName = genUtil.validateLeagueName(this.state.teamName);
+        let validCity = genUtil.validateCity(this.state.teamCity);
+        let validState = genUtil.validateState(this.state.teamState);
+        let validZip = genUtil.validateZipCode(this.state.teamZip);
 
-        if(validName && validCity && validState && validZip) {
+        if(validName && validCity && validState && validZip && this.state.leagueID !== '') {
             return true;
         } else {
             return false;
@@ -70,14 +76,22 @@ export class TeamAddForm extends React.Component{
     }
 
     render(){
+        let leagues = []
+
+        if(this.props.managedLeagues) {
+            leagues = this.props.managedLeagues.map((value, index) => {
+                return <option></option>
+            })
+        }
+
         return (
             <div className='league-team-add-form-container'>
                 <form className='league-team-add-form'>
                 <div className='league-team-add-form-row'>
-                        League Dropdown {/*TODO:*/}
+                        <LeagueDropDown selectLeague={this.handleInputChange} leagues={this.props.managedLeagues}/>
                     </div>
                     <div className='league-team-add-form-row'>
-                        Team Name: <input name='teamName' type='text' value={this.state.teamCity} 
+                        Team Name: <input name='teamName' type='text' value={this.state.teamName} 
                             onChange={(e) => this.handleInputChange(e)}/>
                     </div>
                     <div className='league-team-add-form-row'>
@@ -101,8 +115,9 @@ export class TeamAddForm extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        managedLeagues: state.leagueReducer.managedLeagues
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(TeamAddForm))
+export default connect(mapStateToProps, {getManagedLeagues})(withRouter(TeamAddForm))

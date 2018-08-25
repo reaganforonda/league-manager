@@ -1,7 +1,7 @@
 INSERT INTO teams
 (
     league_id,
-    user_id,
+    league_manager,
     team_name,
     team_city,
     team_state,

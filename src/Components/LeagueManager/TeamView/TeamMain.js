@@ -1,13 +1,17 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 
 export class TeamMain extends React.Component{
     constructor(props) {
         super(props);
 
         this.state={}
+    }
+
+    componentDidMount(){
+        this.props.getManagedLeagues(this.props.user.user_id);
     }
 
     render(){
@@ -21,8 +25,9 @@ export class TeamMain extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        user: state.userReducer.user
+        user: state.userReducer.user,
+        managedLeagues: state.leagueReducer.managedLeagues
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(TeamMain));
+export default connect(mapStateToProps, {getManagedLeagues})(withRouter(TeamMain));
