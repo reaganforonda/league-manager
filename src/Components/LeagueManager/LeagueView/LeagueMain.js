@@ -2,23 +2,23 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
+import LeagueList from './LeagueList';
 
 export class LeagueMain extends React.Component{
     constructor(props){
         super(props);
 
-        this.state=[]
+        this.state={}
     }
 
     componentDidMount(){
-        // this.props.getManagedLeagues(this.props.user.user_id)TODO:
-        this.props.getManagedLeagues(2)
+        this.props.getManagedLeagues(this.props.user.user_id)
     }
 
     render(){
         return (
             <div className='league-main-container'>
-                League Main View
+                <LeagueList/>
             </div>
         )
     }
