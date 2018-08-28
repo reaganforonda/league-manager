@@ -13,6 +13,7 @@ const teamController = require('./controllers/teamController')
 const stadiumControler = require('./controllers/stadiumController')
 const fixtureController = require('./controllers/fixtureController')
 const playerController = require('./controllers/playerController');
+const seasonController = require('./controllers/seasonController');
 
 // Destructure the .env
 const {
@@ -51,8 +52,6 @@ app.post('/api/auth/register', authController.register);
 app.get('/api/leagues/:userID', leagueController.getManagedLeagues)
 app.post('/api/register/league', leagueController.createLeague)
 app.get('/api/league/:userID/:leagueID', leagueController.getLeagueInfo)
-app.post('/api/league/season', leagueController.createNewSeason)
-app.get('/api/season/:leagueID', leagueController.getSeasons)
 
 // TEAM ENDPOINTS
 app.get('/api/teams/:userID', teamController.getManagedTeams)
@@ -71,6 +70,9 @@ app.get('/api/stadiums/:leagueID', stadiumControler.getStadiums)
 // FIXTURE ENDPOINTS
 app.post('/api/fixture', fixtureController.addFixture)
 app.get('/api/fixtures/search', fixtureController.getSeasonFixtures);
+
+// SEASON ENDPOINTS
+app.post('/api/season/:userID', seasonController.createSeason);
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
