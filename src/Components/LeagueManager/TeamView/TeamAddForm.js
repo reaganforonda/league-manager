@@ -76,14 +76,6 @@ export class TeamAddForm extends React.Component{
     }
 
     render(){
-        let leagues = []
-
-        if(this.props.managedLeagues) {
-            leagues = this.props.managedLeagues.map((value, index) => {
-                return <option></option>
-            })
-        }
-
         return (
             <div className='league-team-add-form-container'>
                 <form className='league-team-add-form'>
