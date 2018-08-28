@@ -3,11 +3,13 @@ import {Switch, Route, withRouter} from 'react-router-dom';
 import LeagueManagerDashboard from '../Dashboard/Dashboard'
 import LeagueView from '../LeagueView/LeagueView';
 import TeamView from '../TeamView/TeamView';
+import FixtureView from '../FixtureView/FixtureView';
 import SideNav from '../SideMenu/SideNav';
 import Header from '../../Header/Header';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
+import SeasonView from '../SeasonView/SeasonView';
 
 export class LeagueManagerMainView extends React.Component {
     constructor(props){
@@ -34,6 +36,8 @@ export class LeagueManagerMainView extends React.Component {
                         <Route path='/leaguemanager/dashboard' component={LeagueManagerDashboard}/>
                         <Route path='/leaguemanager/leagueview' component={LeagueView}/>
                         <Route path='/leaguemanager/teams' component={TeamView}/>
+                        <Route path='/leaguemanager/fixtures' component={FixtureView}/>
+                        <Route pather='/leaguemanager/seasons' component={SeasonView}/>
                     </Switch>
                 </main>
             </div>

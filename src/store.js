@@ -5,13 +5,15 @@ import teamReducer from './ducks/reducers/teamReducer';
 import userReducer from './ducks/reducers/userReducer';
 import stadiumReducer from './ducks/reducers/stadiumReducer';
 import fixtureReducer from './ducks/reducers/fixtureReducer';
+import seasonReducer from './ducks/reducers/seasonReducer';
 
 const reducers = {
     leagueReducer : leagueReducer,
     teamReducer : teamReducer,
     userReducer : userReducer,
     stadiumReducer: stadiumReducer,
-    fixtureReducer: fixtureReducer
+    fixtureReducer: fixtureReducer,
+    seasonReducer: seasonReducer
 }
 
 let middleware = promiseMiddleware();

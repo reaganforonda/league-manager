@@ -97,5 +97,26 @@ module.exports= {
     truncateDate(date){
         let truncatedDate = date.slice(0,10);
         return truncatedDate
-    }
+    },
+
+    /* Function to get current date
+     * Return in 'YYYY-MM-DD' format'
+     */
+
+     getCurrentDateFormated() {
+        let today = new Date();
+        let day = today.getDate();
+        let month = today.getMonth()+1;
+        let year = today.getFullYear();
+
+        if( day < 10) {
+            day = "0" + day;
+        }
+
+        if(month < 10) {
+            month = "0"+month
+        }
+
+        return `${year}-${month}-${day}`
+     }
 }
