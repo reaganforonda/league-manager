@@ -10,8 +10,8 @@ export default function SeasonView(props) {
             <FixtureViewHeader/>
             <main className='season-view-main'>
                 <Switch>
-                    <Route exact path='/leaguemanager/season' component={SeasonMain}/>
-                    <Route path='/leaguemanager/season/add' component={SeasonAddForm}/>
+                    <Route exact path='/leaguemanager/seasons' component={SeasonMain}/>
+                    <Route path='/leaguemanager/seasons/add' component={SeasonAddForm}/>
                 </Switch>
             </main>
         </div>

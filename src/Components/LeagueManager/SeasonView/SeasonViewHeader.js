@@ -6,7 +6,7 @@ export default function SeasonViewHeader(props) {
         <header className='season-view-header'>
             <div className='season-view-menu'>
                 <Link to='/leaguemanager/seasons'>Main</Link>
-                <Link to='/leaguemanager/add'>Add</Link>
+                <Link to='/leaguemanager/seasons/add'>Add</Link>
             </div>
         </header>
     )
