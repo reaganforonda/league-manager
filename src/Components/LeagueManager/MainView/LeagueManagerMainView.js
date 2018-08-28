@@ -3,6 +3,7 @@ import {Switch, Route, withRouter} from 'react-router-dom';
 import LeagueManagerDashboard from '../Dashboard/Dashboard'
 import LeagueView from '../LeagueView/LeagueView';
 import TeamView from '../TeamView/TeamView';
+import FixtureView from '../FixtureView/FixtureView';
 import SideNav from '../SideMenu/SideNav';
 import Header from '../../Header/Header';
 import axios from 'axios';
@@ -34,6 +35,7 @@ export class LeagueManagerMainView extends React.Component {
                         <Route path='/leaguemanager/dashboard' component={LeagueManagerDashboard}/>
                         <Route path='/leaguemanager/leagueview' component={LeagueView}/>
                         <Route path='/leaguemanager/teams' component={TeamView}/>
+                        <Route path='/leaguemanager/fixtures' component={FixtureView}/>
                     </Switch>
                 </main>
             </div>
