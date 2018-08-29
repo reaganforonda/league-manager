@@ -5,9 +5,6 @@ export default function TeamDropDown (props){
         return <option key={~~value.team_id + value.team_name} value={value.team_id}> {value.team_name} </option>
     });
 
-    console.log(teams);
-
-
     return (
         <select onChange={(e) => props.selectTeam(e)} name='teamID' className='team-drop-down'>
             <option value='' disabled selected>Select Team</option>
