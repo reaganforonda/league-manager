@@ -8,8 +8,8 @@ const INITIAL_STATE={
 const GET_ALL_STADIUMS = 'GET_ALL_STADIUMS';
 const LOAD_STADIUM_INFO = 'LOAD_STADIUM_INFO';
 
-export function getAllStadiums(leagueID){
-    let stadiums = axios.get(`/api/stadiums/${leagueID}`).then((result) => {
+export function getAllStadiums(){
+    let stadiums = axios.get(`/api/stadiums`).then((result) => {
         return result.data
     })
 
