@@ -10,6 +10,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
+import {getAllPlayersLM} from '../../../ducks/reducers/playersReducer';
 import SeasonView from '../SeasonView/SeasonView';
 import PlayersView from '../PlayersView/PlayersView';
 import Loading from '../../Loading/Loading';
@@ -27,15 +28,16 @@ export class LeagueManagerMainView extends React.Component {
         await axios.get('/api/auth/me').then((users) => {
             this.props.getManagedLeagues(this.props.user.user_id);
             this.props.getManagedTeams(this.props.user.user_id);
+            this.props. getAllPlayersLM(this.props.user.user_id);
         }).catch((err) => {
             this.props.history.push('/')
         })
     }
 
     static getDerivedStateFromProps(props, state) {
-        if(props.managedLeagues && props.managedTeams) {
+        if(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager) {
             return {
-                loading: !(props.managedLeagues && props.managedTeams)
+                loading: !(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager)
             }
         }
     }
@@ -67,8 +69,10 @@ function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
         managedLeagues : state.leagueReducer.managedLeagues,
-        managedTeams : state.teamReducer.managedTeams
+        managedTeams : state.teamReducer.managedTeams,
+        allPlayersLeagueManager: state.playerReducer.allPlayersLeagueManager
+        
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues, getManagedTeams})(withRouter(LeagueManagerMainView));
+export default connect(mapStateToProps, {getManagedLeagues, getManagedTeams,  getAllPlayersLM})(withRouter(LeagueManagerMainView));
