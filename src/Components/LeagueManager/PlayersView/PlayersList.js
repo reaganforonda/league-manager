@@ -36,7 +36,6 @@ function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
         allPlayersLeagueManager: state.playerReducer.allPlayersLeagueManager
-
     }
 }
 
