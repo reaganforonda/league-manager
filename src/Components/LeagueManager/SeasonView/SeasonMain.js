@@ -26,4 +26,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(SeasonMain));
+export default connect(mapStateToProps, {})(withRouter(SeasonMain));    
