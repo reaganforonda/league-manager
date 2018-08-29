@@ -73,6 +73,7 @@ app.get('/api/fixtures/search', fixtureController.getSeasonFixtures);
 
 // SEASON ENDPOINTS
 app.post('/api/season/:userID', seasonController.createSeason);
+app.get('/api/seasons')
 
 app.listen(SERVER_PORT, ()=> {
     console.log(`Creeping on Port: ${SERVER_PORT}`)
