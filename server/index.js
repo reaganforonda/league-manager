@@ -62,6 +62,7 @@ app.put('/api/team/update/:teamID', teamController.approveTeam)
 
 // PLAYER ENDOINTS
 app.post('/api/player', playerController.createPlayer)
+app.get('/api/player', playerController.getPlayers)
 
 // STADIUM ENDPOINTS
 app.post('/api/stadium', stadiumControler.addStadium)
