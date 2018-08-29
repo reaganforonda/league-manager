@@ -17,7 +17,7 @@ export class StadiumList extends React.Component{
     render(){
         let allStadiums = this.state.allStadiums.map((stadium, index) => {
             return (
-                <div className='stadium-list-row' key={stadium.stadium_id + stadium.stadium_name}>
+                <div className='stadium-list-row' key={stadium.stadium_id + stadium.stadium_name + index}>
                     {stadium.stadium_name}
                     {stadium.stadium_address}
                     {stadium.stadium_city}
