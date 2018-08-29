@@ -14,8 +14,13 @@ module.exports = {
 
     getSeason:(req, res) => {
         const db = req.app.get('db');
+        const {userID, leagueID, seasonID} = req.query;
 
-        
-        console.log(req.query)
+        db.GET_SEASONS([leagueID, seasonID, userID]).then((result) => {
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server error while attempting to get seasons: ${err}`);
+            res.sendStatus(500);
+        })
     }
 }
