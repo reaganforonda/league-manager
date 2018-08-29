@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const INITIAL_STATE = {
     seasonsByLeague:[],
-    allSeasonsManger:[],
+    allSeasonsManager:[],
     seasonLeague: [],
     seasonTeam:[],
     seasonsByTeam:[]
@@ -27,6 +27,8 @@ export function getAllSeasonsLeagueManager(userID) {
         return result.data
     })
 
+    console.log(leagues);
+
     return {
         type: GET_ALL_SEASONS_MANAGER,
         payload: leagues
@@ -38,13 +40,13 @@ export default function seasonReducer(state = INITIAL_STATE, action) {
 
         case GET_SEASON_BY_LEAGUE + "_PENDING":
             return "LOADING";
-        case GET_SEASON_BY_LEAGUE + "_FULFILLING":
+        case GET_SEASON_BY_LEAGUE + "_FULFILLED":
             return Object.assign({}, state, {seasonsByLeague : action.payload})
 
         case GET_ALL_SEASONS_MANAGER + "_PENDING":
             return "LOADING";
-        case GET_ALL_SEASONS_MANAGER + "_FULFILLING":
-            return Object.assign({}, state, {allSeasonsManger: action.payload})
+        case GET_ALL_SEASONS_MANAGER + "_FULFILLED":
+            return Object.assign({}, state, {allSeasonsManager: action.payload})
 
         default:
             return state;
