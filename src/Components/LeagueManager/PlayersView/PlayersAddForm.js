@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
 import TeamDropDown from '../../DropdownMenus/TeamDropDown';
+import axios from 'axios';
 
 export class PlayersAddForm extends React.Component{
     constructor(props) {
@@ -51,7 +52,7 @@ export class PlayersAddForm extends React.Component{
             active: this.state.active
         }
 
-        console.log(player);
+        axios.post('/api/tea')
     }
 
     resetForm(){
