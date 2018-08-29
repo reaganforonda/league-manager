@@ -38,4 +38,11 @@ module.exports = {
             res.sendStatus(500);
         })
     },
+
+    getPlayers: (req, res) => {
+        const db = req.app.get('db');
+        const {userID, leagueID, teamID} = req.query;
+
+        console.log(req.query);
+    }
 }
