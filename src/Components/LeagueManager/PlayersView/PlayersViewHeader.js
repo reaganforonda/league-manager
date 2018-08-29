@@ -5,8 +5,8 @@ export default function PlayersViewHeader (props) {
     return (
         <header className='league-player-view-header'>
             <div className='league-player-view-menu'>
-                <Link to=''>Main</Link>
-                <Link to=''>Add</Link>
+                <Link to='/leaguemanager/players'>Main</Link>
+                <Link to='/leaguemanager/players/add'>Add</Link>
             </div>
         </header>
     )

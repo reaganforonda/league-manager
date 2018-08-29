@@ -10,6 +10,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 import SeasonView from '../SeasonView/SeasonView';
+import PlayersView from '../PlayersView/PlayersView';
 
 export class LeagueManagerMainView extends React.Component {
     constructor(props){
@@ -37,7 +38,8 @@ export class LeagueManagerMainView extends React.Component {
                         <Route path='/leaguemanager/leagueview' component={LeagueView}/>
                         <Route path='/leaguemanager/teams' component={TeamView}/>
                         <Route path='/leaguemanager/fixtures' component={FixtureView}/>
-                        <Route pather='/leaguemanager/seasons' component={SeasonView}/>
+                        <Route path='/leaguemanager/seasons' component={SeasonView}/>
+                        <Route path='/leaguemanager/players' component={PlayersView}/>
                     </Switch>
                 </main>
             </div>
