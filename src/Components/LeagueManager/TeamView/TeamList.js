@@ -6,20 +6,32 @@ export class TeamList extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state={}
+        this.state={
+            allTeams : []
+        }
+    }
+
+    componentDidMount() {
+        this.setState({allTeams : this.props.managedTeams})
     }
 
     render(){ 
         
-        let teams={}
-
-        if(this.props.managedTeams) {
-            this.props.managedTeams
-        }
+        let allTeams = this.state.allTeams.map((team, index) => {
+            return (
+                <div className='league-team-list-row' key={team.team_name + team.team_id + index}>
+                {team.league_name}
+                {team.team_name}
+                {team.team_city}
+                {team.team_state}
+            </div>
+            )
+        });
+                
 
         return (
-            <div className='team-list-container'>
-            
+            <div className='league-team-list-container'>
+                {allTeams} 
             </div>
         )
     }
