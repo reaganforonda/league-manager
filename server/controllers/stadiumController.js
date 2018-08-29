@@ -5,7 +5,6 @@ module.exports = {
         const db = req.app.get('db');
         const {
             user,
-            league_id,
             stadium_name,
             stadium_address,
             stadium_city,
@@ -27,9 +26,8 @@ module.exports = {
 
     getStadiums: (req, res) => {
         const db = req.app.get('db');
-        const {leagueID} = req.params;
 
-        db.GET_STADIUMS([leagueID]).then((result) => {
+        db.GET_STADIUMS([]).then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
             res.sendStatus(500);
