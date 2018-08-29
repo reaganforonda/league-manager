@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 import * as genUtil from '../../../Utilities/generalUtil';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown'
 import axios from 'axios';
+import {getAllSeasonsLeagueManager} from '../../../ducks/reducers/seasonReducer';
 
 export class SeasonAddForm extends React.Component{
     constructor(props) {
@@ -39,6 +40,7 @@ export class SeasonAddForm extends React.Component{
         }
 
         axios.post(`/api/season/${this.props.user.user_id}`, season).then((result) => {
+            this.props.getAllSeasonsLeagueManager(this.props.user.user_id)
             this.resetForm();
         }).catch((err) => {
             console.log(err) //TODO:
@@ -87,4 +89,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(SeasonAddForm));
+export default connect(mapStateToProps, {getAllSeasonsLeagueManager})(withRouter(SeasonAddForm));
