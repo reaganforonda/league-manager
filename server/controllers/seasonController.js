@@ -11,4 +11,11 @@ module.exports = {
             res.sendStatus(500);
         })
     },
+
+    getSeason:(req, res) => {
+        const db = req.app.get('db');
+
+        
+        console.log(req.query)
+    }
 }
