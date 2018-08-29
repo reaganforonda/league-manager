@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {getAllSeasonsLeagueManager} from '../../../ducks/reducers/seasonReducer';
+import {getAllSeasonsLeagueManager, leagueLoadSeason} from '../../../ducks/reducers/seasonReducer';
 import * as genUtil from '../../../Utilities/generalUtil';
 
 export class SeasonList extends React.Component{
@@ -10,19 +10,31 @@ export class SeasonList extends React.Component{
 
         this.state={
         }
+
+        this.handleClick=this.handleClick.bind(this);
     }
 
     componentDidMount(){
         this.props.getAllSeasonsLeagueManager(this.props.user.user_id)
     }
 
-    render(){
+    handleClick = async (e, value) => {
+        e.preventDefault();
 
+        this.loadLeague(value);
+        this.props.history.push('/leaguemanager/seasons/detail');
+    }
+
+    loadLeague = async(value)=> {
+        return await this.props.leagueLoadSeason(this.props.user.user_id, value.season_id, value.league_id);
+    }
+
+    render(){
         let allSeasons = []
         if(this.props.allSeasonsManager) {
             allSeasons = this.props.allSeasonsManager.map((value, index) => {
                 return (
-                    <div className='season-list-row' key={value.season_id}>
+                    <div onClick={(e)=>this.handleClick(e, value)} className='season-list-row' key={value.season_id}>
                         {value.league_name}
                         {genUtil.truncateDate(value.season_start_date)} - {genUtil.truncateDate(value.season_end_date)}
                     </div>
@@ -46,4 +58,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getAllSeasonsLeagueManager})(withRouter(SeasonList))
+export default connect(mapStateToProps, {getAllSeasonsLeagueManager, leagueLoadSeason})(withRouter(SeasonList))
