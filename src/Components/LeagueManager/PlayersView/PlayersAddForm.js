@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
 import TeamDropDown from '../../DropdownMenus/TeamDropDown';
+import {getAllPlayersLM} from '../../../ducks/reducers/playersReducer';
 import axios from 'axios';
 
 export class PlayersAddForm extends React.Component{
@@ -17,6 +18,7 @@ export class PlayersAddForm extends React.Component{
             address: '',
             city: '',
             state: '',
+            phone: '',
             zip: '',
             email: '',
             active: ''
@@ -46,13 +48,19 @@ export class PlayersAddForm extends React.Component{
             lastName: this.state.lastName,
             address: this.state.address,
             city: this.state.city,
-            staet: this.state.state,
+            state: this.state.state,
+            phone: this.state.phone,
             zip: this.state.zip,
             email: this.state.email,
             active: this.state.active
         }
 
-        axios.post('/api/tea')
+        axios.post('/api/player', player).then((result) => {
+            this.props.getAllPlayersLM(this.props.user.user_id);
+            this.resetForm();
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
     resetForm(){
@@ -105,6 +113,10 @@ export class PlayersAddForm extends React.Component{
                             onChange={(e)=>this.handleInputChange(e)} />
                     </div>
                     <div className='players-add-form-row'>
+                        Phone <input type='text' name='phone' value={this.state.phone} 
+                            onChange={(e)=>this.handleInputChange(e)} />
+                    </div>
+                    <div className='players-add-form-row'>
                         Email <input type='email' name='email' value={this.state.email} 
                             onChange={(e)=>this.handleInputChange(e)} />
                     </div>
@@ -126,8 +138,9 @@ function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
         managedLeagues: state.leagueReducer.managedLeagues,
-        managedTeams: state.teamReducer.managedTeams
+        managedTeams: state.teamReducer.managedTeams,
+        allPlayersLeagueManager: state.playerReducer.allPlayersLeagueManager
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(PlayersAddForm));
+export default connect(mapStateToProps, {getAllPlayersLM})(withRouter(PlayersAddForm));
