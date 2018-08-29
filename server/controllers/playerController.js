@@ -43,6 +43,11 @@ module.exports = {
         const db = req.app.get('db');
         const {userID, leagueID, teamID} = req.query;
 
-        console.log(req.query);
-    }
+        db.GET_PLAYERS([leagueID, teamID, userID]).then((result) => {
+            res.status(200).send(result);
+        }).catch((err)=> {
+            console.log(`Server error while attemptint to retrieve players: ${err}`);
+            res.sendStatus(500);
+        })
+    },
 }
