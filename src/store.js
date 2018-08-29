@@ -6,6 +6,7 @@ import userReducer from './ducks/reducers/userReducer';
 import stadiumReducer from './ducks/reducers/stadiumReducer';
 import fixtureReducer from './ducks/reducers/fixtureReducer';
 import seasonReducer from './ducks/reducers/seasonReducer';
+import playersReducer from './ducks/reducers/playersReducer';
 
 const reducers = {
     leagueReducer : leagueReducer,
@@ -13,7 +14,8 @@ const reducers = {
     userReducer : userReducer,
     stadiumReducer: stadiumReducer,
     fixtureReducer: fixtureReducer,
-    seasonReducer: seasonReducer
+    seasonReducer: seasonReducer,
+    playerReducer: playersReducer
 }
 
 let middleware = promiseMiddleware();
