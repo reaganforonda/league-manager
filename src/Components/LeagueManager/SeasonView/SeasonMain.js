@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import SeasonList from './SeasonList';
 
 export class SeasonMain extends React.Component{
     constructor(props) {
@@ -12,7 +13,7 @@ export class SeasonMain extends React.Component{
     render(){
         return (
             <div className='league-season-main-container'>
-                Main
+                <SeasonList/>
             </div>
         )
     }
