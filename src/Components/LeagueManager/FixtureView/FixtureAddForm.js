@@ -7,7 +7,10 @@ export class FixtureAddForm extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state={}
+        this.state={
+            leagueID:'',
+
+        }
     }
 
     render() {
@@ -15,13 +18,20 @@ export class FixtureAddForm extends React.Component{
             <div className='fixture-add-form-container'>
                 <form className='fixture-add-form'>
                     <div className='fixture-add-form-row'>
-                        Placeholder
+                        League:
+                    </div>
+                    
+                    <div className='fixture-add-form-row'>
+                        Location:
                     </div>
                     <div className='fixture-add-form-row'>
-                        Placeholder
+                        Date:
                     </div>
                     <div className='fixture-add-form-row'>
-                        Placeholder
+                        Home Team:
+                    </div>
+                    <div className='fixture-add-form-row'>
+                        Away Team:
                     </div>
                 </form>
             </div>
