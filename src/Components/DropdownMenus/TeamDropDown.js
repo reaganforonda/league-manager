@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function TeamDropDown (props){
     let teams = props.teams.map((value, i) => {
-        return <option key={~~value.team_id + i} value={value.team_id}> {value.team_name} </option>
+        return <option key={~~value.team_id + value.team_name} value={value.team_id}> {value.team_name} </option>
     });
+
+    console.log(teams);
 
 
     return (
