@@ -60,34 +60,5 @@ module.exports = {
             console.log(`Server Error while attempting to retreive league info: ${err}`);
             res.sendStatus(500);
         })
-    },
-
-    createNewSeason: (req, res) => {
-        const db=req.app.get('db');
-        const {userID, leagueID, seasonStartDate, seasonEndDate} = req.body;
-        
-        if(!userID){
-            res.sendStatus(401);
-            // TODO: Check error code
-        }
-
-        db.CREATE_NEW_SEASON([leagueID, seasonStartDate, seasonEndDate]).then((result)=> {
-            res.status(200).send(result);
-        }).catch((err)=> {
-            console.log(`Server error while attempting to add new season: ${err}`)
-            res.sendStatus(500);
-        })
-    },
-
-    getSeasons: (req, res) => {
-        const db = req.app.get('db');
-        const {leagueID} = req.params;
-
-        db.GET_ALL_SEASON_BY_LEAGUE([leagueID]).then((result)=> {
-            res.status(200).send(result);
-        }).catch((err) => {
-            console.log(`Server error while attempting to retreive all seasons: ${err}`);
-            res.sendStatus(500);
-        })
     }
 }   
