@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
+import TeamList from './TeamList';
 
 export class TeamMain extends React.Component{
     constructor(props) {
@@ -17,7 +18,7 @@ export class TeamMain extends React.Component{
     render(){
         return (
             <div className='league-team-main-container'>
-                Main
+                <TeamList/>
             </div>
         )
     }
