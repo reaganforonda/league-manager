@@ -7,7 +7,6 @@ export default function TeamViewHeader (props) {
             <div className='league-team-view-menu'>
                 <Link to='/leaguemanager/teams'>Main</Link>
                 <Link to='/leaguemanager/teams/add'>Add</Link>
-                <Link to='/leaguemanager/teams/edit'>Edit</Link>
             </div>
         </header>
     )
