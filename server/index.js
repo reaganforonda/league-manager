@@ -66,7 +66,7 @@ app.get('/api/player', playerController.getPlayers)
 
 // STADIUM ENDPOINTS
 app.post('/api/stadium', stadiumControler.addStadium)
-app.get('/api/stadiums/:leagueID', stadiumControler.getStadiums)
+app.get('/api/stadiums', stadiumControler.getStadiums)
 
 // FIXTURE ENDPOINTS
 app.post('/api/fixture', fixtureController.addFixture)
