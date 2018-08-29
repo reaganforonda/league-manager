@@ -14,6 +14,7 @@ import {getAllPlayersLM} from '../../../ducks/reducers/playersReducer';
 import SeasonView from '../SeasonView/SeasonView';
 import PlayersView from '../PlayersView/PlayersView';
 import Loading from '../../Loading/Loading';
+import StadiumView from '../StadiumView/StadiumView';
 
 export class LeagueManagerMainView extends React.Component {
     constructor(props){
@@ -56,6 +57,7 @@ export class LeagueManagerMainView extends React.Component {
                         <Route path='/leaguemanager/fixtures' component={FixtureView}/>
                         <Route path='/leaguemanager/seasons' component={SeasonView}/>
                         <Route path='/leaguemanager/players' component={PlayersView}/>
+                        <Route path='/leaguemanager/stadiums' component={StadiumView} />
                     </Switch>
                 </main>
             </div>
