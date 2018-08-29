@@ -9,8 +9,8 @@ const INITIAL_STATE = {
 const GET_ALL_PLAYERS_LM = "GET_ALL_PLAYERS_LM"
 
 export function getAllPlayersLM(userID) {
-    let players = axios.get(`/api/players?userID=${userID}`).then((result) => {
-        return result
+    let players = axios.get(`/api/player?userID=${userID}`).then((result) => {
+        return result.data
     })
 
     return {
