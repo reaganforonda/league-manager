@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import StadiumList from './StadiumList';
 
 export class StadiumMain extends React.Component{
     constructor(props) {
@@ -12,8 +12,8 @@ export class StadiumMain extends React.Component{
 
     render(){
         return (
-            <div className='stadium-main-container'>
-
+            <div className='stadium-main-container'>    
+                <StadiumList/>
             </div>
         )
     }
