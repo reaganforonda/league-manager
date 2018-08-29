@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import * as genUtil from '../../../Utilities/generalUtil';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
-import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
+import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
 
 export class TeamAddForm extends React.Component{
     constructor(props) {
@@ -44,7 +44,7 @@ export class TeamAddForm extends React.Component{
         if(this.validForm()) { 
             axios.post('/api/team', team).then((result) => {
                 this.resetForm();
-                this.props.getManagedLeagues(this.props.user.user_id);
+                this.props.getManagedTeams(this.props.user.user_id);
             }).catch((err) => {
                 console.log(err) //TODO:
             })
@@ -108,8 +108,9 @@ export class TeamAddForm extends React.Component{
 function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
-        managedLeagues: state.leagueReducer.managedLeagues
+        managedLeagues: state.leagueReducer.managedLeagues,
+        managedTeams: state.teamReducer.managedTeams
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues})(withRouter(TeamAddForm))
+export default connect(mapStateToProps, {getManagedTeams})(withRouter(TeamAddForm))
