@@ -9,27 +9,41 @@ import Header from '../../Header/Header';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
+import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
 import SeasonView from '../SeasonView/SeasonView';
 import PlayersView from '../PlayersView/PlayersView';
+import Loading from '../../Loading/Loading';
 
 export class LeagueManagerMainView extends React.Component {
     constructor(props){
         super(props);
 
-        this.state={}
+        this.state={
+            loading: true,
+        }
     }
 
     componentDidMount = async ()=> {
         await axios.get('/api/auth/me').then((users) => {
             this.props.getManagedLeagues(this.props.user.user_id);
+            this.props.getManagedTeams(this.props.user.user_id);
         }).catch((err) => {
             this.props.history.push('/')
         })
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if(props.managedLeagues && props.managedTeams) {
+            return {
+                loading: !(props.managedLeagues && props.managedTeams)
+            }
+        }
+    }
+
     render(){
         return (
-            <div className='league-main-view-container'>
+            this.state.loading ? <Loading/> : (
+                <div className='league-main-view-container'>
                 <Header/>
                 <main className='league-main-view-main'>
                     <SideNav/>
@@ -43,6 +57,8 @@ export class LeagueManagerMainView extends React.Component {
                     </Switch>
                 </main>
             </div>
+            )
+            
         )
     }
 }
@@ -50,8 +66,9 @@ export class LeagueManagerMainView extends React.Component {
 function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
-        managedLeagues : state.leagueReducer.managedLeagues
+        managedLeagues : state.leagueReducer.managedLeagues,
+        managedTeams : state.teamReducer.managedTeams
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues})(withRouter(LeagueManagerMainView));
+export default connect(mapStateToProps, {getManagedLeagues, getManagedTeams})(withRouter(LeagueManagerMainView));
