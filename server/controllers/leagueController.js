@@ -50,15 +50,21 @@ module.exports = {
         })
     },
 
-    getLeagueInfo: (req, res) => {
-        const db=req.app.get('db');
-        const {userID, leagueID} = req.params;
+    updateLeagueInfo: (req, res) => {
+        const db = req.app.get('db');
+        const {userID} = req.query;
+        const {
+            league_id,
+            league_name,
+            league_city,
+            league_state,
+            league_zip,
+            max_teams,
+            number_games,
+            min_players_per_team,
+            max_players_per_team
+        } = req.body;
 
-        db.GET_LEAGUE([userID, leagueID]).then((result)=> {
-            res.status(200).send(result);
-        }).catch((err) => {
-            console.log(`Server Error while attempting to retreive league info: ${err}`);
-            res.sendStatus(500);
-        })
+        
     }
 }   
