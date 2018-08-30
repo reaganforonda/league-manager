@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import FixtureList from './FixtureList';
 
 export class FixtureMain extends React.Component{
     constructor(props) {
@@ -13,7 +13,7 @@ export class FixtureMain extends React.Component{
     render(){
         return (
             <div className='fixture-main-container'>
-            
+                <FixtureList/>
             </div>
         )
     }
