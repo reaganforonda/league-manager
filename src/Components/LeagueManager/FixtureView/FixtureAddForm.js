@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 import StadiumDropDown from '../../DropdownMenus/StadiumDropDown';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
 import TeamDropDown from '../../DropdownMenus/TeamDropDown';
+import SeasonDropDown from '../../DropdownMenus/SeasonDropDown';
 
 export class FixtureAddForm extends React.Component{
     constructor(props) {
@@ -15,6 +16,7 @@ export class FixtureAddForm extends React.Component{
             fixtureDate: '',
             awayTeamID: '',
             homeTeamID: '',
+            seasonID: '',
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -29,11 +31,12 @@ export class FixtureAddForm extends React.Component{
         e.preventDefault();
 
         let fixture = {
-            leagueID : this.state.fixtureDate,
+            leagueID : this.state.leagueID,
             stadiumID : this.state.stadiumID,
             fixtureDate : this.state.fixtureDate,
             awayTeamID: this.state.awayTeamID,
-            homeTeamID: this.state.homeTeamID
+            homeTeamID: this.state.homeTeamID,
+            seasonID: this.state.seasonID
         }
 
         console.log(fixture);
@@ -45,7 +48,8 @@ export class FixtureAddForm extends React.Component{
             stadiumID: '',
             fixtureDate: '',
             awayTeamID: '',
-            homeTeamID: ''
+            homeTeamID: '',
+            seasonID:''
         })
     }
 
@@ -56,7 +60,9 @@ export class FixtureAddForm extends React.Component{
                     <div className='fixture-add-form-row'>
                         League: <LeagueDropDown leagues={this.props.managedLeagues} selectLeague={this.handleInputChange} />
                     </div>
-                    
+                    <div className='fixture-add-form-row'>
+                        Season: <SeasonDropDown seasons={this.props.allSeasonsManager} selectSeason={this.handleInputChange} league={this.state.leagueID}/>
+                    </div>
                     <div className='fixture-add-form-row'>
                         Location: <StadiumDropDown stadiums={this.props.allStadiums} selectStadium={this.handleInputChange}/> 
                     </div>
@@ -83,7 +89,8 @@ function mapStateToProps(state) {
         user: state.userReducer.user,
         allStadiums: state.stadiumReducer.allStadiums,
         managedLeagues : state.leagueReducer.managedLeagues,
-        managedTeams : state.teamReducer.managedTeams
+        managedTeams : state.teamReducer.managedTeams,
+        allSeasonsManager: state.seasonReducer.allSeasonsManager
     }
 }
 
