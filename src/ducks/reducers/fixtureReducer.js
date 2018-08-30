@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 const GET_ALL_FIXTURES = 'GET_ALL_FIXTURES';
 
 export function getFixtures(userID) {
-    let fixtures = axios.get(``).then((result) => {
+    let fixtures = axios.get(`/api/fixtures?userID?=${userID}`).then((result) => {
         return result.data
     })
 

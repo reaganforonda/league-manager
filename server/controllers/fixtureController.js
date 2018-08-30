@@ -22,14 +22,9 @@ module.exports ={
 
     getSeasonFixtures: (req, res) => {
         const db = req.app.get('db');
-        console.log(req.query);
+        const {userID, seasonID, leagueID} = req.query
 
-        const {
-            leagueID,
-            seasonID
-        } = req.query;
-
-        db.GET_ALL_SEASON_FIXTURES([leagueID, seasonID]).then((result) => {
+        db.GET_ALL_SEASON_FIXTURES([userID, seasonID, leagueID]).then((result) => {
             res.status(200).send(result);
         }).catch((err) => {
             console.log(`Server error while attempting to retrieve GET_ALL_FIXTURES: ${err}`)
