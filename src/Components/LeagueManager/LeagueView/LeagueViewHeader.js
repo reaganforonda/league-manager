@@ -8,7 +8,6 @@ export default function LeagueViewHeader(props){
             <div className='league-view-header-menu'>
                 <Link to='/leaguemanager/leagueview'>Main</Link>
                 <Link to='/leaguemanager/leagueview/add'>Add</Link>
-                <Link to='/leaguemanager/leagueview/edit'>Edit</Link>
             </div>
         </header>
     )
