@@ -65,7 +65,7 @@ export class LeagueProfile extends React.Component{
                 max_teams : this.state.max_teams,
                 number_games : this.state.number_games,
                 min_players_per_team : this.state.min_players_per_team,
-                max_players_per_team : this.setState.max_players_per_team
+                max_players_per_team : this.state.max_players_per_team
             }
 
             axios.put(`/api/leagues?userID=${this.props.user.user_id}`, updateLeagueInfo).then((result) => {
@@ -99,7 +99,7 @@ export class LeagueProfile extends React.Component{
             max_teams : this.state.max_teams,
             number_games : this.state.number_games,
             min_players_per_team : this.state.min_players_per_team,
-            max_players_per_team : this.setState.max_players_per_team
+            max_players_per_team : this.state.max_players_per_team
         }
 
         console.log(updateLeagueInfo);
