@@ -5,6 +5,7 @@ import StadiumDropDown from '../../DropdownMenus/StadiumDropDown';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
 import TeamDropDown from '../../DropdownMenus/TeamDropDown';
 import SeasonDropDown from '../../DropdownMenus/SeasonDropDown';
+import axios from 'axios';
 
 export class FixtureAddForm extends React.Component{
     constructor(props) {
@@ -39,7 +40,11 @@ export class FixtureAddForm extends React.Component{
             seasonID: this.state.seasonID
         }
 
-        console.log(fixture);
+        axios.post('/api/fixture', fixture).then((result) => {
+            console.log('ok');
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
     resetForm(){
