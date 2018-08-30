@@ -5,6 +5,7 @@ import StadiumDropDown from '../../DropdownMenus/StadiumDropDown';
 import LeagueDropDown from '../../DropdownMenus/LeagueDropDown';
 import TeamDropDown from '../../DropdownMenus/TeamDropDown';
 import SeasonDropDown from '../../DropdownMenus/SeasonDropDown';
+import {getFixtures} from '../../../ducks/reducers/fixtureReducer';
 import axios from 'axios';
 
 export class FixtureAddForm extends React.Component{
@@ -22,6 +23,7 @@ export class FixtureAddForm extends React.Component{
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.resetForm = this.resetForm.bind(this);
     }
 
     handleInputChange(e) {
@@ -41,7 +43,8 @@ export class FixtureAddForm extends React.Component{
         }
 
         axios.post('/api/fixture', fixture).then((result) => {
-            console.log('ok');
+            this.props.getFixtures(this.props.user.user_id);
+            this.resetForm();
         }).catch((err) => {
             console.log(err);
         })
@@ -99,4 +102,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(FixtureAddForm));
+export default connect(mapStateToProps, {getFixtures})(withRouter(FixtureAddForm));
