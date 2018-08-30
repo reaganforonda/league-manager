@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 const GET_MANAGED_LEAGUES = 'GET_MANAGED_LEAGUES';
 const LOAD_LEAGUE_INFO = 'LOAD_LEAGUE_INFO';
 
-export function loadLeagueInfo(leagueID, userID){
+export function loadLeagueInfo(userID, leagueID){
     let league = axios.get(`/api/leagues?userID=${userID}&leagueID=${leagueID}`).then((league) => {
         return league.data[0]
     })

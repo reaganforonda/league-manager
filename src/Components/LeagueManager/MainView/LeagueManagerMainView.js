@@ -32,7 +32,7 @@ export class LeagueManagerMainView extends React.Component {
         await axios.get('/api/auth/me').then((users) => {
             this.props.getManagedLeagues(this.props.user.user_id);
             this.props.getManagedTeams(this.props.user.user_id);
-            this.props. getAllPlayersLM(this.props.user.user_id);
+            this.props.getAllPlayersLM(this.props.user.user_id);
             this.props.getAllSeasonsLeagueManager(this.props.user.user_id);
             this.props.getFixtures(this.props.user.user_id);
             this.props.getAllStadiums();

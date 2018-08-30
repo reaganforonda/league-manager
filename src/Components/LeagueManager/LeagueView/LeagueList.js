@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {loadLeagueInfo} from '../../../ducks/reducers/leagueReducer';
+import {loadLeagueInfo, getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 
 export class LeagueList extends React.Component{
     constructor(props) {
@@ -21,6 +21,7 @@ export class LeagueList extends React.Component{
     handleLeagueClick(e, leagueID) {
         e.preventDefault(e);
         this.props.loadLeagueInfo(this.props.user.user_id, leagueID)
+        this.props.getManagedLeagues(this.props.user.user_id)
         this.props.history.push('/leaguemanager/leagueview/detail')
     }
 
@@ -43,8 +44,9 @@ export class LeagueList extends React.Component{
 function mapStateToProps(state) {
     return {
         user: state.userReducer.user,
-        managedLeagues: state.leagueReducer.managedLeagues
+        managedLeagues: state.leagueReducer.managedLeagues,
+        selectedLeague: state.leagueReducer.selectedLeague
     }
 }
 
-export default connect(mapStateToProps, {loadLeagueInfo})(withRouter(LeagueList))
+export default connect(mapStateToProps, {loadLeagueInfo, getManagedLeagues})(withRouter(LeagueList))

@@ -38,6 +38,8 @@ module.exports = {
         const db = req.app.get('db');
         const {userID, leagueID} = req.query
 
+        console.log(req.query);
+
         if(!userID){
             res.sendStatus(401);
         }
@@ -64,6 +66,8 @@ module.exports = {
             min_players_per_team,
             max_players_per_team
         } = req.body;
+
+        console.log(req.body);
 
         db.UPDATE_LEAGUE_INFO([userID, league_id, league_name, league_city, league_state, league_zip, max_teams, number_games, min_players_per_team, max_players_per_team]).then((result) => {
             res.status(200).send(result);
