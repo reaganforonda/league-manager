@@ -12,6 +12,7 @@ import {getManagedLeagues} from '../../../ducks/reducers/leagueReducer';
 import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
 import {getAllPlayersLM} from '../../../ducks/reducers/playersReducer';
 import {getAllStadiums} from '../../../ducks/reducers/stadiumReducer';
+import {getAllSeasonsLeagueManager} from '../../../ducks/reducers/seasonReducer';
 import SeasonView from '../SeasonView/SeasonView';
 import PlayersView from '../PlayersView/PlayersView';
 import Loading from '../../Loading/Loading';
@@ -31,6 +32,7 @@ export class LeagueManagerMainView extends React.Component {
             this.props.getManagedLeagues(this.props.user.user_id);
             this.props.getManagedTeams(this.props.user.user_id);
             this.props. getAllPlayersLM(this.props.user.user_id);
+            this.props.getAllSeasonsLeagueManager(this.props.user.user_id);
             this.props.getAllStadiums();
         }).catch((err) => {
             this.props.history.push('/')
@@ -38,9 +40,9 @@ export class LeagueManagerMainView extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager && props.allStadiums) {
+        if(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager && props.allStadiums && props.allSeasonsManager) {
             return {
-                loading: !(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager && props.allStadiums)
+                loading: !(props.managedLeagues && props.managedTeams && props.allPlayersLeagueManager && props.allStadiums && props.allSeasonsManager)
             }
         }
     }
@@ -75,8 +77,9 @@ function mapStateToProps(state) {
         managedLeagues : state.leagueReducer.managedLeagues,
         managedTeams : state.teamReducer.managedTeams,
         allPlayersLeagueManager: state.playerReducer.allPlayersLeagueManager,
-        allStadiums: state.stadiumReducer.allStadiums
+        allStadiums: state.stadiumReducer.allStadiums,
+        allSeasonsManager: state.seasonReducer.allSeasonsManager
     }
 }
 
-export default connect(mapStateToProps, {getManagedLeagues, getManagedTeams,  getAllStadiums, getAllPlayersLM})(withRouter(LeagueManagerMainView));
+export default connect(mapStateToProps, {getManagedLeagues, getManagedTeams,   getAllSeasonsLeagueManager, getAllStadiums, getAllPlayersLM})(withRouter(LeagueManagerMainView));
