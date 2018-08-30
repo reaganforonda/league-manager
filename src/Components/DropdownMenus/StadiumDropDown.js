@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function StadiumDropDown(props) {
     let stadiums = props.stadiums.map((stadium, index) => {
-        return <option key={stadium.stadium_id+stadium.stadium_name + index}>{stadium.stadium_name}</option>
+        return <option value={stadium.stadium_id} key={stadium.stadium_id+stadium.stadium_name + index}>{stadium.stadium_name}</option>
     })
 
     return (
