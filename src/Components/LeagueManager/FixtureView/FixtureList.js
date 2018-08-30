@@ -18,7 +18,7 @@ export class FixtureList extends React.Component{
     render(){
         let allFixtures = this.state.allFixtures.map((fixture, index) => {
             return (
-                <div className='league-fixture-list-row' kye={fixture.fixture_id+fixture.fixture_date}>
+                <div className='league-fixture-list-row' key={fixture.fixture_id+fixture.fixture_date}>
                     {fixture.league_id}
                     {fixture.fixture_id}
                     {fixture.home_team}
