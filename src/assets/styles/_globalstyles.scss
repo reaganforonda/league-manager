@@ -1,8 +1,25 @@
+$registrationBlack: #000300;
+$sheenGreen: #98Ce00;
+$white: #FFFFFC;
+$sonicSilver: #757780;
+$mayaBlue: #6CCFF6;
+$offBlack: #32373C;
+
+
 .view-container {
-    border: solid 2px blue;
     width: 90%;
+    min-height: fit-content;
+    height: 80%;
     min-width: fit-content;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: solid 1px $registrationBlack;
+}
+
+.view-container:hover{
+    box-shadow: 0 5px 11px 0 rgba(5,102,141,0.2);
+    transition: 0.3s;
 }
