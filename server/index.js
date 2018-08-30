@@ -70,7 +70,7 @@ app.get('/api/stadiums', stadiumControler.getStadiums)
 
 // FIXTURE ENDPOINTS
 app.post('/api/fixture', fixtureController.addFixture)
-app.get('/api/fixtures/search', fixtureController.getSeasonFixtures);
+app.get('/api/fixtures', fixtureController.getSeasonFixtures);
 
 // SEASON ENDPOINTS
 app.post('/api/season/:userID', seasonController.createSeason);
