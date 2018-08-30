@@ -65,6 +65,11 @@ module.exports = {
             max_players_per_team
         } = req.body;
 
-        
+        db.UPDATE_LEAGUE_INFO([userID, league_id, league_name, league_city, league_state, league_zip, max_teams, number_games, min_players_per_team, max_players_per_team]).then((result) => {
+            res.status(200).send(result);
+        }).catch((err) => {
+            console.log(`Server error while attempting to update League: ${err}`);
+            res.sendStatus(500);
+        })
     }
 }   

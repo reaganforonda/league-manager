@@ -10,7 +10,6 @@ const LOAD_LEAGUE_INFO = 'LOAD_LEAGUE_INFO';
 
 export function loadLeagueInfo(leagueID, userID){
     let league = axios.get(`/api/leagues?userID=${userID}&leagueID=${leagueID}`).then((league) => {
-        console.log(league.data);
         return league.data[0]
     })
 
