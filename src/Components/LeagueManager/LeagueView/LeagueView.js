@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import LeagueViewHeader from './LeagueViewHeader';
 import LeagueAddForm from './LeagueAddForm';
 import LeagueMain from './LeagueMain';
+import LeagueProfile from './LeagueProfile';
 
 export default function LeagueView(props){
     return (
@@ -12,6 +13,7 @@ export default function LeagueView(props){
                 <Switch>
                     <Route exact path='/leaguemanager/leagueview' component={LeagueMain}/>
                     <Route path='/leaguemanager/leagueview/add' component={LeagueAddForm}/>
+                    <Route path='/leaguemanager/leagueview/detail' component={LeagueProfile}/>
                 </Switch>
             </div>
         </div>
