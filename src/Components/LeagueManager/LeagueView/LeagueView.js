@@ -7,7 +7,7 @@ import LeagueProfile from './LeagueProfile';
 
 export default function LeagueView(props){
     return (
-        <div className='league-view-container'>
+        <div className='view-container'>
             <LeagueViewHeader/>
             <div className='league-view-main'>
                 <Switch>

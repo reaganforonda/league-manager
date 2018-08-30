@@ -6,7 +6,7 @@ import PlayersAddForm from './PlayersAddForm';
 
 export default function PlayersView(props) {
     return (
-        <div className='league-players-container'>
+        <div className='view-container'>
             <PlayersViewHeader/>
             <main className='players-view-main'>
                 <Switch>
