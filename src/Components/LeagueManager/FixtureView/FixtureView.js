@@ -6,7 +6,7 @@ import FixtureViewHeader from './FixtureViewHeader';
 
 export default function FixtureView(props) {
     return (
-        <div className='fixture-view-container'>
+        <div className='view-container'>
             <FixtureViewHeader/>
             <main className='fixture-view-main'>
                 <Switch>

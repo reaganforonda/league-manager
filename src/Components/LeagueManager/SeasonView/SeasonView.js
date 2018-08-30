@@ -7,7 +7,7 @@ import SeasonDetailView from './SeasonDetailView';
 
 export default function SeasonView(props) {
     return (
-        <div className='season-view-container'>
+        <div className='view-container'>
             <FixtureViewHeader/>
             <main className='season-view-main'>
                 <Switch>
