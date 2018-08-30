@@ -26,6 +26,7 @@ $h2PhoneLH: 1.15384615em;
 .league-main-view-container {
     width: 100vw;
     height: 100vh;
+    
 }
 
 .league-main-view-main {
@@ -35,5 +36,5 @@ $h2PhoneLH: 1.15384615em;
     width: 60%;
     min-width: fit-content;
     height: 100%;
-    border: 2px dashed purple;
+    background: $white;
 }
