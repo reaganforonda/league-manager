@@ -38,8 +38,12 @@ export default function leagueReducer(state = INITIAL_STATE, action){
             return "Loading";
         case GET_MANAGED_LEAGUES + '_FULFILLED':
             return Object.assign({}, state, {managedLeagues: action.payload})
-        case LOAD_LEAGUE_INFO:
-            return Object.assign({}, state, {selectedLeague: action.payload})
+
+        case LOAD_LEAGUE_INFO + "_PENDING":
+            return "Loading";
+        
+        case LOAD_LEAGUE_INFO + '_FULFILLED':
+            return Object.assign({}, state, {selectedLeague: action.payload});
 
         default:
             return state;
