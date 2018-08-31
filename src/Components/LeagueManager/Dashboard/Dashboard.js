@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Loading from '../../Loading/Loading';
 
 export class LeagueManagerDashboard extends React.Component{
     constructor(props){
@@ -12,7 +13,7 @@ export class LeagueManagerDashboard extends React.Component{
     render(){
         return (
             <div className='league-dashboard-container'>
-                Dashboard
+                <Loading/>
             </div>
         )
     }
