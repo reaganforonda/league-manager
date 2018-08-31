@@ -6,8 +6,7 @@ import StadiumViewHeader from './StadiumViewHeader';
 
 export default function StadiumView(props) {
     return (
-        <div className='stadium-view-container'>
-
+        <div className='view-container'>
             <main className='stadium-view-main'>
                 <StadiumViewHeader/>
                 <Switch>
