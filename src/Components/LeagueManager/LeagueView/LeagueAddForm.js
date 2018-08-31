@@ -91,7 +91,7 @@ export class LeagueAddForm extends React.Component{
             <div className='league-add-form-container'>
                 <form className='league-add-form'>
                     <div className='league-add-form-row'>
-                        League Name: <input type='text' name='leagueName' value={this.state.leagueName} 
+                        <p>League Name:</p><input type='text' name='leagueName' value={this.state.leagueName} 
                             onChange={(e)=> this.handleInputChange(e)}/>
                     </div>
                     <div className='league-add-form-row'>
@@ -123,7 +123,7 @@ export class LeagueAddForm extends React.Component{
                             onChange={(e)=> this.handleInputChange(e)}/>
                     </div>
                 </form>
-                <button onClick={(e)=>this.submitForm(e)}>SUBMIT</button>
+                <button onClick={(e)=>this.submitForm(e)}>Submit</button>
             </div>
         )
     }
