@@ -45,7 +45,8 @@ $h2PhoneLH: 1.15384615em;
 }
 
 .league-list-row:hover{
-    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2)
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+    border: 1px dashed $mayaBlue;
 }
 
 .league-list-row *{
