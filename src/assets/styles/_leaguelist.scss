@@ -34,13 +34,18 @@ $h2PhoneLH: 1.15384615em;
 
 .league-list-row {
     padding: 5px 5px;
+    border-top: solid 1px $sonicSilver;
     border-bottom: solid 1px $sonicSilver;
     margin: 10px 0;
-    padding: 5px 0;
+    padding: 10px 0;
     display: flex;
-    border: 1px dashed purple;
     font-size: 1em;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.league-list-row:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2)
 }
 
 .league-list-row *{
@@ -51,6 +56,7 @@ $h2PhoneLH: 1.15384615em;
 .league-list-row-header {
     display: flex;
     justify-content: space-evenly;
+    border-bottom: 1px solid $registrationBlack;
 }
 
 .league-list-row-header * {
