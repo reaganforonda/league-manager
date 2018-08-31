@@ -6,7 +6,7 @@ import TeamAddForm from './TeamAddForm';
 
 export default function TeamView(props) {
     return (
-        <div className='league-team-view-container'>
+        <div className='view-container'>
             <TeamViewHeader/>
             <main className='league-team-view-main'>
                 <Switch>
