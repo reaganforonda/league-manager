@@ -29,12 +29,21 @@ export class LeagueList extends React.Component{
         let allLeagues = this.state.leagues.map((value, index) => {
             return (
                 <div onClick={(e)=>this.handleLeagueClick(e, value.league_id)} className='league-list-row' key={value.league_id}>
-                    {value.league_name}
+                    <h3>{value.league_name}</h3>
+                    <p>{value.league_city}</p>
+                    <p>{value.league_state}</p>
+                    <p>{value.league_zip}</p>
                 </div>
             )
         })
         return (
             <div className='league-list-container'>
+                <div className='league-list-row-header'>
+                    <h2>League Name</h2>
+                    <h2>City</h2>
+                    <h2>State</h2>
+                    <h2>Zip Code</h2>
+                </div>
                 {allLeagues}
             </div>
         )

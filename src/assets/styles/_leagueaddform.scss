@@ -71,7 +71,15 @@ $h2PhoneLH: 1.15384615em;
     font-size: 1em;
     padding: 5px 5px;
     border-radius: 3px;
-    background: $white;
+    background: $registrationBlack;
+    color: $white;
+    border: 0;
+    cursor: pointer;
+}
+
+.league-add-form-container button:hover {
+    background: $mayaBlue;
+    color: $registrationBlack;
 }
 
 .league-add-form-row p {
