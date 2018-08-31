@@ -3,10 +3,14 @@ import {Link} from 'react-router-dom';
 
 export default function PlayersViewHeader (props) {
     return (
-        <header className='league-player-view-header'>
-            <div className='league-player-view-menu'>
-                <Link to='/leaguemanager/players'>Main</Link>
-                <Link to='/leaguemanager/players/add'>Add</Link>
+        <header className='view-header'>
+            <div className='view-header-menu'>
+                <div className='view-header-menu-item'>
+                    <Link to='/leaguemanager/players'>Main</Link>
+                </div>
+                <div className='view-header-menu-item'>
+                    <Link to='/leaguemanager/players/add'>Add</Link>
+                </div>
             </div>
         </header>
     )
