@@ -58,6 +58,9 @@ $h2PhoneLH: 1.15384615em;
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid $registrationBlack;
+    background: $registrationBlack;
+    color: white;
+    padding: 10px 0;
 }
 
 .league-list-row-header * {
