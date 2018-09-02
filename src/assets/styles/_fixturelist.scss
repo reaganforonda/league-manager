@@ -1,0 +1,77 @@
+$registrationBlack: #000300;
+$sheenGreen: #98Ce00;
+$white: #FFFFFC;
+$sonicSilver: #757780;
+$mayaBlue: #6CCFF6;
+
+
+$h1DesktopFS: 3em;
+$h1DesktopLH: 1.05em;
+$h1PhoneFS: 2em;
+$h1PhoneLH: 1.25em;
+
+/* Body */
+$bodyDesktopFS: 1em;
+$bodyDesktopLH: 1.375em;
+$bodyPhoneFS: 1em;
+$bodyPhoneLH: 1.25em;
+
+
+/* H2 */
+$h2DesktopFS: 2.25em;
+$h2DesktopLH: 1.25em;
+$h2PhoneFS: 1.625em;
+$h2PhoneLH: 1.15384615em;
+
+
+.league-fixture-list-container{
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+// .league-fixture-list-row {
+//     padding: 5px 5px;
+//     border-top: solid 1px $sonicSilver;
+//     border-bottom: solid 1px $sonicSilver;
+//     margin: 10px 0;
+//     padding: 10px 0;
+//     display: flex;
+//     font-size: 1em;
+//     justify-content: space-between;
+//     cursor: pointer;
+// }
+
+.league-fixture-list-row {
+    border-top: 1px solid $registrationBlack;
+    padding: 5px 0;
+    display: flex;
+}
+
+.league-fixture-list-row:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+    border: 1px dashed $mayaBlue;
+}
+
+.league-fixture-list-row div{
+    width: calc(100% /4); 
+    text-align: center;
+}
+
+.league-fixture-row-header {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid $registrationBlack;
+    background: $registrationBlack;
+    color: white;
+    padding: 10px 0;
+}
+
+.league-fixture-row-header * {
+    width: calc(100% /4); 
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+}
