@@ -232,3 +232,18 @@ test('Should return True', ()=> {
 
     expect(testResult).toEqual(expectedValue);  
 });
+
+/*
+ * Test calcAge function
+ * Should calculate age in years
+ * Return age in years
+ */
+
+ test('Should return 33 years', ()=> {
+     let testValue = '1984-11-21';
+     let expectedValue=33;
+
+     let testResult = generalUtil.calcAge(testValue);
+
+     expect(testResult).toEqual(expectedValue);
+ });

@@ -120,7 +120,12 @@ module.exports= {
         return `${year}-${month}-${day}`
      },
 
-     getAge(date) {
+     calcAge(date) {
          let today = new Date();
+         let changeDate = new Date(date);
+
+         let age = Math.floor((today-changeDate) /1000/60/60/24/365);
+
+         return age;
      }
 }
