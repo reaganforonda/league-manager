@@ -11,7 +11,8 @@ INSERT INTO players
     p_zip,
     p_email,
     position,
-    active
+    active,
+    birthday
 )
 VALUES
 (
@@ -26,5 +27,6 @@ VALUES
     $9,
     $10,
     $11,
-    $12
+    $12,
+    $13
 )

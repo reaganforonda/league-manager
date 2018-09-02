@@ -15,7 +15,8 @@ module.exports = {
             zip,
             position,
             email,
-            active
+            active,
+            birthday
         } = req.body;
 
         db.CREATE_PLAYER([
@@ -30,7 +31,8 @@ module.exports = {
             zip,
             email,
             position,
-            active
+            active,
+            birthday
         ]).then((result) => {
             res.status(200).send(result);
         }).catch((err) => {

@@ -21,6 +21,7 @@ export class PlayersAddForm extends React.Component{
             phone: '',
             zip: '',
             email: '',
+            birthday: '',
             active: ''
         }
 
@@ -52,7 +53,8 @@ export class PlayersAddForm extends React.Component{
             phone: this.state.phone,
             zip: this.state.zip,
             email: this.state.email,
-            active: this.state.active
+            active: this.state.active,
+            birthday: this.state.birthday
         }
 
         axios.post('/api/player', player).then((result) => {
@@ -74,6 +76,7 @@ export class PlayersAddForm extends React.Component{
             state: '',
             zip: '',
             email: '',
+            birthday:'',
             active: ''
         })
     }
@@ -94,6 +97,10 @@ export class PlayersAddForm extends React.Component{
                     </div>
                     <div className='players-add-form-row'>
                         Last Name <input type='text' maxLength='45' name='lastName' value={this.state.lastName} 
+                            onChange={(e)=>this.handleInputChange(e)} />
+                    </div>
+                    <div className='players-add-form-row'>
+                        Birthday <input type='date' name='birthday' value={this.state.birthday} 
                             onChange={(e)=>this.handleInputChange(e)} />
                     </div>
                     <div className='players-add-form-row'>

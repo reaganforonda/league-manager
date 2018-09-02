@@ -98,6 +98,7 @@ CREATE TABLE players (
     p_zip INTEGER,
     p_email TEXT,
     position VARCHAR(45),
+    birthday VARCHAR(45),
     active BOOLEAN
 );
 
