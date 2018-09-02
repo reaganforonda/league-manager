@@ -247,3 +247,23 @@ test('Should return True', ()=> {
 
      expect(testResult).toEqual(expectedValue);
  });
+
+
+ test('Should return 08:00 PM', ()=> {
+     let testValue= new Date('2018-11-11T20:00:00.000Z');
+     let expectedValue = '8:00 PM';
+
+     let testResult = generalUtil.formatTime(testValue);
+
+     expect(testResult).toEqual(expectedValue);
+ });
+
+
+ test('Should return 07:00 AM', ()=> {
+    let testValue= new Date('2018-11-11T07:20:00.000Z');
+    let expectedValue = '7:20 AM';
+
+    let testResult = generalUtil.formatTime(testValue);
+
+    expect(testResult).toEqual(expectedValue);
+});
