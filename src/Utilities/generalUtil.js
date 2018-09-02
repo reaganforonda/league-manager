@@ -118,5 +118,9 @@ module.exports= {
         }
 
         return `${year}-${month}-${day}`
+     },
+
+     getAge(date) {
+         let today = new Date();
      }
 }
