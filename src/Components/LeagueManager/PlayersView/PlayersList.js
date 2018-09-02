@@ -19,13 +19,24 @@ export class PlayersList extends React.Component {
         let allPlayers = this.state.allPlayers.map((player, index) => {
             return (
                 <div className='league-players-list-row' key={player.player_id+player.p_first_name} >
-                    {player.p_first_name}
+                    <div>{player.p_first_name}</div>
+                    <div>{player.p_last_name}</div>
+                    <div>{player.team_name}</div>
+
                 </div>
             )
         })
 
         return (
             <div className='league-players-list-container'>
+                <div className='league-player-list-header'>
+                    <h2>First Name</h2>
+                    <h2>Last Name</h2>
+                    <h2>Team</h2>
+                    <h2>Age</h2>
+                    <h2>Active</h2>
+                </div>
+
                 {allPlayers}
             </div>
         )
