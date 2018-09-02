@@ -99,6 +99,23 @@ module.exports= {
         return truncatedDate
     },
 
+    /* Function to truncate time receive from Postgres to Readable string
+     * @param String time = time received from Postgres
+     */
+    formatTime(time){
+        
+        let date = new Date(time.toISOString().replace("Z",''));
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours: 12;
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        let formatedTime = `${hours}:${minutes} ${ampm}`
+
+        return formatedTime;
+    },
+
     /* Function to get current date
      * Return in 'YYYY-MM-DD' format'
      */
