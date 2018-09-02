@@ -105,7 +105,7 @@ CREATE TABLE players (
 
 CREATE TABLE fixtures (
     fixture_id SERIAL PRIMARY KEY,
-    fixture_date DATE,
+    fixture_date TIMESTAMPTZ,
     league_id INTEGER REFERENCES leagues(league_id),
     season_id INTEGER REFERENCES seasons(season_id),
     stadium_id INTEGER REFERENCES stadiums(stadium_id),
