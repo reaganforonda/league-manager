@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import * as genUtil from '../../../Utilities/generalUtil';
 
 export class PlayersList extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export class PlayersList extends React.Component {
                     <div>{player.p_first_name}</div>
                     <div>{player.p_last_name}</div>
                     <div>{player.team_name}</div>
-                    <div>{player.birthday}</div>
+                    <div>{genUtil.calcAge(player.birthday)}</div>
                     <div><input type='checkbox' disabled checked={player.active}/></div>
                 </div>
             )
