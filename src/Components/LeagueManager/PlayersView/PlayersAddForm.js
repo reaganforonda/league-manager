@@ -57,6 +57,8 @@ export class PlayersAddForm extends React.Component{
             birthday: this.state.birthday
         }
 
+        console.log(player);
+
         axios.post('/api/player', player).then((result) => {
             this.props.getAllPlayersLM(this.props.user.user_id);
             this.resetForm();
@@ -89,7 +91,7 @@ export class PlayersAddForm extends React.Component{
                         League <LeagueDropDown selectLeague={this.handleInputChange} leagues={this.props.managedLeagues}/>
                     </div>
                     <div className='players-add-form-row'>
-                        Team <TeamDropDown selectTeam={this.handleInputChange} teams={this.props.managedTeams}/>
+                        Team <TeamDropDown name={'teamID'} selectTeam={this.handleInputChange} league={this.state.leagueID} teams={this.props.managedTeams}/>
                     </div>
                     <div className='players-add-form-row'>
                         First Name <input type='text' maxLength='45' name='firstName' value={this.state.firstName} 

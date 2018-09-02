@@ -22,7 +22,8 @@ export class PlayersList extends React.Component {
                     <div>{player.p_first_name}</div>
                     <div>{player.p_last_name}</div>
                     <div>{player.team_name}</div>
-
+                    <div>{player.birthday}</div>
+                    <div><input type='checkbox' disabled checked={player.active}/></div>
                 </div>
             )
         })
