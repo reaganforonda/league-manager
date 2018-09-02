@@ -12,19 +12,26 @@ $offBlack: #32373C;
     flex-direction: column;
 }
 
-.league-players-list-row {
-    padding: 5px 5px;
-    border-top: solid 1px $sonicSilver;
-    border-bottom: solid 1px $sonicSilver;
-    margin: 10px 0;
-    padding: 10px 0;
+// .league-players-list-row {
+//     padding: 5px 5px;
+//     border-top: solid 1px $sonicSilver;
+//     border-bottom: solid 1px $sonicSilver;
+//     margin: 10px 0;
+//     padding: 10px 0;
+//     display: flex;
+//     font-size: 1em;
+//     justify-content: space-between;
+//     cursor: pointer;
+// }
+
+.league-players-list-row  {
+    border-top: 1px solid $registrationBlack;
+    padding: 5px 0;
     display: flex;
-    font-size: 1em;
-    justify-content: space-between;
-    cursor: pointer;
 }
 
 .league-players-list-row:hover{
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
     border: 1px dashed $mayaBlue;
+    cursor: pointer;
 }
