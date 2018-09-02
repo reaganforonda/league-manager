@@ -30,8 +30,23 @@ $offBlack: #32373C;
     display: flex;
 }
 
+.league-players-list-row div {
+    width: calc(100% / 5);
+}
+
 .league-players-list-row:hover{
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
     border: 1px dashed $mayaBlue;
     cursor: pointer;
+}
+
+.league-player-list-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.league-player-list-header h2 {
+    text-align: center;
+    width: calc(100% / 5);
 }
