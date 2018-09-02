@@ -75,7 +75,7 @@ export class FixtureAddForm extends React.Component{
                         Location: <StadiumDropDown stadiums={this.props.allStadiums} selectStadium={this.handleInputChange}/> 
                     </div>
                     <div className='fixture-add-form-row'>
-                        Date: <input type='date' name='fixtureDate' value={this.state.fixtureDate} onChange={(e)=>this.handleInputChange(e)}/>
+                        Date: <input type='datetime-local' name='fixtureDate' value={this.state.fixtureDate} onChange={(e)=>this.handleInputChange(e)}/>
                     </div>
                     <div className='fixture-add-form-row'>
                         Home Team: <TeamDropDown name={"homeTeamID"} teams={this.props.managedTeams} selectTeam={this.handleInputChange} league={this.state.leagueID}/>
