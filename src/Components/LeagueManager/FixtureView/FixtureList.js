@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import * as generalUtil from '../../../Utilities/generalUtil';
 
 export class FixtureList extends React.Component{
     constructor(props) {
@@ -16,19 +17,28 @@ export class FixtureList extends React.Component{
     }
 
     render(){
+        console.log(this.state.allFixtures);
         let allFixtures = this.state.allFixtures.map((fixture, index) => {
             return (
                 <div className='league-fixture-list-row' key={fixture.fixture_id+fixture.fixture_date}>
-                    {fixture.league_id}
-                    {fixture.fixture_id}
-                    {fixture.home_team}
-                    {fixture.away_team}
+                    <div>{fixture.league_name}</div>
+                    <div>{generalUtil.formatDate(fixture.fixture_date)}</div>
+                    <div>{generalUtil.formatTime(fixture.fixture_date)}</div>
+                    <div>{fixture.home_team}</div>
+                    <div>{fixture.away_team}</div>
                 </div>
             )
         })
 
         return (
             <div className='league-fixture-list-container'>
+                <div className='league-fixture-row-header'>
+                    <h2>League</h2>
+                    <h2>Fixture Date</h2>
+                    <h2>Time</h2>
+                    <h2>Home Team</h2>
+                    <h2>Away Team</h2>
+                </div>
                 {allFixtures}
             </div>
         )

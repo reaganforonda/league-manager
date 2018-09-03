@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {getManagedTeams} from '../../../ducks/reducers/teamReducer';
 
 export class TeamList extends React.Component{
     constructor(props) {
@@ -12,6 +13,7 @@ export class TeamList extends React.Component{
     }
 
     componentDidMount() {
+        this.props.getManagedTeams(this.props.user.user_id);
         this.setState({allTeams : this.props.managedTeams})
     }
 
@@ -45,4 +47,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {})(withRouter(TeamList))
+export default connect(mapStateToProps, {getManagedTeams})(withRouter(TeamList))

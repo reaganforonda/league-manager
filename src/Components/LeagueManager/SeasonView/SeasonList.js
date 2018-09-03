@@ -36,7 +36,7 @@ export class SeasonList extends React.Component{
                 return (
                     <div onClick={(e)=>this.handleClick(e, value)} className='season-list-row' key={value.season_id}>
                         {value.league_name}
-                        {genUtil.truncateDate(value.season_start_date)} - {genUtil.truncateDate(value.season_end_date)}
+                        {genUtil.formatDate(value.season_start_date)} - {genUtil.formatDate(value.season_end_date)}
                     </div>
                 )
             })
