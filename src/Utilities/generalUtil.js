@@ -94,7 +94,7 @@ module.exports= {
     /* Function to truncate date receive from Postgres to Readable string
      * @param String date = date received from Postgres
      */
-    truncateDate(date){
+    formatDate(date){
         let truncatedDate = date.slice(0,10);
         return truncatedDate
     },
@@ -102,9 +102,9 @@ module.exports= {
     /* Function to truncate time receive from Postgres to Readable string
      * @param String time = time received from Postgres
      */
-    formatTime(time){
-        
-        let date = new Date(time.toISOString().replace("Z",''));
+    formatTime(d){
+        let  time = new Date(d.replace('Z', ''));
+        let date = new Date(time);
         let hours = date.getHours();
         let minutes = date.getMinutes();
         let ampm = hours >= 12 ? 'PM' : 'AM';
