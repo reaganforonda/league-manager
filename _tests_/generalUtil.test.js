@@ -219,7 +219,7 @@ test('Should return True', ()=> {
      let testValue = '2018-08-15T06:00:00.000Z';
      let expectedValue = '2018-08-15';
 
-     let testResult = generalUtil.truncateDate(testValue);
+     let testResult = generalUtil.formatDate(testValue);
 
      expect(testResult).toEqual(expectedValue);  
  });
@@ -228,7 +228,7 @@ test('Should return True', ()=> {
     let testValue = '2018-01-01T06:00:00.000Z';
     let expectedValue = '2018-01-01';
 
-    let testResult = generalUtil.truncateDate(testValue);
+    let testResult = generalUtil.formatDate(testValue);
 
     expect(testResult).toEqual(expectedValue);  
 });
@@ -250,7 +250,7 @@ test('Should return True', ()=> {
 
 
  test('Should return 08:00 PM', ()=> {
-     let testValue= new Date('2018-11-11T20:00:00.000Z');
+     let testValue= '2018-11-11T20:00:00.000Z';
      let expectedValue = '8:00 PM';
 
      let testResult = generalUtil.formatTime(testValue);
@@ -260,7 +260,7 @@ test('Should return True', ()=> {
 
 
  test('Should return 07:00 AM', ()=> {
-    let testValue= new Date('2018-11-11T07:20:00.000Z');
+    let testValue= '2018-11-11T07:20:00.000Z';
     let expectedValue = '7:20 AM';
 
     let testResult = generalUtil.formatTime(testValue);
